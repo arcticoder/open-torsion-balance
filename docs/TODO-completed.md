@@ -4,6 +4,8 @@ Dated entries, newest first.
 
 - 2026-11-13 (night) — Printed pad-saw handle for the 150 x 6 x 0.4 mm blades designed in `fixtures.py` (my own design; smoke test passes); user approved it (Printables link not used); sliced on Sonnet as `balance_p9_hacksaw_handle_20261113.gcode` (72 min, 39.5 g) for the Sunday window.
 
+- 2026-11-14 — Print window 07:30-10:00 used in full on the user's reserved slot: filament loaded (spool in a bag on a roller), post pp L (47 min), four wall strips (64 min) and two lid strips (32 min) printed in black; first-layer and mid-print looks good; `kb/printing_state.md` has the sequence, timings and the purge-area findings. Nothing sent outside the sequence in the runbook.
+
 - 2026-11-13 (evening) — Post pp L sliced on Sonnet after OrcaSlicer was relaunched: `balance_p7_post_pp_L_20261113.gcode`, 47 min 33 s, 26.3 g, flat, no supports, bed 60 (`kb/printing_state.md`). Nothing sent to the printer. Second file for the same window: four wall strips (`balance_p8_wall_strips_x4_20261113.gcode`, 65.6 min, 29.1 g).
 
 - 2026-11-13 (later) — Chat 14 (cont.): safety glasses added to the AliExpress cart by the user (C$3.48, not yet placed). Print windows set by the user: Sunday 2026-11-15 16:30-18:30 (post pp L), Saturday 2026-11-21 07:30-12:30 (base). The user asked for any slicing before tomorrow morning; the OrcaSlicer MCP timed out (`get_status`, 30 s), so nothing was sliced; slicing is in `TODO-BLOCKED.md`.
