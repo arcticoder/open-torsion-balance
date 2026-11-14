@@ -3450,3 +3450,159 @@ The prep is done, and nothing is heated or running.
 **Also updated:** I added a note to the runbook that Orca is now 2.5.0 with the API built in, and the docs have the plan and the spool. Nothing was committed, and `TODO-agent.md` is at 0 lines.
 <!-- ------ -->
 ---
+A timer isn't needed, so I started the runbook now, and the read-only checks are done. A timed trigger is a session task I'd schedule myself, and it wouldn't count as your message. Heating has to wait for your explicit request in a message anyway. The printer is on and ready at 06:59, so starting now costs nothing.
+
+**What the checks show**
+- **Printer state:** Klipper and Moonraker are ready, in standby and unhomed. Bed 19.9 °C and nozzle 21 °C, both with no heating target.
+- **Filament:** the sensor reports no filament, which fits the spool still being in the office.
+- **Print hours:** Moonraker's counter reads 8 jobs and 9.66 h. I've logged the reading.
+
+**What I need from you**
+1. Move the opened 1 kg black Hyper PLA spool (the one with the most left) from the office to the balcony. Keep it in its bag or covered on the way. Dew point is 9 °C against 11 °C air, so a cold spool can pick up condensation. Wipe the plate dry.
+2. Put the spool on the holder and feed the filament end into the extruder as far as it goes. Don't touch any settings.
+3. Then message me, and I'll start loading. That message is the explicit go for heating. I'll raise the bed, park the head at the rear-left and heat the nozzle to 225 °C. I'll tell you when to press the filament in, and then I push the strand through and let it idle at the park position.
+
+**Weather and the 07:30 start**
+- **Cold start:** with 11 °C air and a 7 °C feel, expect the first normal start to take a bit longer than 10 minutes. I'll only claim that once I see it.
+- **Warping:** the post and strips are long (150 mm) and thin, which makes them the likeliest to lift at a corner in a draft. Keep the lid on and the riser vents closed, as the runbook says.
+- **Gusts:** if the balcony is open to the 37 km/h gusts, the draft is the main risk to those long parts. Say so and I'll tell you what to look for at the first-layer check.
+- **K1 limits:** I don't know the K1's rated minimum ambient temperature, so check the spec if you're unsure about 7 °C.
+
+Nothing is heated, and nothing was committed. `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+Yes, but the heat is only needed for the push-through, not for you to seat the filament.
+
+- **Seating:** you can feed the end into the extruder gear and lock the feeder with the nozzle cold.
+- **Pushing through:** the strand can't pass the nozzle until it's hot, and Klipper refuses to extrude below its minimum extrusion temperature. That is why the video heats first.
+- **Preheating:** the nozzle takes a few minutes to reach 225 °C. If I preheat while you carry the spool out, it's ready when you've seated the filament, and it saves you waiting.
+
+If you want that, message me to preheat now. I'd home first, since homing cools the nozzle, then raise the bed, park the head at the rear-left and heat to 225 °C. The nozzle then idles at the park position with no filament, so a hot nozzle sits there until you arrive. If Wi-Fi drops while it's hot and you're not there, I'd ask you to look at the printer.
+
+If you'd rather not leave it heating unattended, carry the spool out first and message me once the filament is seated. Heating then starts at that point, and the whole load takes a few minutes longer. Nothing is heated now, and nothing was committed.
+<!-- ------ -->
+---
+Properly means you push the strand in by hand, as in the video. Dropping the tube into the entrance and locking isn't enough:
+
+- **Seating:** you hold the feeder lever open, push the strand through the extruder entrance past the gears until you feel it reach the hotend, then release the lever so the gears grip it.
+- **Order:** the nozzle is hot at that point, and then I run the extruder to push the strand through.
+
+I'm preheating now, so I'm treating "you decide" as the go. I'll home, raise the bed, park the head at the rear-left, then heat to 225 °C.
+<!-- ------ -->
+---
+The extruder target is 225 °C and the nozzle is heating. It's at 61.5 °C at 07:05:21, with the heater at full power.
+
+If your page still shows 0, it's probably stale. Reload `http://192.168.1.70:8081/`, since Mainsail's display can lag a few seconds behind the printer. I issued the command through Moonraker, and the reading above comes from there.
+
+**What's parked:** the head is at the rear-left (X10, Y210), the bed is raised to Z120, and the printer is homed. The bed isn't heating, and I'm leaving it at 0 until the print.
+
+**Timing:** the nozzle should reach 225 °C in about 3 minutes, around 07:08. Once your page shows the 225 target, you can head out with the bagged black spool on its roller. Hold the feeder lever, push the strand through the extruder entrance past the gears until you feel it reach the hotend, and release the lever. Then message me.
+
+**While it's hot:** it idles with no filament in it. If the page loses the connection while the nozzle is hot, that's the case where I'd ask you to look at the printer. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+Post pp's L started at 07:10:20 on the normal start, and the monitor is watching the printer's state.
+
+**Your check:** please look at two things during this start-up, before filament comes out at the purge line:
+1. **Strand on the plate:** the strand I extruded at the rear-left corner should be steady and clean. Pull it off if it's still there.
+2. **Nozzle at the purge line:** I'll give you a time for this. The heating is the part that takes the minutes, and nothing is extruded until about 07:18–07:20. If you see anything wrong with the strand, tell me and I'll cancel before the print starts extruding.
+
+**First-layer look:** about 07:20–07:22, walk out and look at the plate. The long, thin part should lie flat with continuous lines and no corners lifting. With the cold air and gusts, check both ends of the 150 mm length. If an end curls up, tell me and I'll cancel and look at the bed temperature.
+
+**Plan:** the print itself runs about 48 minutes, so it should end about 08:10–08:15, and then the strips follow on the fast start. The nozzle target is 135 °C for the start-up routine, rising to 225 °C once the bed is hot. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+I've noted both points. They only affect the handle on Sunday. The strips today stay black, so there's no swap this morning.
+
+- **Colour:** I'd use the opened red Hyper PLA (about 840 g). The handle needs about 40 g. The red lid pieces need roughly 120 g later, so the red spool still has plenty left. Grey would also work, but the grey walls need more of it, so I'd keep it for them. The nearly empty white spool can't cover the handle.
+- **Swap:** a short manual push of about 20–30 mm to get red to the nozzle, with no extended purge. A bit of black showing in the first layers of the handle is fine, as you said.
+<!-- ------ -->
+---
+The monitor is re-armed. At 07:40 the print is at 55 %, with 24.8 minutes printed. The nozzle is at 220 °C and the bed at 59 °C, as planned.
+
+**Mid-print look, about 07:45:** check that the post is still stuck down, with no corner lifting along its length and no stringing or gaps. Tell me only if something looks wrong.
+
+I expect it to finish about 08:00. Then, after you clear the plate and give the go, the strips follow on the fast start. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+The strips started at 08:14:34 on the fast start, and the monitor is armed.
+
+**First-layer look, about 08:22–08:25:** check that all four strips are stuck down. The two on the bed with the smaller contact (71 %) are the ones to watch, and the long thin parts can lift at an end in the cold air. If any corner curls or a strip has come loose, tell me and I'll cancel. Strips can be reprinted, and a loose one can knock the others.
+
+**Finish:** about 09:20, then the bed cools to under 40 °C in about 10 minutes.
+
+I'll note the fast start worked in the KB once the first layer looks fine. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+Two purge areas fits what the printer's macros do, and I've logged both in the KB. I read the macro file from the printer without changing anything. START_PRINT calls two separate routines:
+
+- **Nozzle clear** (`CX_NOZZLE_CLEAR`): runs only on the normal start, along with the rough home, accurate home and bed levelling.
+- **Purge line** (`CX_PRINT_DRAW_ONE_LINE`): runs on every start, including the fast start I used for the strips.
+
+So each routine plausibly has its own spot. My guess is that the long side strip is the purge line and the small top-middle spot is the nozzle clear. I haven't read the coordinates, because they're in the printer's Python code, so treat that as a guess. It also means this fast-start print only added purge material to the side strip, not to the top-middle spot. I'll stop calling it a single reserved zone.
+
+The strips print is going, and the first-layer look is still due about 08:22–08:25. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+Logged. The print is at 6 % at 08:17, with 2.1 minutes printed, so your look was early, during the first layer.
+
+**Mid-print look, about 08:50:** check that all four strips are still stuck down, with no stringing, and no gaps in the flat sections. Tell me if a strip has lifted or one looks thin.
+
+I expect the finish at about 09:20. The monitor expires at about 08:45, and I'll re-arm it then. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+The strips print is at 48 % at 08:44, with 29.9 minutes printed. The nozzle is at 220 °C and the bed at 59 °C. The monitor is re-armed.
+
+**Mid-print look, about 08:50:** check that all four strips are still stuck down, with no stringing, and no gaps in the flat sections. Tell me if a strip has lifted or one looks thin.
+
+Progress is by file position, not time, so I expect the finish about 09:20. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+The lid strips started at about 09:29, on the fast start with the black spool, and the monitor is armed. They take about 33 minutes, so the finish is about 10:02, inside your 10:10.
+
+**First-layer look, about 09:36–09:38:** check that both strips are stuck down flat along their length. Tell me if a strip curls or comes loose, and I'll cancel.
+
+I'm leaving the bed target at 0 after the print, as before, and I'll report when it's cool enough to pull. Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+The wall strips come from four STL files, one per strip, in [hardware/balance/cad/](hardware/balance/cad/):
+
+- [encl_print_wall_nx_mullion.stl](hardware/balance/cad/encl_print_wall_nx_mullion.stl)
+- [encl_print_wall_ny_mullion.stl](hardware/balance/cad/encl_print_wall_ny_mullion.stl)
+- [encl_print_wall_px_mullion.stl](hardware/balance/cad/encl_print_wall_px_mullion.stl)
+- [encl_print_wall_py_mullion.stl](hardware/balance/cad/encl_print_wall_py_mullion.stl)
+
+Each is an H-profile strip, 6.5 × 10 mm in section and 150 mm long. They're modelled standing upright, and I turned them 90° to lie flat for printing, so the printed side will be the one that faced sideways in the model. The lid strips printing now are [encl_print_lid_0_mullion.stl](hardware/balance/cad/encl_print_lid_0_mullion.stl) and [encl_print_lid_1_mullion.stl](hardware/balance/cad/encl_print_lid_1_mullion.stl), already modelled flat.
+
+For a picture of the whole enclosure, there's a preview render, [enclosure_printed_preview.jxl](docs/img/enclosure_printed_preview.jxl), from the earlier design.
+
+If you want to compare against a printed-orientation view, I can render one of the sliced plate from OrcaSlicer's preview. Say so and I'll save it as a small image.
+<!-- ------ -->
+---
+The lid strips are done, and all three prints in this window finished: post pp's L, the four wall strips and the two lid strips. The lid strips took 31.7 minutes and 4.7 m of filament, and the printer had already set both heaters to 0.
+
+**Pulling them:** the bed was 54.8 °C at 10:02 and should be under 40 °C about 10:08. Pull the strips then and tell me how they look. The hacksaw handle is the next print.
+
+**Left to print**
+- **Hacksaw handle:** Sunday 16:30–18:30, in red, 72 minutes.
+- **Base:** Saturday 2026-11-21, 07:30–12:30, which I'll re-slice on 2026-11-20.
+- **Enclosure wall plates and lid tiles:** after that, in grey and red.
+
+**Housekeeping**
+- **JLC:** the JLC order statuses are still last read 2026-11-10, and the debug port was closed when I tried again. That re-read is in `TODO-BLOCKED.md`.
+- **Glasses:** they're in your cart but not yet placed.
+- **Docs:** the task list, completed log and KB are updated.
+
+Nothing was committed, and `TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
+I kept the photo and converted it to [docs/img/wall_lid_strips_printed_2026-11-14.jxl](docs/img/wall_lid_strips_printed_2026-11-14.jxl). It's the reference for the post-mortem, and the repo stores pictures as `.jxl`.
+
+- **Conversion:** lossless, with the camera's rotation applied, downscaled to 1500 px wide, 1.3 MB. It reads back correctly. The first attempt at 2040 px was 2.2 MB, bigger than the other pictures, so I made it smaller.
+- **Original:** I deleted the JPG and its `:Zone.Identifier` file, as the repo's photo rule says. Nothing else in the repo root was touched.
+- **KB:** the post-mortem entry now points at the new file.
+- **Git:** `*.jxl` is a Git LFS file. I didn't stage or commit anything.
+
+`TODO-agent.md` is at 0 lines.
+<!-- ------ -->
+---
