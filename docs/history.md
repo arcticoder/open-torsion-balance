@@ -3606,3 +3606,18 @@ I kept the photo and converted it to [docs/img/wall_lid_strips_printed_2026-11-1
 `TODO-agent.md` is at 0 lines.
 <!-- ------ -->
 ---
+The KB files in all three repos are updated, and the new context block is in `docs/kb/session_handoff.md`. `TODO-agent.md` is at 0 lines, nothing was committed, and the printer is idle with both heaters off.
+
+**What changed**
+- **spurious-force-balance:**
+  - **Handoff and printing notes:** the handoff is replaced for chat 14. `printing_state.md` now opens with the current state. It also carries the load and fast-start sequences, the two purge areas, the Orca 2.5.0 settings and the strip post-mortem.
+  - **Design notes and task list:** `balance_design_notes.md` has the hacksaw-handle design. The README index and the task lists are updated, including task 5: which strip is torn.
+- **lab:** `docs/inventory.md` has the black spool estimate (about 720–750 g left, not weighed) and the red spool's role. `docs/kb/jlc_account_and_quotes.md` has the failed JLC order re-read.
+- **wsl:** the K1 note, the OrcaSlicer MCP note and the runbook now cover what this session learned. That includes reading the printer's macros, the fast-start sequence, bed cooling rates, and a new runbook section F.
+- **Memory:** two notes saved: decide and act in time-boxed windows, and spools stay in a bag on a roller.
+
+**Open for the next chat:** which strip has the torn end (your task 5), the Sunday 16:30 handle print in red, the glasses order, and the base re-slice on 2026-11-20. The JLC order-state re-read is still open, since your app's debug port was closed.
+
+The context block is in the handoff file (section "Context block for the next chat"). The old line about the brass ballast and stainless weight is replaced with the hacksaw route and the handle. The printed list and the Left list are updated, and I added the Sonnet-only slicing rule and the "decide, don't ask obvious questions" rule. Paste it from the file.
+<!-- ------ -->
+---

@@ -10,6 +10,7 @@ These wait on the user's balance build (see `TODO-arcticoder.md`) or on the asse
 
 ## Design work waiting on the user
 - [ ] Printed enclosure (decided 2026-11-12: printed walls and lid, 1.2 mm plates with a 2 mm rim, no window; model `hardware/balance/enclosure_printed.py`, plan and estimates `kb/balance_design_notes.md`): print after the frame (posts, bars, base); slice each window-sized file the day before its window (runbook step A1), grey walls, red lid, black strips; update `assembly.md` and `fabrication.md` text from acrylic to printed when the first plate is printed (the CAD, params and smoke test already say printed).
+- [ ] Strip post-mortem (`kb/printing_state.md`, 2026-11-14): inspect the layers of the torn strip once the user says which one it is (`TODO-arcticoder.md`, task 5); then decide the multi-object settings (nozzle about 210 C, retraction about 1.0 mm, fewer objects per plate) before slicing the enclosure plates, and test them on the first multi-object plate.
 - [ ] Re-slice the base for the Saturday 2026-11-21 07:30-12:30 window: condition is the date 2026-11-20. The existing `balance_p2_base.gcode` (4 h 41 min, 177 g) predates the flow cap; check its START_PRINT bed temperature (60, not 55) and speeds, or re-slice with the settings in `kb/printing_state.md` (2026-11-13 entry).
 
 ## `clamp_plate` JLC order: cancelled by the user on 2026-11-08 because its shipping would not come down; combining parcels to cut per-item shipping is being explored

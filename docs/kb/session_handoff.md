@@ -1,24 +1,24 @@
-# Session handoff — chat 14 final, 2026-11-13 (replace at each handoff; do not append)
+# Session handoff — chat 14 final, 2026-11-14 (replace at each handoff; do not append)
 
 ## State
 
-- **Printing (K1-FA35, 192.168.1.70):** printed: plate 1, small plate, gantry, posts nn, np and pn with bars np/pn/nn and the pp bar, strip guide, two calibration riders (`fixture_cal_rider`). The user reports the 2026-11-12 parts look good (inspection closed, chat 14). Left: post pp (L, about 32 min; new G-code needed), the base (`balance_p2_base.gcode`, 4 h 41 min, 177 g; check its START_PRINT bed temperature), then the enclosure plates. Windows RESERVED for printing by the user (2026-11-13; the earlier "blocked" wording meant reserved, a misreading corrected): Saturday 2026-11-14 07:30-10:00 (post pp L, 47.6 min, then the four wall strips `balance_p8_wall_strips_x4_20261113.gcode`, 65.6 min, black spool, orientation not optimised), Sunday 2026-11-15 16:30-18:30 (printed hacksaw handle `balance_p9_hacksaw_handle_20261113.gcode`, 72 min, 39.5 g), Saturday 2026-11-21 07:30-12:30 (base, 4 h 41 min; slice 11-20). The pp L file is sliced and saved (`balance_p7_post_pp_L_20261113.gcode`, 47 min 33 s, 26.3 g, bed 60, header checked; settings and Orca 2.5.0 launch notes in `kb/printing_state.md`). The user wants slicing done only on the Sonnet model, not Haiku. The base re-slice is due 2026-11-20 (`TODO-BLOCKED.md`). All files in `~/.orcaslicer-mcp/gcode/` are 225/220 C, 3 walls, 30 %, no supports. Details, the fast-start failure (a full `START_PRINT` is needed once per Klipper boot) and the Orca gotchas: `kb/printing_state.md`, `~/Code/sysadmin/wsl/docs/print-session-runbook.md` (section E), wsl K1 note. Nothing was printed, heated or sent to the printer in chat 14.
-- **Enclosure: DECIDED printed** (1.2 mm plates with a 2 mm rim, lid tiles 2 mm, no window): `hardware/balance/enclosure_printed.py`, `params.ENCL_PRINTED`, smoke test updated, plan and estimates (about 10 h, 320 g, about 9 windows, grey walls, red lid, black strips) in `kb/balance_design_notes.md`; `assembly.md`/`fabrication.md` wording still says acrylic until the first plate is printed.
-- **Brass ballast: DECIDED 2026-11-13.** The 10 x 100 mm brass rod stays the ballast: one 15 mm cut (plus 0.5 mm to file off) with a junior hacksaw in the printed saw guide. The Dremel cut-off wheel route and its chop stand are SHELVED (not designed further; the stand notes are kept in `kb/balance_design_notes.md` for reference). The stainless 10 g weight (C$2.92) is not pursued. The cut waits on safety glasses (AliExpress, `TODO-arcticoder.md` task 1) and the hacksaw blades from the 2026-11-10 parcel. Dust masks are NOT being bought: the cut is by hand, so keep filing short and wipe filings with a damp cloth. The arm's 10.2 mm ballast hole is in the arm board; the user says it has shipped (last app read, 2026-11-10, said In Production; confirm on the next read).
+- **Printing (K1-FA35, 192.168.1.70):** the 2026-11-14 morning window (07:30-10:00, extended by the user to 10:10, met) printed post pp's L (`balance_p7`, normal start 07:10), four wall strips (`balance_p8`, fast start 08:14) and two lid strips (`balance_p10`, fast start 09:29), all black, no errors; Moonraker totals 11 jobs, 12.03 h. Printed so far: plate 1, small plate, gantry, posts nn/np/pn/pp with their bars, strip guide, two calibration riders, six strips. **Left:** the hacksaw handle (`balance_p9_hacksaw_handle_20261113.gcode`, body + cover, 72 min, 39.5 g, RED spool, Sunday 2026-11-15 16:30-18:30, first print after a power-on = normal start), the base (`balance_p2_base.gcode`, 4 h 41 min, 177 g; re-slice on 2026-11-20 for Saturday 2026-11-21 07:30-12:30; the old file predates the flow cap and may carry bed 55), then the enclosure wall plates (grey) and lid tiles (red). Slicing only on Sonnet or better (user rule). All details, load/fast-start sequences, the purge-area finding, the Orca 2.5.0 settings and the strip post-mortem: `kb/printing_state.md`; printer side: `~/Code/sysadmin/wsl/docs/print-session-runbook.md` (sections E and F) and `kb/apps/k1-moonraker.md`.
+- **Strip post-mortem (2026-11-14, photo `docs/img/wall_lid_strips_printed_2026-11-14.jxl`):** fine stringing across several strips (many travels between objects: 395 retractions, about 3400 travel moves; 220 C, cold air) and one strip with a torn, split flange at one end. Brim marks at the base are expected deburring, not a defect. The strips need deburring by the user. Open: which strip is torn (user task 5), then read its layers; proposal for multi-object plates, untested: nozzle about 210 C, retraction about 1.0 mm, fewer objects per plate (`TODO-BLOCKED.md`).
+- **Brass ballast: DECIDED 2026-11-13.** One 15 mm cut (plus 0.5 mm to file off) of the 10 x 100 mm brass rod with a hacksaw in the printed saw guide; the Dremel route is SHELVED; the stainless weight is not pursued. The blades (150 x 6 x 0.4 mm, 24T, no handle) are in the 2026-11-10 AliExpress parcel (in transit). **Printed pad-saw handle designed 2026-11-13** (`fixtures.hacksaw_handle`: blade clamped by an end stop and friction under a cover with four M3 x 14 screws, 6.3 x 0.30 mm groove, smoke checks pass, user approved it over the Printables link). The cut waits on the glasses (in the user's AliExpress cart, C$3.48, not yet placed), the blades and the printed handle. No Z87.1/EN 166 mark and no mask needed for a hand cut; filing makes the only fine dust (damp-wipe it, short filing, wash hands).
+- **Enclosure: DECIDED printed** (1.2 mm plates with a 2 mm rim, lid tiles 2 mm, no window): `hardware/balance/enclosure_printed.py`, plan and estimates (about 10 h, 320 g, grey walls, red lid, black strips) in `kb/balance_design_notes.md`; `assembly.md`/`fabrication.md` wording still says acrylic until the first plate is printed. The strip print times are about 16 min each at the current speeds (the old 12 min estimate was low).
 - **Calibration:** added inertia, confirmed; riders printed; a second 1 g weight is staged for the next AliExpress order (`TODO-backlog.md`).
-- **Main board (WP5-WP7):** layout done to the DFM gate (415/415 routed, `mainboard.py dfm` no blocking item, In1 GND plane only, 120 x 90 mm, one board, 45-degree Y-branches accepted); fab files in `hardware/instrument/fab/` (Gerbers with the plane filled, BOM 46 lines, CPL, `ORDER.md`). Waits on the user: JLC placement-preview check and the price-tier/board-size decision (`TODO-arcticoder.md` task 4; remind them when the order starts; an extra model review is optional). Read `kb/main_board_layout_notes.md` (last section), `kb/main_board_assessment.md`, `hardware/instrument/layout/SPEC.md`. pcbnew works only under `/usr/bin/python3` (3.14), not the venv (3.12).
-- **JLC:** arm placed 2026-11-03 (In Production, factory estimate 2026-11-12 has PASSED; last read 2026-11-10), elec_board and clamp_ground shipped, clamp_plate cancelled. Re-read of the order states is blocked on the app route (`TODO-BLOCKED.md`): on 2026-11-13 the port was open, but the orders URL bounced to the Black Friday events page. Coupons (19 unused, ledger `lab/docs/jlc/coupons.md`): four Black Friday warm-up coupons claimed 2026-11-12, valid to 2026-11-27 (PCBA, PCBA parts, shipping, prototype); New User coupons expire 2026-11-25/26. The app recipe is in `lab/docs/kb/jlc_account_and_quotes.md`; the campaign page's "updated Terms" dialog is the user's to accept. JLC shipping-consolidation research still open (`TODO-BLOCKED.md`). AliExpress order of 2026-11-10 in transit.
-- **Lab repo:** `docs/inventory.md` has the Dremel 3000 and its accessories (the cut-off wheel stays owned, unused for the ballast); coupons and JLC notes updated.
-- **`docs/history.md` (not edited, user-owned):** on 2026-11-13 the agent claimed a printer password was in it; the user searched and found none, so that claim was wrong (the agent's shape check could not tell prose from a value). The partial tracking numbers near lines 1988-1989 are redacted by the user and accepted. Rule: never print tracking numbers unredacted (mask all but the prefix) in any file or chat, and do not claim a secret is in a file without showing evidence that does not print it.
-- **Glasses and mask (user questions, 2026-11-13):** no Z87.1/EN 166 mark needed for the hand hacksaw cut (clear polycarbonate wraparound with side protection is enough); no mask needed (coarse chips; only filing makes fine dust, a small exposure, damp-wipe it).
+- **Main board (WP5-WP7):** layout done to the DFM gate (415/415 routed, In1 GND plane only, 120 x 90 mm, one board, 45-degree Y-branches accepted); fab files in `hardware/instrument/fab/`. Waits on the user: JLC placement-preview check and the price-tier/board-size decision (task 4; remind them when the order starts; an extra model review is optional). Read `kb/main_board_layout_notes.md` (last section), `kb/main_board_assessment.md`, `hardware/instrument/layout/SPEC.md`. pcbnew works only under `/usr/bin/python3` (3.14), not the venv (3.12).
+- **JLC:** arm placed 2026-11-03 (last confirmed read 2026-11-10: In Production, estimate 2026-11-12; the user says it has shipped), elec_board and clamp_ground shipped, clamp_plate cancelled. The order-state re-read failed on 2026-11-13 (direct navigation to the orders URL bounces to the events page; the port was open then, closed later); retry through the account menu (`TODO-BLOCKED.md`, `lab/docs/kb/jlc_account_and_quotes.md`). Coupons (ledger `lab/docs/jlc/coupons.md`): four Black Friday warm-up coupons valid to 2026-11-27; New User coupons expire 2026-11-25/26; Black Friday proper runs 2026-11-18 to 12-02. AliExpress order of 2026-11-10 in transit; the glasses are the only item in the cart and need a second item to clear the free-shipping line (check `lab/docs/orders.md`), plus the staged second 1 g weight, craft knife, steel ruler.
+- **Lab and wsl repos (updated this chat):** lab `docs/inventory.md` (black spool estimate, red spool role), `docs/kb/jlc_account_and_quotes.md` (failed re-read); wsl `kb/apps/k1-moonraker.md`, `kb/apps/orcaslicer-mcp-fork.md` (Orca 2.5.0), `print-session-runbook.md` (sections A5 and F).
+- **`docs/history.md` (not edited, user-owned):** the agent wrongly claimed a printer password was in it (a shape check could not tell prose from a value); the user found none. Partial tracking numbers near lines 1988-1989 are redacted by the user. Rule: mask all but the prefix of any tracking number, and never claim a secret is in a file without evidence that does not print it.
 
 ## Files that carry the state
 
-`docs/TODO-arcticoder.md` (user tasks 1-4), `docs/TODO-agent.md` (empty, 0 lines), `docs/TODO-BLOCKED.md` (post pp L and base print window; JLC order-state re-read; clamp_plate; JLC consolidation), `docs/TODO-backlog.md` (staged AliExpress order: second 1 g weight, craft knife, steel ruler; glasses promoted to the user's list), `docs/TODO-completed.md` (newest first).
+`docs/TODO-arcticoder.md` (user tasks 1-5), `docs/TODO-agent.md` (empty, 0 lines), `docs/TODO-BLOCKED.md` (strip post-mortem and settings decision; base re-slice 2026-11-20; JLC re-read and consolidation; clamp_plate; printed enclosure), `docs/TODO-backlog.md`, `docs/TODO-completed.md` (newest first).
 
 ## Standing rules (see `kb/project_workflow_notes.md`)
 
-TODO-agent.md must be 0 lines at the end of every chat (do startable work; move only truly blocked items to TODO-BLOCKED.md with the condition). Never append to `docs/history.md` or use it as a source unless the user names lines. Never commit. No quotes of the user, no tone descriptions. No tracking numbers. Never print secrets (the printer's password is in the user's own transcript; read `.env` with `awk '$1=="KEY"{print $2}'`, never print key lines). Never state a JLC price that is not from the user, a capture or an app read. Say only what the transcript shows. One order per day. No hand-built electronics; never EasyEDA/Spark. Heat and print only on the user's explicit request in that message; clock-time visual checks only. Long jobs in the background, one change per routing run.
+TODO-agent.md must be 0 lines at the end of every chat (do startable work; move only truly blocked items to TODO-BLOCKED.md with the condition). Never append to `docs/history.md` or use it as a source unless the user names lines. Never commit. No quotes of the user, no tone descriptions. No unmasked tracking numbers. Never print secrets. Never state a JLC price that is not from the user, a capture or an app read. Say only what the transcript shows. One order per day. No hand-built electronics; never EasyEDA/Spark. Heat and print only on the user's explicit request in that message (the user saying to decide counts as the request for a preheat; after a "go", start the print and use the start-up minutes for their checks). Clock-time visual checks only. **Slicing and print prep only on Sonnet or better.** Monitor notices that arrive as system events are not the user's messages. In a time-boxed print window decide and act; do not ask questions whose answer is obvious. Spools live in a sealed freezer bag on a roller (no humidity advice). Park the head at about X200 Y110 for loading, not the rear-left corner. Long jobs in the background, one change per routing run.
 
 ## Context block for the next chat (paste this)
 
@@ -35,30 +35,35 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; move 
       ngspice, MicroPython firmware tested on the host). KiCad/SKiDL is the design source: I dropped the
       EasyEDA/Spark route on 2026-11-01 (shelved; never offer EasyEDA, Spark, its MCP or the validator again).
       No more hand-built electronics: the instrument is fab-assembled boards.
-      State (2026-11-13): the main board (WP5) is laid out to the DFM gate: 120 x 90 mm, one board, In1 ground
+      State (2026-11-14): the main board (WP5) is laid out to the DFM gate: 120 x 90 mm, one board, In1 ground
       plane only, all 415 connections routed, 45-degree Y-branches accepted; fab files are in
       hardware/instrument/fab/ (Gerbers, BOM, CPL, ORDER.md). I still have to check rotations and polarity in
       JLC's own placement preview and decide the board size against the price tier (remind me when I start that
       order). The calibration uses added inertia (confirmed); the two riders are printed. The enclosure is
-      decided: printed PLA plates (1.2 mm with a 2 mm rim, no window; grey walls, red lid), to print after the
-      frame. The ballast is one 15 mm hacksaw cut of the 10 mm brass rod, in the printed saw guide; the Dremel
-      route is shelved. I own no safety glasses yet, so the cut waits for them (AliExpress); no dust mask is
-      being bought.
-      Ordering state (2026-11-13; JLC statuses last read 2026-11-10): the arm is In Production (factory estimate
-      2026-11-12 has passed; re-read it), elec_board and clamp_ground are shipped, clamp_plate is cancelled
-      (shipping), and I am exploring combining parcels. My AliExpress order of 2026-11-10 (cells, JST-SH cable,
-      hacksaw blades, washers, a 1 g weight, a 0.1 g scale, needle files) is in transit (lab/docs/orders.md). I
-      claimed four JLC Black Friday warm-up coupons on 2026-11-12 (valid to 2026-11-27; lab/docs/jlc/coupons.md).
-      The quote page for the next JLC order is set up only when I say the previous one is placed.
+      decided: printed PLA plates (1.2 mm with a 2 mm rim, no window; grey walls, red lid, black strips). The
+      ballast is one 15 mm hacksaw cut of the 10 mm brass rod in the printed saw guide (Dremel route shelved);
+      the blades have no handle, so a printed pad-saw handle of your design (approved) is sliced for Sunday
+      2026-11-15 16:30-18:30, in red. The cut waits on the safety glasses (in my AliExpress cart, not yet
+      placed), the blades and that handle; no dust mask, no Z87.1 mark needed.
+      Ordering state (2026-11-14; JLC statuses last read 2026-11-10): the arm was In Production (factory estimate
+      2026-11-12; I say it has shipped, re-read it), elec_board and clamp_ground are shipped, clamp_plate is
+      cancelled (shipping), and I am exploring combining parcels. My AliExpress order of 2026-11-10 (cells,
+      JST-SH cable, hacksaw blades, washers, a 1 g weight, a 0.1 g scale, needle files) is in transit
+      (lab/docs/orders.md). I claimed four JLC Black Friday warm-up coupons on 2026-11-12 (valid to 2026-11-27;
+      lab/docs/jlc/coupons.md). The quote page for the next JLC order is set up only when I say the previous one
+      is placed.
     - Printing: the K1-FA35 is on my balcony with the door shut and I work in the office: there is no camera and
       I cannot hear it, so give me clock-time visual checks, never audible ones. I plug it in, switch it on and
-      load the filament you advise; you run heating, homing and starting only when I ask in that message.
-      The agent drives OrcaSlicer and the K1 through MCP and Moonraker (wsl workspace: connection notes,
-      docs/print-session-runbook.md, the K1 note). Printed so far: plate 1, the small plate, the gantry, posts
-      nn/np/pn with their bars, the pp bar, the strip guide and two calibration riders. Left: post pp (about
-      32 min), the base (4 h 41 min), then the enclosure plates (about 10 h in total). Saturday 2026-11-14 07:30-10:00
-      and Sunday 2026-11-15 16:30-18:30 are reserved print windows. The first print after a power-on must use the normal start (see the
-      runbook, section E).
+      load the filament you advise (spools live in a sealed freezer bag on a roller); you run heating, homing
+      and starting only when I ask in that message. Slicing only on Sonnet or better. The agent drives
+      OrcaSlicer (2.5.0 flatpak, API on 13130) and the K1 through MCP and Moonraker (wsl workspace: connection
+      notes, docs/print-session-runbook.md sections E and F, the K1 note). Printed so far: plate 1, the small
+      plate, the gantry, all four posts with their bars, the strip guide, two calibration riders, the four wall
+      strips and two lid strips (the strips need deburring; one has a torn end, which strip is my task 5; the
+      post-mortem is in kb/printing_state.md). Left: the hacksaw handle (red, Sunday 16:30-18:30), the base
+      (4 h 41 min, re-slice 2026-11-20 for Saturday 2026-11-21 07:30-12:30), then the grey wall plates and red
+      lid tiles. The first print after a power-on uses the normal start (runbook section E); later prints in the
+      same session use the fast start.
     Constraints: no hand soldering; fab boards use only JLC's machine-placed SMT parts; USB power, under
     50 V DC / 30 V AC; PLA only on my Creality K1; AliExpress for stock parts (no single-item shipping fees),
     JLC PCB/PCBA/3DP/CNC when fabrication beats buying and cutting by hand; design to stock sizes. I'm in
@@ -80,7 +85,8 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; move 
     TODO-completed.md sit beside it). My hands-on tasks live in docs/TODO-arcticoder.md as separately numbered
     tasks for me only; any task or decision you give me in chat goes there too. Keep docs/kb/*.md (LLM-only
     notes) up to date with discoveries. Don't quote me or describe how I said things in files or chat. Keep an
-    eye on the supply chain: always have a few AliExpress or JLC items in transit, and watch for deals.
+    eye on the supply chain: always have a few AliExpress or JLC items in transit, and watch for deals. In a
+    time-boxed print window decide and act; don't ask questions with obvious answers.
     Start by reading docs/kb/README.md and docs/kb/session_handoff.md in spurious-force-balance, then
     lab/docs/kb/README.md and lab/docs/kb/jlc_account_and_quotes.md. Then continue from
     docs/TODO-arcticoder.md, docs/TODO-BLOCKED.md and my feedback below.

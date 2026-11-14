@@ -1,6 +1,6 @@
 # KB: printing state and staged orders (moved from TODO-agent.md 2026-11-10)
 
-Audience: future LLM sessions. State as of 2026-11-10; update at each print session.
+Audience: future LLM sessions. CURRENT STATE (2026-11-14 10:45): printed: plate 1, small plate, gantry, posts nn/np/pn/pp with their bars, strip guide, two riders, four wall strips, two lid strips (Moonraker totals 11 jobs 12.03 h). Left: the hacksaw handle (`balance_p9_hacksaw_handle_20261113.gcode`, red, Sunday 2026-11-15 16:30-18:30), the base (`balance_p2_base.gcode`, re-slice 2026-11-20 for Saturday 2026-11-21 07:30-12:30), then the enclosure wall plates (grey) and lid tiles (red). Slicing only on Sonnet or better. Entries below are chronological; the 2026-11-13 evening entry holds the working Orca settings, and the 2026-11-14 entries hold the load, fast-start, purge-area and strip post-mortem findings. Older state text below is history.
 
 ## Print hours and direct control
 
