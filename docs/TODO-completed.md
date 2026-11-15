@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-15 — Main-board order route decided by the user: Economic PCBA, qty 2, U7 not placed; C53-C55 swapped to the basic C29823 in the schematic source (netlist regenerated, `mainboard.py fab` rerun, schematic and smoke tests pass); BOM/CPL re-uploaded on the user's JLC page; quote C$216.66 before coupons (was C$368.84). `fab/ORDER.md`, `bringup.md`, parts notes and the lab JLC kb updated. Nothing committed.
+
 - 2026-11-14 (late, chat 15) — Feedback pass: the base re-sliced on Sonnet for Saturday 2026-11-21 (`balance_p2_base_20261114.gcode`, 4 h 28 min, 152.7 g, infill 20 % to fit the window with the normal start); the Sunday 16:30 window holds the handle (72 min, ready); strips confirmed not torn (the missing H section is by design), no reprint; JLC order list re-read through the app (arm, elec_board, clamp_ground all Shipped; clamp_ground arrived, photos filed as `img/clamp_ground_*_2026-11-14.jxl`, one board with an untinned pad); JLC consolidation research done (Add-On Services is stamped documents only; Combine Shipping is a checkout option; no coupon covers clamp_plate alone, it rides in the main-board order); the second 1 g weight added to the AliExpress task to clear the free-shipping line; JLC main-board order moved to the top of the user's list; Orca timeout cause (stale bridges/second instance, not a dialog) and preflight added to the runbook; the decide-in-windows rule removed from the notes and memory; old strip photos and the superseded base G-code deleted. Nothing committed.
 
 - 2026-11-14 (night) — AliExpress order placed by the user (glasses C$3.48 and the 1-20 g weight set C$2.73, free shipping); logged in `lab/docs/orders.md` and removed from the user's list.

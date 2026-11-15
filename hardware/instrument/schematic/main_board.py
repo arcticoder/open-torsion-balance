@@ -26,12 +26,12 @@ LIB = os.path.join(HERE, "..", "lib", "jlc.kicad_sym")
 
 # value -> LCSC number of the passive (the BOM in ../parts.py lists the same numbers)
 RES = {"0": 21189, "27": 17594, "51": 23197, "1k": 21190, "2.2k": 4190, "5.1k": 23186, "10k": 25804, "33k": 4216, "47k": 25819, "100k": 25803}
-CAP = {"10p": 1634, "10n": 57112, "15p": 1644, "22p": 1653, "1n": 1588, "100n": 14663, "1u": 15849, "4.7u": 1779, "10u": 15850, "4.7u50": 132170}
+CAP = {"10p": 1634, "10n": 57112, "15p": 1644, "22p": 1653, "1n": 1588, "100n": 14663, "1u": 15849, "4.7u": 1779, "10u": 15850, "4.7u50": 29823}
 
 _symbols = {}
 # EasyEDA has no entry for C21900468 (HTTP 403 from its API, 2026-10-24): the ADC crystal uses the symbol and footprint of C9002, a 3.2 x 2.5 mm
 # 4-pad crystal (pads 1 and 3 the crystal, 2 and 4 case ground, the standard 3225 pinout; verify against the 3X016384UP data sheet before layout)
-_ALIAS = {21900468: 9002}
+_ALIAS = {21900468: 9002, 29823: 132170}
 
 
 def _load_symbols():

@@ -1,0 +1,57 @@
+ERC report (2026-11-15T15:52:22-0700, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[pin_not_connected]: Pin not connected
+    ; error
+    @(165.10 mm, 127.00 mm): Symbol U2 Pin 15 [INT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(205.74 mm, 93.98 mm): Symbol U1 Pin 3 [ALERT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(157.48 mm, 172.72 mm): Symbol U2 Pin 5 [SPI_SDO, Output, Line]
+[lib_symbol_issues]: Symbol 'MMC5983MA' not found in symbol library 'jlc'
+    ; warning
+    @(158.75 mm, 149.86 mm): Symbol U2 [MMC5983MA]
+[lib_symbol_issues]: Symbol 'TMP117AIDRVR' not found in symbol library 'jlc'
+    ; warning
+    @(201.93 mm, 105.41 mm): Symbol U1 [TMP117AIDRVR]
+[lib_symbol_issues]: Symbol 'CL21A106KAYNNNE' not found in symbol library 'jlc'
+    ; warning
+    @(247.65 mm, 43.18 mm): Symbol C2 [CL21A106KAYNNNE]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(233.68 mm, 97.79 mm): Symbol #FLG2 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(252.73 mm, 43.18 mm): Symbol #PWR003 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(236.22 mm, 119.38 mm): Symbol #PWR001 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(257.81 mm, 71.12 mm): Symbol #FLG1 [PWR_FLAG]
+[lib_symbol_issues]: Symbol 'CC0603KRX7R9BB104' not found in symbol library 'jlc'
+    ; warning
+    @(250.19 mm, 135.89 mm): Symbol C1 [CC0603KRX7R9BB104]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(255.27 mm, 135.89 mm): Symbol #PWR002 [GND]
+[lib_symbol_issues]: Symbol 'CL10A105KB8NNNC' not found in symbol library 'jlc'
+    ; warning
+    @(270.51 mm, 105.41 mm): Symbol C3 [CL10A105KB8NNNC]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(275.59 mm, 105.41 mm): Symbol #PWR004 [GND]
+[lib_symbol_issues]: Symbol 'CC0603KRX7R9BB104' not found in symbol library 'jlc'
+    ; warning
+    @(250.19 mm, 165.10 mm): Symbol C4 [CC0603KRX7R9BB104]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(255.27 mm, 165.10 mm): Symbol #PWR005 [GND]
+[lib_symbol_issues]: Symbol 'SM04B-SRSS-TB' not found in symbol library 'jlc'
+    ; warning
+    @(240.03 mm, 256.54 mm): Symbol CN1 [SM04B-SRSS-TB]
+
+ ** ERC messages: 17  Errors 3  Warnings 14

@@ -55,6 +55,6 @@ Before ordering, run `parts.py --live` (live stock, basic/extended, Economic-vs-
 | power | ferrite bead, 120 ohm at 100 MHz, 2 A | C14709 | basic | 1 | 1,291,458 | $0.0147 | BLM18PG121SN1D (0603) | BLM18PG121SN1D: supply entry and boost input carry up to 0.4 A (the 600 ohm bead C1002 is only rated 200 mA); basic part |
 | passives | capacitor 15 pF 0603 C0G (RP2040 crystal loads) | C1644 | basic | 2 | 804,717 | $0.0114 | CL10C150JB8NNNC (0603) | basic; with the crystal's 3 pF stray gives the 10 pF load |
 | passives | capacitor 10 nF 0603 X7R 50 V (device-current loop integrator) | C57112 | basic | 1 | 5,976,362 | $0.0102 | 0603B103K500NT (0603) | basic |
-| passives | capacitor 4.7 uF 1206 X7R 50 V (24 V boost output and filter) | C132170 | extended | 3 | 58,180 | $0.1138 | CC1206KKX7R9BB475 (1206) | CC1206KKX7R9BB475; 50 V rating because a 25 V part loses most of its capacitance at 24 V of bias |
+| passives | capacitor 4.7 uF 1206 X7R 50 V (24 V boost output and filter) | C29823 | basic | 3 | 674,144 | n/a | 1206B475K500NT (1206) | 1206B475K500NT (basic; replaced extended C132170 on 2026-11-15); 50 V rating because a 25 V part loses most of its capacitance at 24 V of bias |
 
 50 part numbers, 195 components per board; 27 extended parts (JLC charges a per-part setup fee for each extended part on an assembled order, amount to be read on jlcpcb.com at order time); parts cost about $27.49 per board at the 5-piece unit prices (components only: the board, assembly fee and shipping are extra).

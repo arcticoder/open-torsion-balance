@@ -24,7 +24,7 @@ and for the analog steps a 10 ohm 1 W resistor and a 2.2 kohm resistor pair (bel
 ## 2. Sensors and DAC: `bringup_sensors.py`
 
 Run `mpremote run hardware/instrument/firmware/bringup_sensors.py`. Expected: a scan with 0x60, 0x49 and 0x18 (and 0x48, 0x30, 0x4A if the heads are plugged in), then `[PASS]` for the DAC at 0 V, each TMP117 between 5 and 45 C,
-the LIS2DW12 at 1 g within 10% when the board rests, and the magnetometer's field between 0.05 and 1.5 G.
+the LIS2DW12 (U7: not populated on the first articles, see `hardware/instrument/fab/ORDER.md`; skip this check on them) at 1 g within 10% when the board rests, and the magnetometer's field between 0.05 and 1.5 G.
 - A missing address: check the head's cable and that the board has 2.2 kohm pull-ups to 3V3_D (they are on the main board; on a bare head add two 2.2 kohm resistors on a breadboard).
 - The LIS2DW12 fails first if its register values (from memory, unverified) are wrong: read its WHO_AM_I and the data sheet before trusting any acceleration.
 - |B| far above 0.65 G: a magnet or steel is near the head; move it away (the damper's 6 mm N42 discs are fixed to the base, away from the heads).

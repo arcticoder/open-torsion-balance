@@ -70,7 +70,7 @@ BOM = [
     ("power", "ferrite bead, 120 ohm at 100 MHz, 2 A", 14709, 1, "BLM18PG121SN1D: supply entry and boost input carry up to 0.4 A (the 600 ohm bead C1002 is only rated 200 mA); basic part"),
     ("passives", "capacitor 15 pF 0603 C0G (RP2040 crystal loads)", 1644, 2, "basic; with the crystal's 3 pF stray gives the 10 pF load"),
     ("passives", "capacitor 10 nF 0603 X7R 50 V (device-current loop integrator)", 57112, 1, "basic"),
-    ("passives", "capacitor 4.7 uF 1206 X7R 50 V (24 V boost output and filter)", 132170, 3, "CC1206KKX7R9BB475; 50 V rating because a 25 V part loses most of its capacitance at 24 V of bias"),
+    ("passives", "capacitor 4.7 uF 1206 X7R 50 V (24 V boost output and filter)", 29823, 3, "1206B475K500NT (Basic; replaced the extended CC1206KKX7R9BB475 C132170 on 2026-11-15, same 1206 footprint, saves an extended line); 50 V rating because a 25 V part loses most of its capacitance at 24 V of bias"),
 ]
 
 # boards and their order quantity: JLC's minimum for assembled prototypes is read at order time

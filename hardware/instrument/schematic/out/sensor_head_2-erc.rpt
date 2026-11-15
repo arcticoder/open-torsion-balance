@@ -1,4 +1,4 @@
-ERC report (2026-10-24T20:52:25-0700, Encoding UTF8)
+ERC report (2026-11-15T15:52:33-0700, Encoding UTF8)
 Report includes: Errors, Warnings
 
 ***** Sheet /
@@ -13,7 +13,7 @@ Report includes: Errors, Warnings
     @(127.00 mm, 119.38 mm): Symbol #FLG1 [PWR_FLAG]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'power'
     ; warning
-    @(147.32 mm, 95.25 mm): Symbol #PWR001 [GND]
+    @(148.59 mm, 95.25 mm): Symbol #PWR001 [GND]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'power'
     ; warning
     @(129.54 mm, 133.35 mm): Symbol #PWR002 [GND]
@@ -22,9 +22,9 @@ Report includes: Errors, Warnings
     @(134.62 mm, 133.35 mm): Symbol C1 [CC0603KRX7R9BB104]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'power'
     ; warning
-    @(132.08 mm, 148.59 mm): Symbol #FLG2 [PWR_FLAG]
+    @(130.81 mm, 148.59 mm): Symbol #FLG2 [PWR_FLAG]
 [lib_symbol_issues]: Symbol 'SM04B-SRSS-TB' not found in symbol library 'jlc'
     ; warning
-    @(161.29 mm, 118.11 mm): Symbol CN1 [SM04B-SRSS-TB]
+    @(162.56 mm, 118.11 mm): Symbol CN1 [SM04B-SRSS-TB]
 
  ** ERC messages: 8  Errors 1  Warnings 7

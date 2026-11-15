@@ -34,7 +34,7 @@ Files: `hardware/instrument/schematic/` (`main_board.py`, `heads.py`, `generate.
 Defects the work caught (all fixed in the BOM and schematic):
 - The supply-entry ferrite bead (C1002, 600 ohm) is rated 200 mA with 450 mohm DCR, but the 5 V rail carries up to 389 mA: the entry and boost-input beads are now C14709 (120 ohm, 2 A, basic); C1002 stays on 3V3_A (under 50 mA).
 - The RP2040 crystal (C9002) had 20 pF load and 80 ohm ESR; the hardware design guide wants 10 pF and 50 ohm max and says any deviation needs extensive testing. Now ABM8-272-T3 (C20625731, extended, 3,856 in stock) with 15 pF caps and a 1 kohm in series with XOUT.
-- 25 V-rated 10 uF capacitors would have lost most of their capacitance at the boost's 24 V: boost output and filter use 4.7 uF 50 V (C132170).
+- 25 V-rated 10 uF capacitors would have lost most of their capacitance at the boost's 24 V: boost output and filter use 4.7 uF 50 V (C29823, basic; it replaced the extended C132170 on 2026-11-15 to save an Economic extended-line fee).
 - The MCP4728 cannot output 4.096 V from a 3.3 V supply (see requirements.md).
 - The BOM's quantities were estimates; the schematic fixed them (the test enforces equality).
 

@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "generate.py")
-    (date "10/24/2026 08:50 PM")
+    (date "11/15/2026 03:49 PM")
     (tool "SKiDL (3.0.0)")
     (sheet
       (number 1)
@@ -57,7 +57,7 @@
         (field
           (name "Datasheet") "~")
         (field
-          (name "SKiDL Tag") "9mGp5nSSKL")
+          (name "SKiDL Tag") "hANg7pKgC0")
         (field
           (name "SKiDL Line") "main_board.py:61"))
       (libsource
@@ -67,7 +67,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ce3059ce-1e46-56f6-a993-44c54bca0a8e"))
+      (tstamps "9a2a4349-522e-5cc9-89ff-69355771fc6a"))
     (comp
       (ref "#FLG2")
       (value "PWR_FLAG")
@@ -83,7 +83,7 @@
         (field
           (name "Datasheet") "~")
         (field
-          (name "SKiDL Tag") "H8yWYdxWaf")
+          (name "SKiDL Tag") "95KmWzxcuq")
         (field
           (name "SKiDL Line") "main_board.py:61"))
       (libsource
@@ -93,7 +93,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9306d4db-7f5e-5f5e-bbd0-725556e84e8a"))
+      (tstamps "0d86cecd-8e07-561e-ba0a-1b2f5b295a27"))
     (comp
       (ref "C1")
       (value "CC0603KRX7R9BB104")
@@ -109,7 +109,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_100nF-104-10-50V_C14663.html")
         (field
-          (name "SKiDL Tag") "i22bmMF_z4")
+          (name "SKiDL Tag") "3IauNVLLzz")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -119,7 +119,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b78086d9-1b60-5cbd-a94b-39a5397bc547"))
+      (tstamps "84e85755-acb5-517e-9f0c-fb19184d21d2"))
     (comp
       (ref "C2")
       (value "CL10A105KB8NNNC")
@@ -135,7 +135,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL10A105KB8NNNC_1uF-105-10-50V_C15849.html")
         (field
-          (name "SKiDL Tag") "wATLGCelzm")
+          (name "SKiDL Tag") "UP6GQo1yq9")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -145,7 +145,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e0327656-4df2-575f-b707-981a9380c72b"))
+      (tstamps "998426db-1386-5ef8-ad81-97c5f6ad6b7b"))
     (comp
       (ref "C3")
       (value "CC0603KRX7R9BB104")
@@ -161,7 +161,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_100nF-104-10-50V_C14663.html")
         (field
-          (name "SKiDL Tag") "3zMufHgIQ9")
+          (name "SKiDL Tag") "rOwjQXkqwz")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -171,7 +171,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c4dfe5f2-6ccb-5eb7-a90a-0e6a83c434f8"))
+      (tstamps "b2792c66-b0a5-5d5c-82fa-b8a1dc5524d3"))
     (comp
       (ref "C4")
       (value "CL10B102KB8NNNC")
@@ -187,7 +187,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL10B102KB8NNNC_1nF-102-10-50V_C1588.html")
         (field
-          (name "SKiDL Tag") "Z7km0GWo5s")
+          (name "SKiDL Tag") "00SL0WXj5_")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -197,7 +197,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b4972842-856d-50c8-92c3-45aed9cdaa98"))
+      (tstamps "df9f1903-bbe5-58a2-9ed2-2dfe9d42029e"))
     (comp
       (ref "CN1")
       (value "SM04B-SRSS-TB")
@@ -215,7 +215,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Others_JST-Sales-America__JST-Sales-America-SM04B-SRSS-TB-LF-SN_C160404.html")
         (field
-          (name "SKiDL Tag") "1l76RY2rXd")
+          (name "SKiDL Tag") "_LJwyT12Fm")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -225,7 +225,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "19bd59d8-9f92-5583-92d0-26121d7a077c"))
+      (tstamps "63be1344-8beb-52c9-bad9-e67e4a997bb9"))
     (comp
       (ref "LED1")
       (value "VBPW34S")
@@ -243,7 +243,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Infrared-Receivers_VISHAY_VBPW34S_VBPW34S_C145262.html")
         (field
-          (name "SKiDL Tag") "jDpMyfW0pm")
+          (name "SKiDL Tag") "RG5l32exPt")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -253,7 +253,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b519387b-f544-59ba-8a33-4ce3a98fe825"))
+      (tstamps "713facdf-9312-52f5-82b6-0ae3798fc1db"))
     (comp
       (ref "R1")
       (value "0603WAF3302T5E")
@@ -271,7 +271,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount-UniOhm_33KR-3302-1_C4216.html")
         (field
-          (name "SKiDL Tag") "EZTRXWYUvB")
+          (name "SKiDL Tag") "Uq5D31jeGE")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -281,7 +281,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "79430e85-2473-5717-97f8-684a40887a0f"))
+      (tstamps "9c49794d-3bf5-56bf-9ccc-f2a1bab6c029"))
     (comp
       (ref "R2")
       (value "0603WAF1001T5E")
@@ -299,7 +299,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount-UniOhm_1KR-1001-1_C21190.html")
         (field
-          (name "SKiDL Tag") "ia6CHWIKdi")
+          (name "SKiDL Tag") "mHCm0egdPw")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -309,7 +309,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "26c59db3-c6a0-5326-aa0c-3152e173b1de"))
+      (tstamps "9ec1b6e4-140e-5a86-a550-cbe33ef9fd6a"))
     (comp
       (ref "R3")
       (value "0603WAF1002T5E")
@@ -327,7 +327,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount-UniOhm_10KR-1002-1_C25804.html")
         (field
-          (name "SKiDL Tag") "KRkhrdyc79")
+          (name "SKiDL Tag") "k3Vg2Iu2q5")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -337,7 +337,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c550db0c-ae35-5778-91a2-9d6d788367b4"))
+      (tstamps "1d50b19c-99e0-5b3e-883c-a20d7ba53d51"))
     (comp
       (ref "U1")
       (value "IR26-21C/L110/CT")
@@ -355,7 +355,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/Infrared-IR-LEDs_1206SMD_C131280.html")
         (field
-          (name "SKiDL Tag") "95et6akr3R")
+          (name "SKiDL Tag") "XJ3hoFDVlI")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -365,7 +365,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "aa7ae953-684e-5e80-b9a7-d4bb9264fdd7"))
+      (tstamps "a7ebd8fe-8d0f-5378-9168-22aba0a4553b"))
     (comp
       (ref "U2")
       (value "TLV9062IDR")
@@ -383,7 +383,7 @@
         (field
           (name "Datasheet") "https://lcsc.com/product-detail/General-Purpose-Amplifiers_Texas-Instruments-TI-TLV9062IDR_C398355.html")
         (field
-          (name "SKiDL Tag") "eYWvFlXGVA")
+          (name "SKiDL Tag") "Zsx1X_k3jl")
         (field
           (name "SKiDL Line") "main_board.py:52"))
       (libsource
@@ -393,7 +393,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cd2a8d19-338a-5c02-9a4d-3477945ad2f7")))
+      (tstamps "4d872448-2bff-581f-b316-3f1751df0606")))
   (nets
     (net
       (code 1)
