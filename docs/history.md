@@ -3663,3 +3663,25 @@ The JLC main-board order is now your task 1: say "start the main-board quote" an
 Task 4 is the brass cut, and I dropped the old torn-strip task.
 <!-- ------ -->
 ---
+The main-board quote is set up in your JLCONE app, but the assembly price isn't readable yet. I left that step to you. `TODO-agent.md` is at 0 lines and nothing is committed.
+
+**Quote page**
+- I uploaded `main_board_gerbers.zip`. JLC detected a 4-layer board of 90 x 120 mm.
+- Options set: 1.6 mm, 5 pieces, HASL with lead, Standard PCBA, top side, PCBA quantity 5, build time 3 days.
+- The PCB part reads C$46.13 (engineering fee C$35.60, board C$10.54). ENIG would add C$25.34. The coupon banner shows C$42.71 off at payment.
+- The component, feeder and SMT assembly lines are blank until a BOM and CPL are uploaded. That step is the page's Next button, which saves to the cart, so I stopped there.
+- Early on I clicked a "2" that landed on the layer count and briefly switched the board to 2 layers with OSP. I reset it to 4 layers and HASL before reading the final numbers. I also removed a C$94.26 expedite line that PCBA had added by selecting "3 days" for the build time.
+
+**Your steps (task 1 in `TODO-arcticoder.md`)**
+1. Click Next in the app, then upload `hardware/instrument/fab/bom.csv` and `cpl.csv`.
+2. In JLC's placement preview, check connector directions, LED polarity, crystal pin 1, and the ESD and SOT-23 rotations. Tell me anything that looks rotated and I'll fix it and regenerate.
+3. Read the total, including the PCBA lines and the 120 x 90 mm versus about 105 x 80 mm board-size question.
+4. At checkout, turn on Combine Shipping and add `clamp_plate` so its shipping rides in this parcel. If that turns out to be awkward on the quote page, tell me.
+
+**Other changes**
+- **Weight set:** yes, order the 1005005974937195 set. It gives a second 1 g weight for the second rider, plus 2, 5, 10 and 20 g. Task 2 now says both items are in your cart (C$6.21 with the glasses). Its ±0.003 g tolerance is the seller's claim, and the weight diameters are unknown until it arrives.
+- **Photos zip:** `Photos-1-002.zip` is deleted.
+- **Pad colour:** the clamp_ground pad colour difference was lighting. I corrected the TODO, inventory and kb notes.
+- **Quote gotchas:** the page quirks above are recorded in the lab JLC kb note.
+<!-- ------ -->
+---
