@@ -3749,3 +3749,30 @@ Economic PCBA with 2 boards assembled brings the quote to C$222.18, down from C$
 **Your call:** should I keep U7 out and go Economic, or put it back and stay on Standard (about C$270)? I can also go through the 24 extended lines for basic swaps either way.
 <!-- ------ -->
 ---
+The main-board quote is down to C$216.66 before coupons, from C$368.84. Your order page is ready in the app on Economic PCBA. `TODO-agent.md` is at 0 lines and nothing is committed.
+
+**The quote**
+- PCB C$45.13 plus PCBA C$171.53 is C$216.66. Standard at 2 boards would be about C$270.
+- The U7 (LIS2DW12 accelerometer) drop is set as you decided. Nitrogen reflow stays on.
+
+**What I changed**
+- **Basic substitute:** the 4.7 µF 50 V X7R 1206 capacitors C53–C55 moved from the extended C132170 to the basic C29823. It has the same 1206 footprint, so the routed layout is untouched. That saved C$5.52.
+- **Fab files:** I rebuilt the netlist and the fab files. The netlist differs only in those three LCSC fields. The schematic test and the instrument smoke test pass, and the routed board wasn't re-placed.
+- **BOM/CPL:** I re-uploaded `bom.csv` and `cpl.csv` on your JLC page. I answered the "Do not place" dialogs for U7 again. The page now shows C53–C55 as basic.
+
+**No other swaps worked**
+- The local parts snapshot has no basic 27 Ω resistor in 0805 or 0603. It has no basic 2512 sense resistor either, so R3, R4 and R32 stay extended.
+- The remaining extended parts are all functional. The only discretionary one is D1 (USB ESD), worth about C$5.5 with its part. I'd keep it because it protects the USB port. The H1–H5 headers carry SWD and debug, so they stay too.
+- The 120 × 90 mm versus 105 × 80 mm question isn't worth a layout re-run. The board line is only C$9.54 and the engineering fee is fixed.
+
+**Coupons:** BF PCBA $12 should apply to the assembly. BF PCBA Parts $10 needs over C$71.19 of parts and the parts are C$60.97, so expect it not to apply. I don't know whether the New User SMT coupon applies to Economic.
+
+**Your steps (task 1 in `TODO-arcticoder.md`)**
+1. Click Save to cart on the Quote & Order page.
+2. Check the placement preview: connector directions, LED polarity, crystal pin 1, the ESD and SOT-23 rotations. Tell me anything that looks rotated and I'll fix it and regenerate.
+3. At checkout, turn Combine Shipping on and add `clamp_plate`.
+4. Read the final total with coupons and place the order.
+
+I noted in `fab/ORDER.md` and `bringup.md` that the first articles have no accelerometer. Skip the LIS2DW12 check in the bring-up on those boards.
+<!-- ------ -->
+---
