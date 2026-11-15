@@ -3643,3 +3643,23 @@ Strip numbers below count left to right in each photo, and I can't confirm the t
 The photos are in the scratchpad at `/tmp/claude-1000/-home-echo--Code-python-pico/5f716971-6024-4c95-ab73-4930687ec461/scratchpad/photos`, with the originals still in the zip at `Photos-1-001.zip`. Say if you want them converted to .jxl and kept under `docs/img/`.
 <!-- ------ -->
 ---
+I've worked through all twelve items. `TODO-agent.md` is at 0 lines and nothing is committed.
+
+1. **AliExpress:** the staged second 1 g calibration weight (C$2.48) is the pending item. Added to the cart with the glasses it makes C$5.96, which clears the C$1.28 gap. It's now your task 2.
+2. **Orca timeout:** the cause wasn't a dialog. Two leftover `orcaslicer-mcp` bridge processes and a second Orca instance were holding port 13130. I found no Orca preference to change, so I added a preflight to the wsl runbook (new section G) and the kb instead.
+3. **Sunday window:** yes, the hacksaw handle is sliced for it (72 min). With the start-up it ends about 17:55, so roughly 35 minutes stay free.
+4. **JLC port help:** the port is now open, so I didn't add a task for it. The launch steps are in `lab/docs/kb/jlc_account_and_quotes.md`.
+5. **Obvious-questions rule:** removed from the handoff and the context block, and I deleted the memory file for it.
+6. **clamp_ground photos:** all five boards are logged in the lab inventory (bag not recorded). Four have a pale tinned pad and one has a copper-coloured pad, so use a tinned one. I filed two small `.jxl` images in `docs/img/`. `Photos-1-002.zip` is still there if you want it gone.
+7. **Strips:** corrected in the kb and TODOs. None is torn, the H-strips' missing section is by design, and there's no reprint (7.1: deburring is left to you).
+8. **Photos:** deleted `Photos-1-001.zip` and the old scratchpad photos.
+9. **JLC read through the app:** arm, `elec_board` and `clamp_ground` are all Shipped. "Add-On Services" in the account menu is only Stamped Documents. Combine Shipping is a checkout option, so there's nothing in the account to combine orders.
+10. **Base re-slice:** done, and the file is `balance_p2_base_20261114.gcode`. At 30 % infill it took 5 h 03 min, too long for the window once the 10-minute normal start is added. I set sparse infill to 20 %, which gives 4 h 28 min and 152.7 g. The part is 218 mm on a 220 mm bed, so the extents are tight. The old base file is deleted.
+11. **Coupons:** none of the Black Friday coupons covers `clamp_plate` on its own. The prototype coupon needs over C$28.48 of goods, and the shipping coupons need over C$28.48 or C$21.36 of shipping. It should ride in the main-board order with Combine Shipping on.
+12. **One-order-per-day:** you're right, I can't enforce it. I can only read order dates in the JLC list. I removed the main-board items from BLOCKED.
+
+The JLC main-board order is now your task 1: say "start the main-board quote" and I'll upload the fab zip and read the total through the app. The Black Friday PCBA coupons end 2026-11-27 and New User SMT ends 2026-11-25.
+
+Task 4 is the brass cut, and I dropped the old torn-strip task.
+<!-- ------ -->
+---
