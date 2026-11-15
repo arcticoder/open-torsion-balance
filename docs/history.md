@@ -3720,3 +3720,32 @@ Decision for you: should I try Economic PCBA, or merge BOM lines? If you want Ec
 - Shipping page (item 4): I'll read it when you reach it.
 <!-- ------ -->
 ---
+Economic PCBA with 2 boards assembled brings the quote to C$222.18, down from C$368.84, but it can't place the LIS2DW12 accelerometer (U7). I left your page on the Quote & Order step in that state. I did not save to cart or submit anything, and nothing is committed.
+
+**What the Economic switch reset**
+- The PCBA quantity went back to 5 and the build time reset. You'd already restored the quantity to 2.
+- JLC flags U7 as "Standard Only". I clicked "Do not place this part" to get a price, so U7 is dropped from your draft. To undo it, use "Switch to Standard PCBA" or re-upload the BOM.
+
+**Economic price with 2 boards assembled, U7 dropped (45 parts)**
+
+| Item | Cost (C$) |
+|---|---|
+| PCB | 45.13 |
+| Setup | 11.73 |
+| Stencil | 2.21 |
+| Components | 62.06 |
+| Extended-parts fee | 96.79 |
+| SMT assembly | 3.03 |
+| Nitrogen reflow | 1.22 |
+| **Total** | **222.18** |
+
+- **Extended-parts fee:** Economic charges about C$4.04 per extended line and nothing on basic lines.
+- **Nitrogen reflow:** the form left "Yes (for Economic)" selected, which is the C$1.22 line. I tried to set it to No and the click didn't take. Look at it when you're on that page.
+- **Standard at 2 boards:** about C$270 by scaling, because the feeder fee (C$101.52) and setup (C$36.66) are fixed. Economic saves roughly C$50, but the cost is the accelerometer. U7 is the floor-acceleration log in your run conditions, and it's an LGA part, so it can't be added by hand later.
+- **How far it can go:** I think Economic at C$222 is close to the floor unless the extended parts are swapped for basic equivalents. Each swap saves about C$4 plus the part cost. The 4-layer engineering fee (C$35.59) is the largest remaining PCB line.
+
+**Coupons:** you're right, they apply at the last step. One catch: BF PCBA Parts $10 needs over C$71.19 of parts, and the Economic parts total is C$62.06, so it would not apply there. BF PCBA $12 still applies to the assembly.
+
+**Your call:** should I keep U7 out and go Economic, or put it back and stay on Standard (about C$270)? I can also go through the 24 extended lines for basic swaps either way.
+<!-- ------ -->
+---
