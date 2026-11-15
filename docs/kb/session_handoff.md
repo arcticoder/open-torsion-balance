@@ -92,3 +92,6 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; move 
 ## Read first
 
 Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md`, `docs/kb/printing_state.md`, `docs/kb/main_board_layout_notes.md` (last section), `docs/TODO-arcticoder.md`, `docs/TODO-BLOCKED.md`, `~/Code/sysadmin/wsl/docs/kb/apps/k1-moonraker.md` and `~/Code/sysadmin/wsl/docs/print-session-runbook.md` for the printer side.
+
+## Update 2026-11-15 (afternoon)
+Main board and clamp_plate are in the user's JLC cart (the user authorised Save to cart for this; the production Remark was filled with a one-line description incl. the U7 omission); cart summary and the pending placement-preview/checkout steps are in `TODO-arcticoder.md` task 1. Tab handling in the app: the cart's "Add new item" turns the order tab into the quote page; navigating the orders tab to the quote URL does nothing. The handle print (`balance_p9`) started 16:15 on the normal start with the red spool loaded after 110 mm of purge (black cleared); first-layer look passed; finish expected about 17:40; the window ends 18:30.

@@ -3776,3 +3776,25 @@ The main-board quote is down to C$216.66 before coupons, from C$368.84. Your ord
 I noted in `fab/ORDER.md` and `bringup.md` that the first articles have no accelerometer. Skip the LIS2DW12 check in the bring-up on those boards.
 <!-- ------ -->
 ---
+Both boards are now in your JLC cart, and the real shipping cost and final total are still unread. The monitor re-arm line is routine: the print is at 17 min, nozzle 221 °C, bed 59 °C, as expected.
+
+**Cart (all three items selected)**
+- The main-board PCB is C$45.13 and its Economic PCBA is C$171.53.
+- `clamp_plate` is C$3.13 (5 boards, 1.2 mm, HASL with lead).
+- Merchandise is C$219.79, with a coupon of −C$17.09 (BF PCBA $12 applied). Subtotal is C$246.94 at 0.90 kg.
+- The shipping estimate of C$44.24 is the UPS default, not the real figure.
+
+**How I got there**
+- I filled the production Remark first: "Research instrument main board. Economic PCBA, top side only. U7 (LIS2DW12TR) is intentionally not placed."
+- I clicked Save to cart on the PCBA page.
+- I then uploaded `clamp_plate_gerbers.zip` through the same app, set the options, and saved it too.
+
+**Coupons:** per your point, the coupons only count as a deadline if they apply. BF PCBA $12 applies and ends 2026-11-27. BF PCBA Parts $10 needs over C$71.19 of parts and the parts are C$60.97, so it doesn't apply. I've reworded task 1 so the order no longer carries the "deadline" label.
+
+**Not done yet**
+- **Placement preview (item 2):** I haven't checked connector directions, LED polarity, crystal pin 1 or the ESD and SOT-23 rotations. It isn't a pass/fail test I can run from the BOM page. I can take screenshots of the Component Placements view through the app and read them, but it's a visual check, so a rotated part could slip past me. If you'd rather click through it yourself, tell me anything that looks off and I'll fix and regenerate. I haven't started the screenshots. Say if you want me to go ahead.
+- **Checkout:** I stopped before Secure Checkout. That's where Combine Shipping and the real shipping options appear. Open it when you're ready, or tell me to read it, and I'll read the options and the total without selecting or paying.
+
+The handle print should finish around 17:40. The mid-print look is due about 16:55: the body and cover should be clean parallel layers.
+<!-- ------ -->
+---
