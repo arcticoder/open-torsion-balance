@@ -3685,3 +3685,38 @@ The main-board quote is set up in your JLCONE app, but the assembly price isn't 
 - **Quote gotchas:** the page quirks above are recorded in the lab JLC kb note.
 <!-- ------ -->
 ---
+I read the BOM/CPL page and the cost breakdown. You were right that uploading there isn't placing an order, and I over-restricted. I've corrected that in the notes, and the page only gets read, never saved or submitted.
+
+**The page's own description of the fee**
+- It says: "For standard PCBA type, all components (basic and extended) are required to load the feeders… C$2.21 per component."
+- It's charged per BOM line, not per placement: 46 lines × C$2.21 = C$101.52, and it applies to the basic parts too.
+
+**U9 and U8 (1.1, 1.2)**
+- Both match the BOM's LCSC numbers. U9 is the ADS131A04IPBSR (TQFP-32) and U8 is the MCP4728-E/UN (MSOP-10).
+- The figures cover 5 boards: C$9.62 per ADC and C$3.47 per DAC. Those are ordinary chip prices, not an error.
+- X1 (the 16.384 MHz crystal) shows quantity 9 for 5 boards, apparently a minimum order quantity on that part.
+
+**Where the C$368.84 goes**
+
+| Item | Cost (C$) |
+|---|---|
+| Parts | 152.19 |
+| Feeder loading | 101.52 |
+| PCB | 46.13 |
+| Setup | 36.66 |
+| Stencil | 11.77 |
+| X-ray | 11.75 |
+| SMT assembly | 8.08 |
+
+**Ways to bring it down**
+- **PCBA quantity 5 → 2:** cuts about C$91 of the C$152 parts cost, since the chips scale with quantity. The fixed fees stay. The PCB can stay at 5 boards.
+- **Fewer distinct BOM lines:** each merged resistor or capacitor value saves C$2.21. Of the 46 lines, 24 are extended parts.
+- **Economic PCBA:** it has no feeder fee on basic parts, but I haven't quoted it for this board. "Change PCB specifications" would take your page back to the quote form, so I didn't touch it.
+
+Decision for you: should I try Economic PCBA, or merge BOM lines? If you want Economic tried, I'll do it on the quote form after you say your BOM page can be left. For merging, I'd go through the BOM and propose which values can be unified.
+
+**Done**
+- Order placed: I logged the glasses and weight set in `lab/docs/orders.md` and removed the AliExpress task from your list. Two AliExpress orders are now in transit.
+- Shipping page (item 4): I'll read it when you reach it.
+<!-- ------ -->
+---
