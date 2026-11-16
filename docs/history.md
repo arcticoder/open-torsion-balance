@@ -3887,3 +3887,14 @@ Checkout takes one coupon per order, so stacking is out. There is a larger coupo
 I added the findings to the coupon ledger and the JLC notes in `lab/docs/`, and updated the session handoff. I'll compare the coupon center against the account's unused list whenever you're in the order flow, and tell you about anything larger than what's applied. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+JLCONE PCBA $20 applied at the cart, but the total is still high. So I've put the main-board order on hold until the Black Friday sale (campaign runs 2026-11-18 to 12-02).
+
+- **Order hold:** task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md) is now a hold. The cart stays as saved.
+- **Deal watch:** when the sale is live, I'll re-read the campaign page, the coupon center and your unused list through the app. I'll tell you about any coupon above C$28.49 that this order qualifies for. I can only do that in a chat on or after 2026-11-18 with the JLCONE app open on port 9222. I filed it in [TODO-BLOCKED.md](spurious-force-balance/docs/TODO-BLOCKED.md) with that condition. I'll also watch AliExpress deals.
+- **Fallback:** if the sale brings nothing larger, place the order by 2026-12-02 with the PCBA $20. BF PCBA $12 ends 2026-11-27 and the New User coupons end 2026-11-25. Neither matters now, since the PCBA $20 is the best coupon known.
+- **Supply chain:** the main board was going to be the next JLC parcel, so each week of waiting delays bring-up. The two AliExpress orders are still in transit, so something stays en route.
+- **Notes updated:** I recorded the decision in the handoff and the coupon ledger.
+
+TODO-agent.md is at 0 lines and I committed nothing.
+<!-- ------ -->
+---
