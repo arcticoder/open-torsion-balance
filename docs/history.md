@@ -3927,3 +3927,21 @@ I logged the `clamp_plate` order: placed 2026-11-15, total C$9.64.
 The main-board watch for 2026-11-18 on is unchanged. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+All six items are done.
+
+1. **Cart:** I've noted that your cart no longer lists `clamp_plate`. The held main-board order is two lines now. I'll re-read that cart at the sale.
+2. **Docs:** I updated four files to match the current state.
+   - **[README.md](spurious-force-balance/README.md):** the enclosure is now printed PLA, not acrylic.
+   - **[plan.md](spurious-force-balance/docs/plan.md):** the status line is current, and the acrylic enclosure rationale is replaced by the printed-plate decision.
+   - **[fabrication.md](spurious-force-balance/docs/fabrication.md):**
+     - The enclosure row now says printed PLA, and acrylic is gone from the AliExpress list.
+     - The order table now has `clamp_plate` (ordered, C$9.64) and the held main-board order with the PCBA $20 coupon.
+     - The electronics-order note is current.
+   - **[procedures.md](spurious-force-balance/docs/procedures.md):** the A5 check now runs on the assembled main board. The breadboard setup is removed.
+3. **Spark draft:** I moved it with `git mv` to `docs/archive/spark_application.md`. Nothing else linked to it.
+4. **`result.json`:** I deleted it. It was an untracked, already-ignored Orca export with all zeros.
+5. **`schematic_test.erc` and `schematic_test.log`:** I deleted both with `git rm`. They were stray copies from running the schematic test in the repo root. The tracked copies are in `hardware/instrument/`. I added the two root paths to `.gitignore`.
+
+I also recorded the tidy-up in the handoff notes. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
