@@ -3873,3 +3873,17 @@ The updated block is in the "Context block for the next chat" section of [sessio
 Three things are still open on your side: the JLC checkout (coupon stacking, Combine Shipping, the final total), the blade-grip test for the printed handle, and the base print on Saturday 2026-11-21.
 <!-- ------ -->
 ---
+Checkout takes one coupon per order, so stacking is out. There is a larger coupon, though: **JLCONE PCBA $20 is worth C$28.49**, against C$17.09 for the BF PCBA $12 that is applied now. I read this through the JLCONE app (account coupon page, then the coupon center). I clicked nothing and claimed nothing.
+
+- **One coupon only:** the coupon center's terms say the same ("Only one coupon can be applied to any order"). New User Shipping and the PCB coupons can't ride alongside it. I've dropped the stacking plan from the notes.
+- **The better coupon:**
+  - **Minimum:** it needs over C$142.46 excluding freight, and your main-board PCBA line is C$171.53, so it should qualify. That makes it C$11.40 more than BF PCBA $12, about 13% of the PCBA line.
+  - **Not new:** it has been on the coupon center since 2026-11-04, and I missed it when I planned the stacking.
+  - **Validity:** it runs 30 days from the day you click Get Coupon.
+  - **Untested:** I can't tell whether the cart measures the minimum against the PCBA line or the whole order.
+- **Bigger ones:** JLCONE $50 PCBA (C$71.23) and JLCONE $20 PCB (C$28.49) both need over C$712.30, so neither fits this order.
+- **Your step:** claim JLCONE PCBA $20 on the coupon center. I left the claim to you because it's an account action. Then reopen the cart, see which coupon it picks and what the total is, check Combine Shipping, and place the order. I haven't seen the total that checkout showed you; tell me what it says. This is task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md).
+
+I added the findings to the coupon ledger and the JLC notes in `lab/docs/`, and updated the session handoff. I'll compare the coupon center against the account's unused list whenever you're in the order flow, and tell you about anything larger than what's applied. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
