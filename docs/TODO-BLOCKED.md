@@ -2,14 +2,11 @@
 
 > Open items are in `docs/TODO-agent.md`; finished items in `docs/TODO-completed.md`.
 
-These wait on the user's balance build (see `TODO-arcticoder.md`) or on the assembled board. The main board is no longer waiting on A5 (fab-assembled electronics, no breadboards); its JLC order is the user's task 1 in `TODO-arcticoder.md`.
+These wait on the user's balance build (see `TODO-arcticoder.md`) or on the assembled board. The main board is no longer waiting on A5 (fab-assembled electronics, no breadboards); its JLC order is the user's task 2 in `TODO-arcticoder.md`.
 
 ## Design work waiting on the user
 - [ ] Printed enclosure (decided 2026-11-12: printed walls and lid, 1.2 mm plates with a 2 mm rim, no window; model `hardware/balance/enclosure_printed.py`, plan and estimates `kb/balance_design_notes.md`): print after the frame (posts, bars, base); slice each window-sized file the day before its window (runbook step A1), grey walls, red lid, black strips; update `assembly.md` and `fabrication.md` text from acrylic to printed when the first plate is printed (the CAD, params and smoke test already say printed).
 - [ ] Multi-object plate settings (strips need no reprint: the H-strips' missing section is by design and none is torn; fine stringing remains from many travels between objects). Before slicing the first enclosure plate, try nozzle about 210 C and retraction about 1.0 mm and fewer objects per plate, and compare. Condition: a print window after 2026-11-21 is assigned (slice the day before it).
-
-## `clamp_plate` JLC order: cancelled 2026-11-08 (shipping C$8.14 for 0.14 kg); rides in the main-board order
-- [ ] Add the Gerber set (`clamp_plate_gerbers.zip`, 16 x 14 mm, 1.2 mm, HASL with lead, Single PCB, 5 pieces) to the main-board checkout with Combine Shipping on (`TODO-arcticoder.md`, task 1) and read the total. The Black Friday coupons do not cover it alone (checked 2026-11-14 on the account's coupon page): BF Prototype $8 needs over C$28.48 of goods, BF Shipping $5 and New User Shipping need over C$28.48 / C$21.36 of shipping; the goods-only coupons (New User PCB, JLCONE PCB $5) take nothing off shipping. Combining is the way to remove its separate shipping; whether PCB and PCBA lines can share one parcel is unconfirmed until the checkout shows it. The user accepts the four spare boards as waste and will not pay a shipping premium for them.
 
 ## JLC deal watch (main-board order held for Black Friday, user decision 2026-11-15)
 - [ ] When the Black Friday campaign is live (2026-11-18 on, to 12-02): read `jlcpcb.com/events/black-friday-2026`, the coupon center and the account's unused list through the app (read-only; the user claims) and tell the user of any coupon above C$28.49 that the main-board order (PCBA C$171.53, PCB C$45.13, 0.90 kg) qualifies for, or a better route. Condition: the user is in a chat on or after 2026-11-18 with the app open on port 9222. Also watch AliExpress deals for the stock-parts cart.

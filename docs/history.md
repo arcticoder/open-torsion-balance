@@ -3898,3 +3898,23 @@ JLCONE PCBA $20 applied at the cart, but the total is still high. So I've put th
 TODO-agent.md is at 0 lines and I committed nothing.
 <!-- ------ -->
 ---
+I've put the `clamp_plate` order first in your list, since the coupon makes ordering it alone workable. I haven't placed or changed anything on JLC. I only read the cart through the app.
+
+**1. Handle (done):** I removed the stale slicing and print-window text from the ballast task. It now says the red handle is printed and matches the STL. The task is renumbered to 4.
+
+**2. Backlog:** I moved nothing to either list.
+- I deleted WP10 (the order write-up), because the order now exists.
+- WP4e is the only item I could start now. It's the schematic PDF for review and the paper, and it's a large piece of work that blocks nothing until the paper is filled in, so it stays in the backlog.
+- The staged AliExpress order stays there too. Your list holds one order per day, and today's slot is the `clamp_plate` order.
+- The other items wait on data or on the board.
+
+**3. `clamp_plate` order:** Yes, it can go alone with a coupon. This is task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md).
+- **Goods:** the main-board order uses the PCBA coupon, so the PCB coupons are free. New User PCB (C$8.54, ends 2026-11-25) covers all of the C$3.13 goods. JLCONE PCB $5 (ends 11-26) is the spare.
+- **Shipping:** you'd pay only shipping, which was C$8.14 when I read it on 2026-11-08. Treat that as an estimate.
+- **What to watch:** that earlier test showed the coupon and then reverted it at the summary. So I need to know what the coupon selector and the total show this time.
+- **Steps:** untick both main-board lines in the cart so only `clamp_plate` is ticked, then check out with Global Standard Direct Line.
+- **Cart check:** with the PCBA $20 applied, the cart for all three lines reads C$215.50 (merchandise C$219.92, shipping C$24.08, coupon −C$28.49). The main board stays held for Black Friday as task 2.
+
+I also removed the `clamp_plate` section from [TODO-BLOCKED.md](spurious-force-balance/docs/TODO-BLOCKED.md), logged this in TODO-completed and updated the session handoff. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
