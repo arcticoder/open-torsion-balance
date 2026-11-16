@@ -2,7 +2,7 @@
 
 > Open items are in `docs/TODO-agent.md`; finished items in `docs/TODO-completed.md`.
 
-These wait on the user's balance build (see `TODO-arcticoder.md`) or on the assembled board. The main board is no longer waiting on A5 (fab-assembled electronics, no breadboards); its JLC order is the user's task 2 in `TODO-arcticoder.md`.
+These wait on the user's balance build (see `TODO-arcticoder.md`) or on the assembled board. The main board is no longer waiting on A5 (fab-assembled electronics, no breadboards); its JLC order is the user's task 1 in `TODO-arcticoder.md`.
 
 ## Design work waiting on the user
 - [ ] Printed enclosure (decided 2026-11-12: printed walls and lid, 1.2 mm plates with a 2 mm rim, no window; model `hardware/balance/enclosure_printed.py`, plan and estimates `kb/balance_design_notes.md`): print after the frame (posts, bars, base); slice each window-sized file the day before its window (runbook step A1), grey walls, red lid, black strips; update `assembly.md` and `fabrication.md` text from acrylic to printed when the first plate is printed (the CAD, params and smoke test already say printed).

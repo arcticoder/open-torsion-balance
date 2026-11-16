@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-15 (chat 16, later) — `clamp_plate` ordered alone by the user, total C$9.64; the coupon gave only US$1.20 because JLC's checkout keeps a nonzero goods line (customs).
+
 - 2026-11-15 (chat 16) — The user reported the JLC checkout: one coupon per order; JLCONE PCBA $20 (found on the coupon center, claimed by the user) applied (cart C$215.50 for all three lines) but the main-board order is held for the Black Friday sale (to place by 2026-12-02 at the latest); `clamp_plate` leaves the combined order and goes alone with a PCB coupon (task 1); the red hacksaw handle is printed (stale slicing text removed from the ballast task); WP10 dropped from the backlog (the order exists).
 
 - 2026-11-15 — Main-board order route decided by the user: Economic PCBA, qty 2, U7 not placed; C53-C55 swapped to the basic C29823 in the schematic source (netlist regenerated, `mainboard.py fab` rerun, schematic and smoke tests pass); BOM/CPL re-uploaded on the user's JLC page; quote C$216.66 before coupons (was C$368.84). `fab/ORDER.md`, `bringup.md`, parts notes and the lab JLC kb updated. Nothing committed.

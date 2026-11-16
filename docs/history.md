@@ -3918,3 +3918,12 @@ I've put the `clamp_plate` order first in your list, since the coupon makes orde
 I also removed the `clamp_plate` section from [TODO-BLOCKED.md](spurious-force-balance/docs/TODO-BLOCKED.md), logged this in TODO-completed and updated the session handoff. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+I logged the `clamp_plate` order: placed 2026-11-15, total C$9.64.
+
+- **Coupon:** it took only US$1.20 off, because the checkout won't let the goods line reach $0 (customs). A coupon can't zero out a tiny order's goods, and the rest of it is lost. I recorded that in the coupon ledger and the handoff notes.
+- **TODO list:** I moved the `clamp_plate` item out of your tasks and into "En route" as in production. Your tasks are now renumbered: 1 is the main-board order held for Black Friday, 2 is print windows and 3 is the brass cut.
+- **Main-board cart:** it still lists `clamp_plate`, so its C$215.50 total is stale. Delete or untick that line (C$3.13, 0.14 kg) before I re-read it at the sale.
+
+The main-board watch for 2026-11-18 on is unchanged. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
