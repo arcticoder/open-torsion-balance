@@ -34,7 +34,7 @@ interactive, so the user confirms totals before paying.
 | **Fixed calibration electrode** (24 x 34 mm board) | FR4 board, ENIG, 5 pcs | The plates are the force reference: a flat ENIG pad of defined area (20 x 8 mm) inside a grounded ENIG guard beats foil tape on printed plastic (flatness, edges, oxide, patch potentials). The pad is wired through a via to the back face and a 1.6 mm plated hole | about $2 + ENIG [estimate] |
 | **Device card** (16 x 24 mm) | part of the electronics order later (a small FR4 board with the resistor) | FR4 on 4.8 mm air spacers, a thermal break; 2 g assumed in the model | with the main order |
 | **Gantry, torsion head, base, sensor bracket, damper holder, electrode bracket, enclosure posts, lid shelves, vane holder, jigs** | **PLA, printed on the K1** | Fixed parts. The thermal path through the printed frame to the sensor adds 0.63 nN/sqrt(Hz) at 1 mK/sqrt(Hz) of temperature noise, against the air term's 4.8 (under 1% in quadrature); the lock-in at 0.05 Hz rejects slow drift. The strip's clamping loop is not printed (above). The vane holder moves, but carries only 1 g | filament; about 12 hours of print time [estimate] |
-| **Enclosure panels** | stock acrylic from AliExpress, 2 mm, 150 x 250 mm, 7 sheets | Used uncut; cheaper than any fab route | in the AliExpress order |
+| **Enclosure panels** | printed PLA plates (1.2 mm, 2 mm rim, no window; grey walls, red lid, black strips) | Decided 2026-11-12; acrylic dropped | printed after the frame (`TODO-BLOCKED.md`) |
 | **Strip** | cut by hand from the ordered 0.05 mm sheet with the printed guide | The stiffness is calibrated from the measured period, so +-0.2 mm of width doesn't matter. Edge quality sets anelastic loss (drift): A5 measures the quality factor. Fallback if it is poor: a photo-etched strip (stress-free edges) from a metal-etching service [find one]; JLC's laser-cut stainless stencils are probably 0.08 mm or thicker [verify], which would need a narrower strip for the same stiffness | the sheet is already ordered |
 | **Ballast** | one saw cut from the ordered 10 x 100 mm brass rod, with the printed guide | The balance is trimmed on the bench anyway (+-0.5 mm of length is 0.6 mm of centre-of-mass shift, trimmed with spare copper pads). A JLCCNC brass part would cost more than a junior hacksaw ($5-8 on AliExpress) | 5 minutes |
 | **Vane** | the ordered 20 x 20 x 0.3 mm copper pad, uncut | already right | ordered |
@@ -101,7 +101,8 @@ coupon ledger is `lab/docs/jlc/coupons.md`; prices on the user's account are in 
 | # | Checkout | Coupon | Deadline | Mass | Status |
 |---|---|---|---|---|---|
 | 1 | the arm alone (`ORDER.md`) | JLCONE $8 PCB (-C$8.42 applied in the cart) | 11-26 | 294 g with packing | quoted: C$7.86 net, ready to pay |
-| 1b | the three small designs (`ORDER.md`) | New User PCB C$8.42 or JLCONE PCB $5 (a second coupon) | 11-25 | 170 g | not quoted yet; separate order |
+| 1b | `elec_board`, `clamp_ground` (placed 2026-11-05/06), `clamp_plate` (placed alone 2026-11-15, C$9.64; the coupon took only US$1.20 because the goods line cannot reach $0) | New User PCB / JLCONE PCB $5 | 11-25 | 170 g | shipped / arrived / in production |
+| 1c | main board PCB + Economic PCBA (`hardware/instrument/fab/ORDER.md`) | JLCONE PCBA $20 (C$28.49; one coupon per order, so no stacking) | held for Black Friday (2026-11-18 to 12-02) | 0.76 kg | in the cart; placed after the sale |
 | 2 | sensor-head PCBA panel (Part N, optional; `hardware/instrument/heads_panel/ORDER.md`) | New User SMT C$14.03 (a PCBA Special Offer of $9 expires in about 3 days: only worth it if ordered at once; the stencil coupons cannot stack) | 11-25 | 79 g of boards + packing | layout done; the user decides after the quote |
 | 3 | printed parts at JLC3DP (the shortlist above) | New User 3D Printing 1 C$14.03 | 11-25 | about 25 g | needs the user's pick |
 | 4 | second JLC3DP order, if more parts are worth it | New User 3D Printing 2 C$14.03 | 12-25 | | |
@@ -111,7 +112,7 @@ coupon ledger is `lab/docs/jlc/coupons.md`; prices on the user's account are in 
 | - | any order that needs FDM, nylon or resin | the promotional coupons by material (minimums of $30 to $200) | 30 or 60 days | | only if a part needs that material |
 
 Do not combine orders from different services in one parcel (3DP and CNC ship from other factories anyway). The shipping coupons (C$14.03 over C$21.04 of shipping, $10 over $40) need a
-parcel that costs more than the cheap tier: they are not part of the plan. The electronics order (WP7) is not on this list: it comes after A5, and the SMT coupon will have lapsed.
+parcel that costs more than the cheap tier: they are not part of the plan. The electronics order is row 1c; the sensor-head PCBA panel (row 2) is optional.
 
 ## The orders
 
@@ -119,7 +120,7 @@ parcel that costs more than the cheap tier: they are not part of the plan. The e
    [confirmed 2026-10-24]). Estimated parcel mass 154 g of boards + packing, under 0.29 kg. Order settings are in `boards/fab/ORDER.md`. Estimated total
    **$70-140 including shipping** [estimate; verify on the quote page]; ENIG can add a per-design surcharge when exposed copper passes 30% of a board's area (the
    electrode board is near it). Canada: prefer a postal tier; couriers bill brokerage on parcels over about CAD 20 [community; see kb].
-2. **AliExpress (after the print list is final):** acrylic (7 sheets, 2 mm, 150 x 250 mm), 50 M3 flat washers (304), 20 M3 hex nuts (304; 10 needed), the JST-SH plate cable,
+2. **AliExpress (after the print list is final):** 50 M3 flat washers (304), 20 M3 hex nuts (304; 10 needed), the JST-SH plate cable,
    weights, and the hand tools if not owned. Held until now because the redesign changed the fastener counts (computed in `balance.py`; the owned screws and nuts cover
    everything else).
 3. **The electronics order (later, after the A5 prototype measurement):** 5 bare boards with 2 assembled (JLC assembly takes 2 of 5 [confirmed: minimum 2 pcs]; Standard rather than Economic PCBA, because two sensors are Standard-only, Part H5),

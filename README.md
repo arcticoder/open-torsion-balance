@@ -15,7 +15,7 @@ measurement, at a parts cost to be filled in from the final bill of materials.
 | Piece | State |
 |---|---|
 | G1 measurement goal | confirmed 2026-10-23 |
-| G2 mechanics | an FR4 arm board on edge hung from a torsion head, collision-free over the swing, centre of mass solved onto the axis; JLC mechanical boards (Gerbers and DRC done); stock-size acrylic enclosure; field-modelled eddy damper; cutting jigs; [fabrication decisions](docs/fabrication.md), [assembly steps](docs/assembly.md) |
+| G2 mechanics | an FR4 arm board on edge hung from a torsion head, collision-free over the swing, centre of mass solved onto the axis; JLC mechanical boards (Gerbers and DRC done); printed PLA enclosure (1.2 mm plates with a 2 mm rim, no window); field-modelled eddy damper; cutting jigs; [fabrication decisions](docs/fabrication.md), [assembly steps](docs/assembly.md) |
 | G3 force-noise prediction | 0.108 nN (1σ, 1000 s, in air): a conditional go |
 | WP1–WP3: requirements, 48 JLC-stocked parts, analog block simulations | done |
 | WP4 schematic | done as checked netlists (main board + four head boards, 50 JLC parts); sheet rendering and WP5 layout wait |

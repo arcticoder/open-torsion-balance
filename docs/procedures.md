@@ -7,14 +7,13 @@ files the logger writes (`host/logger.py --out runNNN`), and each run is named b
 Numbers from the model that the measurements are compared with (`tools/force_noise_budget.py`, `hardware/balance/params.py`): strip stiffness 4.5e-4 N m/rad; moving inertia 2.47e-4 kg m^2; undamped resonance 0.215 Hz
 (4.66 s); damping ratio 0.40 with one 0.3 mm copper pad (damped period about 5.1 s) and 0.86 with two; predicted force noise 0.11 nN per 1000 s lock-in measurement (1 sigma), dominated by air currents (4.8 nN/rtHz at 0.05 Hz).
 
-## A. The A5 prototype check (the balance, the lab breadboard optical readout and lock-in, the Pico)
+## A. The A5 prototype check (the balance and the assembled main board: optical readout, digital lock-in)
 
-Goal: find out whether the model's resonance, damping, optical sensitivity and noise are right before electronics are laid out. A disagreement beyond a factor of a few goes back to the model (G2/G3), not to the fab.
-Setup: the balance built and trimmed (`docs/assembly.md` section 7), the enclosure on, lid on, the breadboard `optical_shadow_readout` and `lockin_amplifier` from the `lab` repo powered, the Pico logging the lock-in output (or the ADS131A04
-when it exists). Nothing touches the table; leave the room.
+Goal: find out whether the model's resonance, damping, optical sensitivity and noise are right before the design is frozen for production. A disagreement beyond a factor of a few goes back to the model (G2/G3), not to the fab.
+Setup: the balance built and trimmed (`docs/assembly.md` section 7), the enclosure on, lid on, the assembled main board powered and logging the lock-in output over USB (`docs/bringup.md` first; breadboards are no longer used). Nothing touches the table; leave the room.
 
 1. **Zero and levelness.** Note the flag's position in its window (the optical readout's DC level, volts) with the arm trimmed and at rest: this is the baseline. Record the temperature.
-2. **Photocurrent.** With the LED at 20 mA (the breadboard's LED current, written down) and the flag centred, record the photodiode current (from the TIA output and Rf). The design assumed 100 uA at mid-flag with Rf = 10 kohm (10 kV/A):
+2. **Photocurrent.** With the LED at 20 mA (the board's LED current, written down) and the flag centred, record the photodiode current (from the TIA output and Rf). The design assumed 100 uA at mid-flag with Rf = 10 kohm (10 kV/A):
    write down the real current and the real Rf. If the current is under 30 uA or over 200 uA, Rf changes (and with it the TIA headroom on the ADC, `docs/kb/instrument_electronics_notes.md`).
 3. **Optical sensitivity.** Move the flag by a known distance with the torsion head (a tenth of a turn is 0.1 degree at the flag, which is 0.17 mm at 100 mm) and read the change: volts per millimetre. Do it three times each way. This is the displacement scale.
 4. **Resonance and damping.** Displace the arm by about 1 degree with the torsion head, release, record 300 s of the readout at 20 samples/s or more. Fit a damped sine (`host/analyze.py` gives the spectrum; a fit of

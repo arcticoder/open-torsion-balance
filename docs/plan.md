@@ -1,7 +1,7 @@
 # Research instrument plan — a fab-assembled force balance
 
 Status: gates G1–G3, requirements (WP1), candidate parts (WP2), the analog block simulations (WP3) and the mechanical redesign to FR4 boards (fabrication.md) done
-2026-10-22 (G1 confirmed 2026-10-23); no schematic, layout or order yet; layout proceeds now (the user dropped the breadboard stage on 2026-11-08); A5 runs on the assembled boards. The task list that drives this is
+2026-10-22 (G1 confirmed 2026-10-23); the main board is laid out to the DFM gate and its JLC order (Economic PCBA) is held for the Black Friday sale (2026-11-15); the arm, elec_board, clamp_ground and clamp_plate boards are ordered; the breadboard stage was dropped on 2026-11-08, so A5 runs on the assembled boards. The task list that drives this is
 [TODO-agent.md](TODO-agent.md) Part A; the scope decision is recorded in
 [circuit_lifecycle_and_repo_scope](https://github.com/arcticoder/lab/blob/main/docs/kb/circuit_lifecycle_and_repo_scope.md) in the `lab` repo.
 
@@ -84,13 +84,9 @@ is 132 × 102 × 50 mm). How each part is made, and why, is in [fabrication.md](
 - *No zero adjustment, PLA near a dissipating device, and PLA in the strip's clamping loop* were found in the fabrication review and fixed: the torsion head, an FR4 device
   card with a power cap, and a clamping loop of FR4 and steel only (a smoke check fails if a printed plastic part enters it). See [fabrication.md](fabrication.md).
 
-Parts the mechanics need beyond the stock on hand: the FR4 boards (a JLC order, four designs); stainless-steel shim stock, 50 µm (ordered), copper pads 0.3 mm (ordered), a brass rod (ordered), foam tape (ordered) and copper foil tape (ordered, now a trim and spare-strap material); six uncut 2 mm acrylic sheets, 150 × 250 mm (one spare);
-M3 flat washers and 304 stainless nuts (screws and carbon-steel nuts are on hand); a JST-SH 1.0 mm 2-pin cable with flying leads for the plate driver; and 1 mg to 500 mg
-calibration weights. The enclosure (draught shield) is decided: a printed frame with four identical 250 mm wall sheets in a pinwheel (inner span 248 mm, 150 mm tall) and a lid
-of two more sheets, the walls held in slots shimmed with 0.3 mm foam tape; sheet size and thickness are `PANEL_STOCK` and `PANEL_T` in `hardware/balance/params.py`. Acrylic
-rather than printed clear PETG: the optics are all inside the box, so clarity only matters for looking in; the 240+ mm panels exceed the 220 mm print bed; and solid panels would
-take about a kilogram of filament, and the home printer is PLA only. If A5 shows the air-current term above the model's assumption, a compressible gasket is the next step.
-Design to stock sizes: every piece bought is used uncut (acrylic sheets, copper pads, the brass rod's one saw cut, the shim sheet's 4 mm strip), with printed jigs for the cuts
+Parts the mechanics need beyond the stock on hand: the FR4 boards (a JLC order, four designs); stainless-steel shim stock, 50 µm (ordered), copper pads 0.3 mm (ordered), a brass rod (ordered), foam tape (ordered) and copper foil tape (ordered, now a trim and spare-strap material); M3 flat washers and 304 stainless nuts (screws and carbon-steel nuts are on hand); a JST-SH 1.0 mm 2-pin cable with flying leads for the plate driver; and 1 mg to 500 mg
+calibration weights. The enclosure (draught shield) is decided: printed PLA plates (decided 2026-11-12: 1.2 mm with a 2 mm rim, no window; grey walls, red lid tiles, black strips; `hardware/balance/enclosure_printed.py`, estimates in `docs/kb/balance_design_notes.md`). Acrylic was dropped: the optics are all inside the box, so clarity does not matter, and the home printer is PLA only. If A5 shows the air-current term above the model's assumption, a compressible gasket is the next step.
+Design to stock sizes: every piece bought is used uncut (copper pads, the brass rod's one saw cut, the shim sheet's 4 mm strip), with printed jigs for the cuts
 (`hardware/balance/fixtures.py`).
 
 ## G3 — the end-to-end force-noise prediction, and the go/no-go
