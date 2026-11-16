@@ -3798,3 +3798,24 @@ Both boards are now in your JLC cart, and the real shipping cost and final total
 The handle print should finish around 17:40. The mid-print look is due about 16:55: the body and cover should be clean parallel layers.
 <!-- ------ -->
 ---
+The placement preview shows nothing rotated, so I found nothing to change in the placements. It's 17:01 and the handle print is at 34 minutes (nozzle 221 °C, bed 59 °C), so it should finish about 17:40.
+
+**How I checked**
+- The page I'd saved to the cart no longer has a working preview, so I built a throwaway draft from the same Gerber, BOM and CPL. I never saved it to the cart, and your cart still holds the same three items.
+- In JLC's 3D preview each part has a pink dot on pin 1. I compared every dot against where the footprint's pad 1 sits in the routed board file, and they agree.
+
+**What agrees**
+- **Connectors:** the six top JST-SH connectors, the four left ones and the USB-C all face the board edge, with the opening outward.
+- **LED1/LED2:** the preview shows the cathode on the left. In the netlist, pad 2 (left) is on ground and pad 1 is on the status-LED anode net, so that's correct.
+- **D2, D3, D4:** the preview shows the cathode bar on the left. The netlist puts pad 1 (left) on V5 or V24_RAW, which is the cathode side for the flyback and boost rectifier diodes, so that's correct. I looked closely at D3 and D4. D2 shares their rotation and footprint, so I didn't crop in on it.
+- **Crystals U4 and X1:** the pin-1 dot is at the bottom-left. That is the same corner as the footprint's pad 1.
+- **USBLC6 ESD (D1):** pin-1 dot at the bottom-left, as the footprint has it.
+- **The rest of the visible parts** (RP2040 U3, flash U5, DAC U8, ADC U9, op-amps and switches U10 to U16, the MOSFETs Q1 to Q5, the LDOs U1 and U2): the pin-1 dots also agree with the footprint pad 1.
+
+**Limits**
+- I read this from screenshots at about 10 px per mm, so I haven't confirmed the part bodies at pixel level. JLC itself says the preview is for reference. The real check is its DFM analysis, 4–6 hours after you place the order.
+- U6 (the temperature sensor), F1 (the fuse), the inductor L4, and the switches SW1 and SW2 I didn't confirm. For L4, F1 and the switches, orientation doesn't matter.
+
+I wrote the method into the lab JLC kb note, and task 1 now says the preview is done. What's left for you is checkout: look at Combine Shipping and the real shipping options, check the final total, and place it.
+<!-- ------ -->
+---
