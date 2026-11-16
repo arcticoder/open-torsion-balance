@@ -3819,3 +3819,23 @@ The placement preview shows nothing rotated, so I found nothing to change in the
 I wrote the method into the lab JLC kb note, and task 1 now says the preview is done. What's left for you is checkout: look at Combine Shipping and the real shipping options, check the final total, and place it.
 <!-- ------ -->
 ---
+There is another coupon that applies, and I think two more could, but whether checkout accepts them together is untested.
+
+**Why C$24 for 0.90 kg**
+- Global Standard Direct Line is priced by weight, so under 1 kg isn't a flat cheap tier.
+- The rates I've seen on your account: C$8.14 for 0.14 kg, about C$10.90 for 0.28 kg, and C$24.06 for 0.90 kg. That's a steady climb.
+- The cheap shipping on your earlier parcels was an order-level discount that absorbed the freight. It wasn't the real rate. This order doesn't get that discount automatically.
+
+**Coupons: the cart applies only one**
+The cart has applied only BF PCBA $12 (−C$17.09). I read your account's coupon page just now, and these also fit this order:
+- **New User Shipping (C$14.24):** it needs shipping over C$21.36, and yours is C$24.06, so it qualifies. It ends 2026-11-25. The BF Shipping $5 coupon does not qualify, because it needs over C$28.48.
+- **New User PCB (C$8.54)** or **JLCONE 4-Layer PCB $5 (C$7.12):** either could apply to the PCB lines. The main board is 4-layer.
+- **BF PCBA Parts $10:** not eligible, since the parts total is C$60.97 against its C$71.19 minimum. Adding boards to reach it would cost more than the C$14.24 it saves.
+
+If checkout lets you stack one coupon per service type (PCB, assembly, shipping), the total saving could reach about C$40 instead of C$17.
+
+**For you at checkout:** open the coupon selector. Try the shipping coupon and one PCB coupon alongside BF PCBA $12. See whether it accepts them together, and tell me what it does.
+
+I can't see the checkout page. It isn't one of the app's debug tabs, so I only read the cart and the account coupon page. The same-order stacking is also unconfirmed. The earlier clamp_plate checkout offered two PCB coupons at once, but then reverted one of them.
+<!-- ------ -->
+---
