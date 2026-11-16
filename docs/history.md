@@ -3848,3 +3848,28 @@ Two things are still open:
 The next print is the base on Saturday 2026-11-21, 07:30–12:30.
 <!-- ------ -->
 ---
+The kb files are updated and the new context block is written. `TODO-agent.md` is at 0 lines and nothing is committed.
+
+The updated block is in the "Context block for the next chat" section of [session_handoff.md](docs/kb/session_handoff.md). Paste it from there, or I can print it in chat. I rewrote the whole handoff file for this session. It now covers:
+- the handle print;
+- the base sliced at 20% infill for Saturday;
+- the "no torn strips" correction;
+- the Economic PCBA route with U7 omitted;
+- the cart, shipping and coupon state;
+- the placement-preview result.
+
+**Changes to the block**
+- **JLC permissions:** the draft BOM/CPL page is not an order, so I can read and drive it. Save to cart and checkout happen only when you say so in that message. Submitting and paying stay yours.
+- **Removed rule:** the "don't ask obvious questions" line is gone.
+- **Ordering state:** the AliExpress order of 2026-11-14 and the cart items are recorded.
+- **Next-chat prompt:** it asks what the checkout showed.
+
+**Other notes updated this session**
+- **spurious-force-balance:** `fab_ordering_notes.md` has the Economic-vs-Standard price drivers, the feeder fee and the basic-part swap method. `printing_state.md` has the base slice, the strip correction, the Orca timeout cause and the Sunday print log.
+- **lab:** `jlc_account_and_quotes.md` has the dead-draft behaviour, the placement-preview reading method and the shipping and coupon findings. `coupons.md` has the coupons that fit this order.
+- **wsl:** `k1-moonraker.md` has the 110 mm black-to-red push amount, and the runbook has the Orca preflight section.
+- **Memory:** I added a note on the draft-page versus order distinction and removed the old decide-in-windows note.
+
+Three things are still open on your side: the JLC checkout (coupon stacking, Combine Shipping, the final total), the blade-grip test for the printed handle, and the base print on Saturday 2026-11-21.
+<!-- ------ -->
+---

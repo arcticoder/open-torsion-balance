@@ -95,3 +95,8 @@ The user is in Canada (British Columbia area) and pays by the cheapest postal ti
 
 ## Shipping discount line (read 2026-11-09)
 The Global Standard Direct Line's list rate was US$5.77 for 0.14 kg and US$7.75 for 0.28 kg on the order pages; Y3/Y4/Y5 each carried an order-level DISCOUNT line (Y4/Y5: -US$4.27, net shipping US$1.50) that absorbed shipping. The clamp_plate checkout showed the list rate. Plan with the list rate unless the cart shows the discount. See `lab/docs/kb/jlc_account_and_quotes.md`.
+
+## 2026-11-15: main-board PCBA route (Economic) and what drives the price
+- Standard PCBA charges a feeder-loading fee of C$2.21 per BOM line, basic parts included (C$101.52 for 46 lines), plus setup C$36.66 and stencil C$11.77; Economic charges about C$4.04 per extended line only, setup C$11.73, stencil C$2.21, nitrogen reflow C$1.22 (required for Economic), single side, and cannot place some parts (U7 LIS2DW12TR, LGA-12, is Standard-only). Same board at 2 assembled boards: Economic PCB C$45.13 + PCBA C$171.53; Standard at 5 boards was C$368.84. Levers in order of size: PCBA quantity 5 -> 2 (parts scale, fees do not), Economic, fewer extended lines (swap to a basic part with the same footprint: C53-C55 to C29823 saved one line). Candidate swaps are looked up in `~/jlcparts/cache.sqlite3` (`library_type = 'base'`).
+- Shipping: Global Standard Direct Line is weight-priced (C$24.06 for 0.90 kg); coupons that fit are in `lab/docs/jlc/coupons.md`. Details of the page work: `lab/docs/kb/jlc_account_and_quotes.md`.
+
