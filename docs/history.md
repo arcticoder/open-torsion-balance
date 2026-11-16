@@ -3839,3 +3839,12 @@ If checkout lets you stack one coupon per service type (PCB, assembly, shipping)
 I can't see the checkout page. It isn't one of the app's debug tabs, so I only read the cart and the account coupon page. The same-order stacking is also unconfirmed. The earlier clamp_plate checkout offered two PCB coupons at once, but then reverted one of them.
 <!-- ------ -->
 ---
+I've logged that the handle body and cover match the STL files and that the printer is off. The Sunday session is closed, and the Moonraker totals are 12 jobs, 14.06 h.
+
+Two things are still open:
+- **Blade-grip test:** screw the cover down on a blade and check it holds under hand pressure and fits the saw guide's slot, before the brass cut. The cut itself still waits on the safety glasses and the blades, both in transit.
+- **JLC checkout:** coupon stacking, the final total, and placing the order. Tell me what the coupon selector accepts and I'll update the notes. The New User Shipping and New User PCB coupons end 2026-11-25, and BF PCBA $12 ends 2026-11-27.
+
+The next print is the base on Saturday 2026-11-21, 07:30–12:30.
+<!-- ------ -->
+---
