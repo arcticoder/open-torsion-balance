@@ -3945,3 +3945,12 @@ All six items are done.
 I also recorded the tidy-up in the handoff notes. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+**1. Electrode boards:**
+- **The photos:** I extracted `Photos-1-003.zip` and deleted it. The boards are the `elec_board` electrode set, with ten in the photos. All ten are intact, and the dark ones are reflections, as you said. I saved the two photos as lossless, downscaled `.jxl` files (about 0.7 MB each):
+  - [elec_board_electrode_pad_side_2026-11-16.jxl](spurious-force-balance/docs/img/elec_board_electrode_pad_side_2026-11-16.jxl)
+  - [elec_board_electrode_back_2026-11-16.jxl](spurious-force-balance/docs/img/elec_board_electrode_back_2026-11-16.jxl)
+- **The notes:** [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md) now says the `elec_board` arrived with ten boards where five were ordered, the five extra being free spares. I added the same to the handoff notes and to `lab/docs/inventory.md`. The inventory entry has no storage bag, so tell me which bag when you've stored them.
+
+TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---

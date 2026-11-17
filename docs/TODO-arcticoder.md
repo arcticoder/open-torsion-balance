@@ -16,7 +16,7 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 JLCPCB (order list read in the JLCONE app 2026-11-14; details in `lab/docs/kb/jlc_account_and_quotes.md`):
 - `arm` (5 FR4 boards, placed 2026-11-03): Shipped (confirmed in the app 2026-11-14; tracking number only in the JLC app).
-- `elec_board` (placed 2026-11-05): Shipped 2026-11-09 (tracking number in the JLC app).
+- `elec_board` (placed 2026-11-05): arrived 2026-11-16 (photos `img/elec_board_electrode_pad_side_2026-11-16.jxl`, `img/elec_board_electrode_back_2026-11-16.jxl`): ten boards, five ordered; none is damaged or dark (the dark look is reflections), the five extra are free spares.
 - `clamp_ground` (placed 2026-11-06): arrived 2026-11-14 (photos `img/clamp_ground_top_2026-11-14.jxl`, `img/clamp_ground_bottom_2026-11-14.jxl`): five boards, all with the same pad finish (the colour difference in the photo was lighting).
 - `clamp_plate` (5 boards, 1.2 mm, HASL with lead; placed 2026-11-15, total C$9.64 including shipping): in production; arrives with the next parcels. Only US$1.20 came off the goods line, because the checkout does not let the goods line go to $0 (customs); so a coupon cannot zero a tiny order's goods.
 Answer any JLC email within 48 h and check the spam folder. When a parcel lands, tell me and I add it to the plan in `docs/fabrication.md`.
