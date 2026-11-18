@@ -3978,3 +3978,22 @@ Both items are done.
 Running the balance smoke test with the venv Python rewrites `arm_cnc.dxf`, so run `git checkout` on that file afterward. I recorded that in the handoff notes. I committed nothing beyond the amend.
 <!-- ------ -->
 ---
+Black Friday is live, and there are likely coupons that beat the PCBA $20 now in your account (C$28.56). I can't confirm any of them without claiming. I read your account's coupon list, the coupon center, the campaign page and your cart through the app, and claimed nothing.
+
+**What's new**
+- **Account and coupon center:** both are unchanged since the last read. PCBA $20 now runs to 2026-12-15, and BF PCBA $12 (C$17.14) still ends 11-27.
+- **Flash coupons on the campaign page:** one claim per user, quantities reset daily at 10:00 ET.
+  - **PCBA coupon, "$50 Off $100":** the tile shows C$43. That's the one that would beat PCBA $20, by about C$14.
+  - **JLCONE 26 BF 20% Off and 10% Off:** I can't see the service, cap or minimum for these.
+  - **Other flash coupons:** two PCB or general coupons at C$43 each, and a JLCONE PCB $20 Mega at C$29.
+- **Exclusive coupons:** BF PCBA $15 (C$21) and BF PCBA Parts $15 (C$21) are both smaller than PCBA $20. BF PCBA Parts $15 can't be combined with another coupon, since only one applies per order.
+
+**What I can't tell yet:** the page shows no minimums or caps. Those only appear in your account's unused list after claiming. The PCBA tile also says "$50 off" while showing C$43, which don't match, so I'd treat the label or the amount as unclear. A percentage coupon on a C$217 order could be worth about C$43, but only if it isn't capped and applies to the whole order.
+
+**Cart:** `clamp_plate` is gone. It holds the main-board PCB at C$45.27 and the Economic PCBA at C$172.04, so merchandise is C$217.31.
+
+**Your step** (task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md)): on `jlcpcb.com/events/black-friday-2026`, click Get Coupon on the PCBA flash coupon and the 20% Off one. Then tell me what the unused list shows for their minimums and caps, and I'll work out which one is best for the order. Flash quantities may run out before the 10:00 ET reset.
+
+The coupon ledger and the deal-watch note in `TODO-BLOCKED.md` are updated. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
