@@ -98,6 +98,23 @@ with tempfile.TemporaryDirectory() as tmp:
     check("the logger counts and reports what it wrote", counts == {"adc_frames": 160, "lockin": 1, "env": 1, "text": 1} and dec.bad_crc == 0, str(counts))
     check("text packets land in the log file", open(pre + "_log.txt").read() == "started\n")
 
+    class _Gappy:
+        """A live-port stand-in: packet, a quiet 1 s timeout (empty read), packet, then Ctrl-C."""
+        def __init__(self, chunks):
+            self.chunks = list(chunks)
+
+        def read(self, n):
+            if not self.chunks:
+                raise KeyboardInterrupt
+            return self.chunks.pop(0)
+
+    pre2 = os.path.join(tmp, "live")
+    counts2, _ = LG.run(_Gappy([P.packet(P.T_TEXT, 0, b"a"), b"", P.packet(P.T_TEXT, 1, b"b")]), pre2, eof_on_empty=False)
+    check("a quiet serial read (empty bytes) does not end a live run: both packets around it are logged and Ctrl-C closes cleanly", counts2["text"] == 2 and open(pre2 + "_log.txt").read() == "a\nb\n", str(counts2))
+    pre3 = os.path.join(tmp, "eof")
+    counts3, _ = LG.run(io.BytesIO(b""), pre3)
+    check("an empty read still ends a recorded-file run", counts3["text"] == 0)
+
 # ---- analysis
 rng = np.random.default_rng(5)
 fs = 8000.0
@@ -122,6 +139,9 @@ walk = np.cumsum(rng.normal(0, 1e-4, int(fs * 120)))
 ad = AN.allan_deviation(walk, fs, [0.1, 1.0, 10.0])
 slope = np.polyfit(np.log([0.1, 1.0, 10.0]), np.log(ad), 1)[0]
 check("the Allan deviation of a random walk rises as tau^+1/2 (slope +0.5 +-0.1)", abs(slope - 0.5) < 0.1, "slope %.2f" % slope)
+
+short = AN.allan_deviation(np.zeros(100), 50, [0.01, 0.1])
+check("the Allan deviation with a tau shorter than one sample returns NaN instead of dividing by zero", np.isnan(short[0]) and not np.isnan(short[1]), str(short))
 
 print()
 if failures:

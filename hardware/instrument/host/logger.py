@@ -11,6 +11,7 @@ counter (it wraps every 71.6 minutes) and the ADC frames inside a packet are spa
 import argparse
 import csv
 import os
+import struct
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -76,20 +77,25 @@ class Writer:
         self.log.close()
 
 
-def run(source, prefix, fs=8000.0, chunk=4096):
-    """source: an object with read(n) returning bytes (b'' at the end of a file). Returns (counts, decoder)."""
+def run(source, prefix, fs=8000.0, chunk=4096, eof_on_empty=True):
+    """source: an object with read(n) returning bytes. An empty read is the end of a recorded file (eof_on_empty=True); on a live serial port it only means a quiet
+    timeout, so pass eof_on_empty=False and stop with Ctrl-C. Returns (counts, decoder)."""
     dec = P.Decoder()
     w = Writer(prefix, fs)
     try:
         while True:
             data = source.read(chunk)
             if not data:
-                break
+                if eof_on_empty:
+                    break
+                continue
             for ptype, _seq, payload in dec.feed(data):
                 try:
                     w.handle(ptype, payload)
-                except (ValueError, Exception) as e:  # a CRC-good packet with a bad payload: log, keep going
+                except (ValueError, struct.error) as e:  # a CRC-good packet with a bad payload: log, keep going
                     w.log.write("bad payload type %d: %s\n" % (ptype, e))
+    except KeyboardInterrupt:  # Ctrl-C ends a live run; the files are closed and the counts still print
+        pass
     finally:
         w.close()
     return w.counts, dec
@@ -97,8 +103,9 @@ def run(source, prefix, fs=8000.0, chunk=4096):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--port")
-    ap.add_argument("--file")
+    src_arg = ap.add_mutually_exclusive_group(required=True)
+    src_arg.add_argument("--port")
+    src_arg.add_argument("--file")
     ap.add_argument("--out", required=True)
     ap.add_argument("--fs", type=float, default=8000.0)
     a = ap.parse_args()
@@ -108,7 +115,7 @@ def main():
         import serial  # pyserial
 
         src = serial.Serial(a.port, timeout=1)
-    counts, dec = run(src, a.out, a.fs)
+    counts, dec = run(src, a.out, a.fs, eof_on_empty=bool(a.file))
     print("frames/packets:", counts, "| bad CRC:", dec.bad_crc, "| skipped bytes:", dec.skipped_bytes, "| sequence gaps:", dec.gaps)
 
 

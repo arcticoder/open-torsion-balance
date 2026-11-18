@@ -9,6 +9,7 @@ Prints the white-noise floor (median ASD between two frequencies), the rms over 
 
 import argparse
 import csv
+import sys
 
 import numpy as np
 
@@ -38,10 +39,10 @@ def allan_deviation(x, fs, taus_s):
     out = []
     for tau in taus_s:
         m = int(round(tau * fs))
-        nbins = len(x) // m
-        if m < 1 or nbins < 2:
+        if m < 1 or len(x) // m < 2:
             out.append(float("nan"))
             continue
+        nbins = len(x) // m
         means = x[: nbins * m].reshape(nbins, m).mean(axis=1)
         out.append(float(np.sqrt(0.5 * np.mean(np.diff(means) ** 2))))
     return np.array(out)
@@ -63,14 +64,17 @@ def main():
     v = load_channel(a.csv, a.channel, "V")
     f, s = asd(v, a.fs)
     sel = (f >= a.band[0]) & (f <= a.band[1])
+    if not sel.any():
+        sys.exit("no frequency bins inside --band %g-%g Hz; the spectrum covers %.3g-%.3g Hz" % (a.band[0], a.band[1], f[0], f[-1]))
     print("channel %d: %d samples, mean %.6f V, rms %.3e V" % (a.channel, len(v), v.mean(), v.std()))
     print("ASD floor (median %g-%g Hz): %.3e V/sqrt(Hz)" % (a.band[0], a.band[1], np.median(s[sel])))
-    taus = [t for t in (0.01, 0.1, 1, 10, 100) if len(v) / a.fs >= 2 * t]
+    taus = [t for t in (0.01, 0.1, 1, 10, 100) if len(v) / a.fs >= 2 * t and t * a.fs >= 1]
     ad = allan_deviation(v, a.fs, taus)
     for t, d in zip(taus, ad):
         print("Allan deviation at tau %g s: %.3e V" % (t, d))
-    if len(taus) >= 2:
-        slope = np.polyfit(np.log(taus), np.log(ad), 1)[0]
+    ok = ~np.isnan(ad)
+    if ok.sum() >= 2:
+        slope = np.polyfit(np.log(np.asarray(taus)[ok]), np.log(ad[ok]), 1)[0]
         print("Allan slope: %.2f (-0.5 white noise, 0 flicker, +0.5 random walk)" % slope)
 
 

@@ -238,11 +238,14 @@ check("functional — the chosen arm's first bending mode (with the device card,
 check("functional — 0.8 mm aluminium sheet is a like-for-like substitute for the FR4 arm in mass and first mode (within 10%)", abs(_al["arm_g"] / _fr4["arm_g"] - 1) < 0.1 and abs(_al["f1_Hz"] / _fr4["f1_Hz"] - 1) < 0.1, f"{_al['arm_g']:.1f} g and {_al['f1_Hz']:.0f} Hz against {_fr4['arm_g']:.1f} g and {_fr4['f1_Hz']:.0f} Hz")
 check("functional — a printed PLA arm needs about twice the thickness of FR4 for a similar first mode and has five times the thermal drift per kelvin", _pla["f1_Hz"] > 0.8 * _fr4["f1_Hz"] and _pla["t_mm"] / _fr4["t_mm"] > 1.5 and _pla["drift_um_per_K"] > 4 * _fr4["drift_um_per_K"], f"{_pla['t_mm']} mm gives {_pla['f1_Hz']:.0f} Hz, {_pla['drift_um_per_K']:.1f} um/K")
 
-import arm_dxf as AD  # noqa: E402
+try:
+    import arm_dxf as AD  # noqa: E402
 
-_dxf, _size, _holes = AD.write_arm_dxf()
-_pw, _ph = AD.panel_layout()
-check("functional — the arm's DXF for the sheet-metal quote has the board's 208 x 60 mm outline and all 7 holes, and the four-design panel fits in 252 x 60 mm", abs(_size[0] - 208) < 1e-6 and abs(_size[1] - 60) < 1e-6 and len(_holes) == 7 and (round(_pw), round(_ph)) == (252, 60), f"outline {_size[0]:.0f} x {_size[1]:.0f}, {len(_holes)} holes, panel {_pw:.0f} x {_ph:.0f} mm")
+    _dxf, _size, _holes = AD.write_arm_dxf()
+    _pw, _ph = AD.panel_layout()
+    check("functional — the arm's DXF for the sheet-metal quote has the board's 208 x 60 mm outline and all 7 holes, and the four-design panel fits in 252 x 60 mm", abs(_size[0] - 208) < 1e-6 and abs(_size[1] - 60) < 1e-6 and len(_holes) == 7 and (round(_pw), round(_ph)) == (252, 60), f"outline {_size[0]:.0f} x {_size[1]:.0f}, {len(_holes)} holes, panel {_pw:.0f} x {_ph:.0f} mm")
+except ImportError as _e:  # arm_dxf pulls in boards.py -> balance.py -> cadquery, ezdxf, kiutils
+    print(f"[SKIP] the arm DXF checks need cadquery, ezdxf and kiutils: {_e}")
 
 import jlc_parcel_mass as JM  # noqa: E402
 

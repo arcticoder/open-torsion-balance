@@ -14,6 +14,6 @@ hardware/instrument/layout/out/*.ses
 hardware/instrument/layout/out/*.dsn
 hardware/instrument/layout/out/*.log
 
-# Stray schematic-test outputs when run from the repo root (the tracked copies live in hardware/instrument/)
-/schematic_test.erc
-/schematic_test.log
+# SKiDL schematic-test outputs (they embed local paths; nothing reads them)
+schematic_test.erc
+schematic_test.log

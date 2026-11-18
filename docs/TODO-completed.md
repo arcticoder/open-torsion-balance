@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-17 — Repository audit items done: `host/logger.py` (an empty serial read no longer ends a live run; `--port`/`--file` required and exclusive; only `ValueError`/`struct.error` are logged as bad payloads; Ctrl-C closes cleanly), `host/analyze.py` (short-tau Allan NaN guard, empty `--band` message, NaN taus dropped before the fit), tests added to `test_host.py`; `instrument/smoke_test.py` (crash reason shown, missing modules become `[SKIP]`, duplicate path insert removed, layout trace-shape test added); `balance/smoke_test.py` skips the arm-DXF block without cadquery/ezdxf/kiutils and still runs the parcel-mass checks (`tools/run_all_smoke_tests.py` passes with the system Python); README, `hardware/README.md` and `plan.md` brought up to date (layout done, order held, 50 parts, links to the archived Part A); tracked `schematic_test.erc/.log` removed and ignored. Last commit's author reset to the user's identity and its Claude trailers dropped (local only; the original is on origin, so the push needs a force).
+
 - 2026-11-15 (chat 16, later) — `clamp_plate` ordered alone by the user, total C$9.64; the coupon gave only US$1.20 because JLC's checkout keeps a nonzero goods line (customs).
 
 - 2026-11-15 (chat 16) — The user reported the JLC checkout: one coupon per order; JLCONE PCBA $20 (found on the coupon center, claimed by the user) applied (cart C$215.50 for all three lines) but the main-board order is held for the Black Friday sale (to place by 2026-12-02 at the latest); `clamp_plate` leaves the combined order and goes alone with a PCB coupon (task 1); the red hacksaw handle is printed (stale slicing text removed from the ballast task); WP10 dropped from the backlog (the order exists).

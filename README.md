@@ -15,11 +15,13 @@ measurement, at a parts cost to be filled in from the final bill of materials.
 | Piece | State |
 |---|---|
 | G1 measurement goal | confirmed 2026-10-23 |
-| G2 mechanics | an FR4 arm board on edge hung from a torsion head, collision-free over the swing, centre of mass solved onto the axis; JLC mechanical boards (Gerbers and DRC done); printed PLA enclosure (1.2 mm plates with a 2 mm rim, no window); field-modelled eddy damper; cutting jigs; [fabrication decisions](docs/fabrication.md), [assembly steps](docs/assembly.md) |
+| G2 mechanics | an FR4 arm board on edge hung from a torsion head, collision-free over the swing, centre of mass solved onto the axis; JLC mechanical boards (the arm, electrode and clamp boards are ordered; the electrode and ground-clamp boards have arrived); printed PLA enclosure (1.2 mm plates with a 2 mm rim, no window); field-modelled eddy damper; cutting jigs; [fabrication decisions](docs/fabrication.md), [assembly steps](docs/assembly.md) |
 | G3 force-noise prediction | 0.108 nN (1σ, 1000 s, in air): a conditional go |
-| WP1–WP3: requirements, 48 JLC-stocked parts, analog block simulations | done |
-| WP4 schematic | done as checked netlists (main board + four head boards, 50 JLC parts); sheet rendering and WP5 layout wait |
-| A5: prototype noise measurement | next; it decides layout and the board order |
+| WP1–WP3: requirements, 50 JLC-stocked parts, analog block simulations | done |
+| WP4 schematic | done as checked netlists (main board + four head boards, 50 JLC parts); readable sheet rendering is in the backlog |
+| WP5 main-board layout | done to the DFM gate (120 x 90 mm, 4 layers, routed); fab files in `hardware/instrument/fab/` (Gerbers, BOM, CPL, `ORDER.md`) |
+| Main-board order | route decided (Economic PCBA, 2 boards assembled, LIS2DW12 not placed on the first articles); in the JLC cart, held for the Black Friday sale |
+| A5: prototype noise measurement | after the board arrives and passes bring-up (`docs/bringup.md`); it runs on the assembled board, not on breadboards |
 
 The prediction is dominated by air currents (4.8 nN/√Hz), so the verdict flips at about 4 mm/s of air-speed
 fluctuation; the enclosure is the biggest noise control. The model reproduces six published numbers, from

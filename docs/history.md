@@ -3954,3 +3954,27 @@ I also recorded the tidy-up in the handoff notes. TODO-agent.md is at 0 lines, a
 TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+Both items are done.
+
+**1. Author of the last commit.** It's now authored by Arcticoder, and I dropped its Claude co-author and Claude-session trailers. The trailer is likely what made Claude show up under Contributors.
+- **Needs a force-push:** the original commit is already on `origin/main`, so my local copy and origin have diverged by one commit each. I didn't push. Run `git push --force-with-lease` when you're ready.
+- **Contributors list:** I expect Claude to drop off it after that.
+
+**2. Audit items.** All 13 are done and TODO-agent.md is at 0 lines. I verified the fixes by running the host tests and both smoke tests.
+- **[logger.py](spurious-force-balance/hardware/instrument/host/logger.py):**
+  - An empty serial read no longer ends a live run. It runs until Ctrl-C and then closes the files and prints the counts.
+  - `--port` or `--file` is now required, and only one may be given.
+  - Only malformed-payload errors (`ValueError`, `struct.error`) are logged as bad payloads. Other errors now propagate.
+- **[analyze.py](spurious-force-balance/hardware/instrument/host/analyze.py):** a tau shorter than one sample returns NaN instead of dividing by zero, and NaN taus are dropped before the fit. An empty `--band` exits with a message giving the frequency range.
+- **[test_host.py](spurious-force-balance/hardware/instrument/host/test_host.py):** three new cases cover the quiet serial read, an empty read ending a recorded-file run, and the short tau.
+- **[instrument/smoke_test.py](spurious-force-balance/hardware/instrument/smoke_test.py):**
+  - A crashed sub-test now shows the reason instead of "all pass".
+  - A missing module becomes a `[SKIP]`.
+  - The layout trace-shape test is added, and the duplicate path insert is gone.
+- **[balance/smoke_test.py](spurious-force-balance/hardware/balance/smoke_test.py):** it skips the arm-DXF block when cadquery, ezdxf or kiutils is missing and still runs the parcel-mass checks. With the system Python, `tools/run_all_smoke_tests.py` now passes, so the `hardware/README.md` claim holds.
+- **Docs:** README, `hardware/README.md` and `plan.md` now show the layout done and the order held. They use the 50-part count and link to the archived Part A.
+- **Stray log files:** I removed the tracked `schematic_test.erc` and `.log` and added them to `.gitignore`. They embedded your home path and nothing read them.
+
+Running the balance smoke test with the venv Python rewrites `arm_cnc.dxf`, so run `git checkout` on that file afterward. I recorded that in the handoff notes. I committed nothing beyond the amend.
+<!-- ------ -->
+---

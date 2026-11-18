@@ -16,7 +16,6 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pins as P  # noqa: E402
-sys.path.insert(0, HERE)
 
 failures = []
 
@@ -108,30 +107,58 @@ else:
 # the schematic: pin accounting, data-sheet nets, footprints, BOM against parts.py, design numbers (schematic/schematic_test.py)
 import subprocess  # noqa: E402
 
+
+def _detail(proc, fail_lines, ok_text="all pass"):
+    """Why a sub-test failed: its [FAIL] lines, else the last line of stderr (a crash such as a missing module); 'all pass' only for a zero return code."""
+    if fail_lines:
+        return "; ".join(fail_lines)
+    if proc.returncode == 0:
+        return ok_text
+    err = [ln for ln in proc.stderr.splitlines() if ln.strip()]
+    return "exit code %d: %s" % (proc.returncode, err[-1] if err else "no output")
+
+
+def check_run(label, proc, fail_lines, ok_text="all pass"):
+    """check() for a sub-test process; a missing module (not installed here) is a [SKIP], not a failure."""
+    if proc.returncode != 0 and not fail_lines and "ModuleNotFoundError" in proc.stderr:
+        print("[SKIP] %s: %s" % (label, [ln for ln in proc.stderr.splitlines() if ln.strip()][-1]))
+        return
+    check(label, proc.returncode == 0, _detail(proc, fail_lines, ok_text))
+
+
 _sch = subprocess.run([sys.executable, "-I", os.path.join(HERE, "schematic", "schematic_test.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "schematic"))  # SKiDL writes .erc/.log files into the working directory
 _tail = [ln for ln in _sch.stdout.splitlines() if ln.startswith(("FAIL", "schematic checks passed"))]
-check("functional — the schematic's pin accounting, data-sheet nets, footprints, BOM and design numbers all pass", _sch.returncode == 0, "; ".join(_tail[:3]))
+check_run("functional — the schematic's pin accounting, data-sheet nets, footprints, BOM and design numbers all pass", _sch, _tail[:3], "schematic checks passed")
 
 # the firmware layer on the host: the ADS131A04 driver against a simulated device (firmware/test_ads131a04.py)
 _fw = subprocess.run([sys.executable, "-I", os.path.join(HERE, "firmware", "test_ads131a04.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "firmware"))
 _fw_fail = [ln for ln in _fw.stdout.splitlines() if ln.startswith("[FAIL]")]
-check("functional — the ADS131A04 driver passes its host tests against the simulated device (CRC vector, 8 kSPS setting, bring-up, decode, CRC and frame faults)", _fw.returncode == 0, "; ".join(_fw_fail[:2]) or "all pass")
+check_run("functional — the ADS131A04 driver passes its host tests against the simulated device (CRC vector, 8 kSPS setting, bring-up, decode, CRC and frame faults)", _fw, _fw_fail[:2])
 
 _dac = subprocess.run([sys.executable, "-I", os.path.join(HERE, "firmware", "test_mcp4728.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "firmware"))
 _dac_fail = [ln for ln in _dac.stdout.splitlines() if ln.startswith("[FAIL]")]
-check("safety — the MCP4728 driver enforces the LED (20 mA), plate (18.8 V) and device-current (300 mA) limits, never programs the EEPROM, and powers up at 0 V", _dac.returncode == 0, "; ".join(_dac_fail[:2]) or "all pass")
+check_run("safety — the MCP4728 driver enforces the LED (20 mA), plate (18.8 V) and device-current (300 mA) limits, never programs the EEPROM, and powers up at 0 V", _dac, _dac_fail[:2])
 
 _fwdir = os.path.join(HERE, "firmware")
 _runs = [subprocess.run([sys.executable, "-I", os.path.join(_fwdir, n)], capture_output=True, text=True, cwd=_fwdir) for n in ("test_sensors.py", "test_lockin.py", "bringup_adc.py", "bringup_sensors.py")]
-check("functional — the sensor drivers and the fixed-point lock-in pass their host tests (TMP117 Table 7-1 codes, MMC5983MA SET/RESET, LIS2DW12 scaling; lock-in DC, mains, phase, linearity, 32-bit headroom) and both bring-up scripts run clean against simulated chips", all(r.returncode == 0 for r in _runs), "; ".join(ln for r in _runs for ln in r.stdout.splitlines() if ln.startswith("[FAIL]"))[:200] or "all pass")
+check("functional — the sensor drivers and the fixed-point lock-in pass their host tests (TMP117 Table 7-1 codes, MMC5983MA SET/RESET, LIS2DW12 scaling; lock-in DC, mains, phase, linearity, 32-bit headroom) and both bring-up scripts run clean against simulated chips", all(r.returncode == 0 for r in _runs), "; ".join(_detail(r, [ln for ln in r.stdout.splitlines() if ln.startswith("[FAIL]")][:2]) for r in _runs if r.returncode != 0)[:300] or "all pass")
 
 _host = subprocess.run([sys.executable, "-I", os.path.join(HERE, "host", "test_host.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "host"))
 _host_fail = [ln for ln in _host.stdout.splitlines() if ln.startswith("[FAIL]")]
-check("functional — the streaming protocol resynchronizes after garbage, damage and false sync patterns, the logger writes correct CSV, and the noise analysis recovers known ASD, tone amplitude and Allan slopes", _host.returncode == 0, "; ".join(_host_fail[:2]) or "all pass")
+check_run("functional — the streaming protocol resynchronizes after garbage, damage and false sync patterns, the logger writes correct CSV, and the noise analysis recovers known ASD, tone amplitude and Allan slopes", _host, _host_fail[:2])
 
 _panel = subprocess.run([sys.executable, "-I", os.path.join(HERE, "heads_panel", "check_panel.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "heads_panel"))
 _panel_fail = [ln for ln in _panel.stdout.splitlines() if ln.startswith("[FAIL]")]
-check("functional — the sensor-head panel for the early PCBA order: BOM equals two head-1 and two head-2 circuits, DRC has no unconnected nets or clearance errors, the panel meets Standard PCBA's 70 x 70 mm minimum", _panel.returncode == 0, "; ".join(_panel_fail[:2]) or "all pass")
+check_run("functional — the sensor-head panel for the early PCBA order: BOM equals two head-1 and two head-2 circuits, DRC has no unconnected nets or clearance errors, the panel meets Standard PCBA's 70 x 70 mm minimum", _panel, _panel_fail[:2])
+
+# the layout trace-shape checker's own test (needs kiutils; skipped without it)
+try:
+    import kiutils  # noqa: F401
+    _lay = subprocess.run([sys.executable, "-I", os.path.join(HERE, "layout", "test_mainboard_geometry.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "layout"))
+    _lay_fail = [ln for ln in _lay.stdout.splitlines() if "FAIL" in ln]
+    check_run("functional — the main-board trace-shape checker catches an off-45 segment and an acute joint and passes a clean board (layout/test_mainboard_geometry.py)", _lay, _lay_fail[:2])
+except ImportError:
+    print("[SKIP] the layout trace-shape test needs kiutils")
 
 if failures:
     print(f"\n{len(failures)} check(s) failed: {failures}")
