@@ -4094,3 +4094,15 @@ We can split it. It's a design change rather than an impossibility. My earlier "
 I'd try the JLC support chat first (option 1 in task 1). If they refuse and you want no UPS at all, say so and I'll start the split. I'd only choose it if you also want the analog/digital separation for its own sake.
 <!-- ------ -->
 ---
+The C$44.44 is carriage only. It doesn't include duty or tax.
+
+The checkout lists UPS under "CPT", described as "Duty, tax, and the carrier's clearance handling fee collected before or at the time of delivery at the destination." That means those charges are billed to you separately, normally at delivery, and the page shows no estimate of them. The grand total of C$262.58 before coupons doesn't contain them either.
+
+What I'd expect on top, as my own estimates and not JLC's figures:
+- **GST:** 5% on the goods and freight, about C$11 on roughly C$220.
+- **Duty or tariff:** I don't know of a Canadian duty on assembled circuit boards from China. I haven't checked the current tariff schedule, so I'd treat the duty as unknown rather than zero.
+- **UPS clearance fee:** a brokerage charge UPS adds on top. I don't know the amount.
+
+So the all-in cost would be somewhat above C$220. I can't give you a firm number, because the page doesn't show one. If you want the figure before committing, the JLC support chat can say what the duty and tax would be, so add that question to the one about the Global Standard Direct Line cap. I'll add it to the message in task 1.
+<!-- ------ -->
+---
