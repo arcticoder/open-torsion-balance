@@ -4058,3 +4058,19 @@ Your options, now task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TOD
 I left the checkout parked at Submit Order and submitted nothing. I committed nothing, and TODO-agent.md is at 0 lines.
 <!-- ------ -->
 ---
+Probably not for this order, but one comparison quote on the main board is cheap and worth trying.
+
+**Why I'd stay with JLC for now**
+- **Parts library:** the real value is that the 45-part BOM is already tied to JLC's own library of stocked parts, with LCSC part numbers. Other assemblers source parts from Digi-Key or Mouser or ask you to supply them, so the parts cost would likely be higher. That's my general understanding, not a quote.
+- **Packaging:** your arm parcel is explained in part by their weight rule. My notes record that the shipping weight is the board area times thickness plus about 155 g of packing. So the packing counts toward your shipping cost.
+- **The real problem:** the cap on Global Standard Direct Line is a shipping-policy rule, not a fabrication one. Another fab would mostly give you a different courier, such as DHL, and the same delivery-time duty and clearance fees.
+
+**What a switch would involve**
+- **Candidates:** PCBWay and Seeed Fusion take Gerbers, BOM and pick-and-place files for assembled boards and ship from China. A Canadian shop would skip customs, but prototype assembly there normally costs much more. I haven't looked at current prices, so none of this is a quote.
+- **Bare boards:** switching only helps the plain mechanical boards, and those are already ordered.
+
+**What I'd do:** try the JLC support chat first (option 1 in task 1). In parallel, you could get a PCBWay assembly quote from the same files in `hardware/instrument/fab/` (Gerbers, BOM, CPL). That would tell us whether anyone beats about C$220 plus UPS. I can't drive other sites, so the upload and the quote are yours.
+
+I added the comparison quote as a fourth option under task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md).
+<!-- ------ -->
+---
