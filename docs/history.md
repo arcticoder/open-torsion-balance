@@ -4040,3 +4040,21 @@ If you'd rather not pay C$44.44 for UPS, the alternative is splitting the order 
 I put the steps in task 1 of [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md) and recorded the click, dialog and checkout findings in the JLC notes. The checkout page shows your full name and address, which I kept out of every file. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+Splitting the order won't get you under the Global Standard cap, and it would cost more than the UPS charge.
+
+I told you earlier that Global Standard Direct Line would cost C$24.06 for this order. That figure was only the cart's estimate, and the method was never selectable at this order size. JLC refuses it above US$99 of merchandise (about C$141), and your order is C$218.14. That was my mistake.
+
+Splitting doesn't fix it for two reasons:
+- **The PCBA line alone is over the cap.** It's C$172.79, so no split of the order gets it under C$141.
+- **Each extra order repeats about C$50 of fixed fees.** From the quote's charge lines, that's engineering C$35.76, setup C$11.79 and stencil C$2.22. That's more than the C$44.44 UPS charge.
+
+Splitting the board itself into smaller boards would cost more in fees and need a redesign.
+
+Your options, now task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md):
+1. **Ask JLC support to allow it.** Use the account's Live Chat and ask whether Global Standard Direct Line can be used for this order despite the US$99 rule. The notes have the wording, and your account is the one that has to send it. Support sometimes makes exceptions, but I can't promise they will.
+2. **Accept UPS.** UPS collects duty, tax and its clearance fee at delivery on top of the C$44.44, which is the fee surprise you're worried about. I don't have JLC's figure for it.
+3. **Wait for the sale to end and re-quote.** The coupons run to 2026-12-03.
+
+I left the checkout parked at Submit Order and submitted nothing. I committed nothing, and TODO-agent.md is at 0 lines.
+<!-- ------ -->
+---
