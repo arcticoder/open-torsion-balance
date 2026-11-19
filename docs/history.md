@@ -3997,3 +3997,26 @@ Black Friday is live, and there are likely coupons that beat the PCBA $20 now in
 The coupon ledger and the deal-watch note in `TODO-BLOCKED.md` are updated. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+I claimed the coupons, which brings the cart's discount to C$42.91, but I couldn't get into the checkout. JLC's updated-Terms dialog is open in the cart tab, and accepting terms is your step, so I stopped there. I did not submit or pay anything.
+
+**Coupons claimed:** all are valid to 2026-12-03 and now sit in your account list.
+- **PCBA, $50 off $100:** C$42.84, for PCBA lines over C$142.81.
+- **$30 Off $50 and PCB $30 Off $50:** C$42.84 each, over C$71.41.
+- **JLCONE 26 BF PCB $20 Mega:** C$28.56.
+- **JLCONE 26 BF 20% Off and 10% Off:** valid on orders over C$0.14. The page shows no cap.
+
+**Cart:** both main-board lines are ticked and the cart weighs 0.76 kg. Merchandise is C$217.65. The cart applied −C$42.91 by itself, which is C$14 better than the PCBA $20.
+
+**Estimated total:** about C$199. That uses the Global Standard Direct Line rate seen earlier, C$24.08 at 0.90 kg. I don't know the rate at 0.76 kg. The cart's own subtotal of C$219.18 uses UPS at C$44.44, which isn't the real shipping.
+
+**20% Off:** it would take about C$43.5 off if it has no cap, which is a little more than the applied coupon. I can't tell from here whether the cart considered it, so check the coupon selector at checkout.
+
+**Your steps:** accept or decline the Terms dialog, then Secure Checkout. Choose Global Standard Direct Line, compare the coupons in the selector, read the total and place it if it's acceptable. This is task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md).
+
+**Arm boards:** all five are intact, with black mask and gold ENIG pads as designed, and the dark patches are reflections. I saved the two photos as lossless `.jxl` files (about 0.5 MB each) and deleted `Photos-1-004.zip`:
+- [arm_silk_side_2026-11-18.jxl](spurious-force-balance/docs/img/arm_silk_side_2026-11-18.jxl)
+- [arm_pad_side_2026-11-18.jxl](spurious-force-balance/docs/img/arm_pad_side_2026-11-18.jxl)
+
+I logged the arrival in the TODO list, the lab inventory (bag not recorded) and the handoff notes. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
