@@ -644,6 +644,9 @@ def stitch_pour(b, net=None, reach=1.2):
 
 
 FAB = os.path.join(HERE, "..", "fab")
+# Left off the fab BOM and CPL (the footprint stays on the board, unpopulated): U7 (LIS2DW12TR) is Standard-PCBA-only and the first articles use Economic PCBA.
+# Leaving it in makes JLC's BOM page ask about "unselected parts" at every NEXT. Reinstate it here when the Standard route is used.
+DNP_FIRST_ARTICLES = {"U7"}
 
 
 def fab():
@@ -678,7 +681,7 @@ def fab():
             lcsc[ref], value[ref], foot[ref] = mm.group(1), val, fp.split(":")[-1]
     rows = defaultdict(list)
     for r in sorted(lcsc, key=lambda r: (re.match(r"[A-Z]+", r).group(0), int(re.sub(r"\D", "", r) or 0))):
-        if lcsc[r] not in ("", "C0"):
+        if lcsc[r] not in ("", "C0") and r not in DNP_FIRST_ARTICLES:
             rows[(lcsc[r], value[r], foot[r])].append(r)
     with open(os.path.join(FAB, "bom.csv"), "w", newline="") as f:
         w = csv.writer(f)
@@ -694,7 +697,7 @@ def fab():
         w = csv.writer(fo)
         w.writerow(["Designator", "Mid X", "Mid Y", "Layer", "Rotation"])
         for row in rd:
-            if row["Ref"].startswith("MH"):
+            if row["Ref"].startswith("MH") or row["Ref"] in DNP_FIRST_ARTICLES:
                 continue
             w.writerow([row["Ref"], row["PosX"], row["PosY"], "Top", row["Rot"]])
             n_cpl += 1

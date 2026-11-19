@@ -4020,3 +4020,23 @@ I claimed the coupons, which brings the cart's discount to C$42.91, but I couldn
 I logged the arrival in the TODO list, the lab inventory (bag not recorded) and the handoff notes. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+The checkout is open at the last step, "3. Submit Order", and I stopped there. I didn't submit or pay. The order doesn't fit Global Standard Direct Line, so shipping is UPS.
+
+**What was wrong:**
+- **U7:** JLC's BOM table has no delete for a row. So I removed U7 from `fab/bom.csv` and `fab/cpl.csv`, and added a skip list to the generator in `layout/mainboard.py` so a regenerate keeps it out. I re-uploaded both files, and the BOM is now 45 parts with no "unselected parts" dialog. The U7 footprint stays on the board, unpopulated, and `ORDER.md` says so.
+- **PCB build time:** it is now "3-4 days". JLC resets it to "3 days PCBA Only" each time the edit page reopens. I also had to re-select it because my earlier saves never took.
+- **Product description:** this was why Save to Cart did nothing. It needed a customs category in the right-hand panel. I chose Sensor/Controller/Precision Instrument → Circuit Control (HS 853890), as a best guess; change it through the cart's Edit Order if you'd rather use another category.
+- **Terms dialog:** I told you earlier there was one. That was wrong. I had read a hidden element in the page as a visible dialog.
+
+**Checkout state:**
+- **Cart and shipping:** the cart line is `main_board_gerbers_Y10`, replacing the old line. Merchandise is C$218.14 and UPS Worldwide Express Saver is C$44.44, so the page shows a grand total of C$262.58 before coupons.
+- **Coupon at payment:** JLC applies coupons on the payment page after Submit Order. The cart applied −C$42.91, which gives about C$219.67, but I haven't seen the final figure.
+- **Global Standard Direct Line:** it is refused, with the message you saw. The order is over US$99, so it only offers the paid couriers.
+- **DHL and FedEx:** clicking them didn't change the estimate on this page.
+- **20% Off:** it could beat the −C$42.91 if it has no cap. Check the coupon selector on the payment page.
+
+If you'd rather not pay C$44.44 for UPS, the alternative is splitting the order so the PCB and PCBA each ship by Global Standard. The PCBA alone is still over US$99, so that wouldn't help.
+
+I put the steps in task 1 of [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md) and recorded the click, dialog and checkout findings in the JLC notes. The checkout page shows your full name and address, which I kept out of every file. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
