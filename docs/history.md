@@ -4074,3 +4074,23 @@ Probably not for this order, but one comparison quote on the main board is cheap
 I added the comparison quote as a fourth option under task 1 in [TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md).
 <!-- ------ -->
 ---
+We can split it. It's a design change rather than an impossibility. My earlier "it costs more" was only half right: with two coupons the split roughly breaks even, so it comes down to your time and the deadline.
+
+**What a split could look like**
+- **Natural seam:** one board for the optical readout, ADC and sensors, which is the analog-sensitive part. The other board holds the RP2040, USB, power, boost and plate driver.
+- **Cost of the split:** a cable or board-to-board connector between them. Several nets cross the seam, including SPI, the LED modulation lines and the DAC outputs.
+- **Possible side benefit:** separating the analog part from the digital part can help noise, but that's a design call, not a given.
+
+**The numbers (estimates from the quote lines, not quotes)**
+- **Cap:** each order must stay under about C$141 (US$99) of merchandise for Global Standard Direct Line.
+- **Order sizes:** each split order would run about C$135, because the extra fixed fees (about C$50 for the second order) and a connector pair add to the C$218 total.
+- **Coupons:** the limit is one coupon per order, but two orders can use two coupons. You hold $30 Off $50 (C$42.84, minimum C$71.41) and the 20% Off. The PCBA $50 coupon would not qualify, since its minimum is C$142.81.
+- **Net cost:** that nets about C$200 of merchandise, plus two Global parcels at about C$10 each (a guess from the earlier small-parcel rates). The total is about C$220, close to today's UPS route at about C$220 before delivery-time fees. The gain is dodging UPS's duty and clearance fees.
+
+**What it costs in effort**
+- **Redesign:** schematic, layout (routing the current board was long), checks, DFM and fab files all repeat for two boards. That is several sessions of my work, and the coupons expire 2026-12-03, so the redesign would not make this sale.
+- **Open question:** I don't know whether the US$99 cap counts the price before or after the discount.
+
+I'd try the JLC support chat first (option 1 in task 1). If they refuse and you want no UPS at all, say so and I'll start the split. I'd only choose it if you also want the analog/digital separation for its own sake.
+<!-- ------ -->
+---
