@@ -4126,3 +4126,95 @@ The main-board order is in production at JLC; I read it in the JLCONE app and up
 I left out the card details and your address, which the order page prints. The base print is tomorrow at 07:30. TODO-agent.md is at 0 lines, and I committed nothing.
 <!-- ------ -->
 ---
+The knowledge-base notes are up to date, and the context block for the next chat is below. TODO-agent.md is at 0 lines, I committed nothing, and the notes carry no order numbers.
+
+**Notes updated**
+- `docs/kb/session_handoff.md` is rewritten as the chat-16 final state:
+  - The main board is ordered and in production.
+  - It records why UPS was forced, the one-coupon rule, the privacy and redaction rules, and the JLCONE-driving lessons.
+  - It also covers the audit and tidy-up status and the git author and force-push state.
+  - The old checkout-in-progress bullets are folded in, and the standing rules are updated.
+- `lab/docs/kb/jlc_account_and_quotes.md` and `lab/docs/kb/README.md` carry the findings from this session. `docs/jlc/coupons.md` carries the coupon ledger.
+
+**Updated context block for the next chat**
+
+```context
+I'm building a small experimental-physics lab across two repos, both open in this workspace.
+  - lab (github.com/arcticoder/lab): reusable bench instruments — Raspberry Pi Pico/RP2040 circuits with
+    SPICE netlists, breadboard guides and pass/fail smoke tests — plus the shared parts inventory and
+    order ledger (docs/inventory.md, docs/orders.md), my filament stock and tools (docs/inventory.md,
+    "Filament" and "Tools", including a Dremel 3000), and my JLC account notes (docs/jlc/: coupons read from
+    my account, captures and reads of JLC's quote pages, docs/kb/jlc_account_and_quotes.md).
+  - spurious-force-balance (github.com/arcticoder/spurious-force-balance): the first experiment — an open,
+    low-cost torsion balance that quantifies the spurious forces (supply-lead Lorentz forces, heating,
+    convection) that dominate small-thrust measurements. Printable mechanics (CadQuery), FR4 fab boards for
+    the arm and electrodes, a force-noise model, and JLCPCB-assembled RP2040 electronics (KiCad 9, SKiDL,
+    ngspice, MicroPython firmware tested on the host). KiCad/SKiDL is the design source: I dropped the
+    EasyEDA/Spark route on 2026-11-01 (shelved; never offer EasyEDA, Spark, its MCP or the validator again).
+    No more hand-built electronics: the instrument is fab-assembled boards.
+    State (2026-11-20): the main board (WP5, 120 x 90 mm, one board, 4 layers) is ORDERED and in production at
+    JLC (I placed it 2026-11-18: 5 PCBs + 2 Economic PCBA boards with the LIS2DW12 (U7) left off the BOM and
+    CPL, C53-C55 on the basic C29823; JLCONE 20% Off applied; total US$150.32 including UPS shipping US$30.97;
+    UPS bills duty, tax and clearance fees at delivery, which are not in that total: ask me for the amount
+    when it lands). Global Standard Direct Line is refused over US$99 of merchandise and JLC will not split an
+    order, so UPS it is. The arm, elec_board (10 boards arrived for 5 ordered) and clamp_ground have arrived;
+    clamp_plate (ordered alone 2026-11-15) is shipped. JLC takes ONE coupon per order and the payment page's
+    selector, not the cart, shows the best one; unused flash coupons run to 2026-12-03 (lab/docs/jlc/coupons.md).
+    Next for the electronics: arrival, then docs/bringup.md (skip the LIS2DW12 check). The calibration uses
+    added inertia (confirmed); the riders are printed; a 1-20 g weight set came with the glasses order. The
+    enclosure is decided: printed PLA plates (1.2 mm with a 2 mm rim, no window; grey walls, red lid, black
+    strips). The ballast is one 15 mm hacksaw cut of the 10 mm brass rod in the printed saw guide; the printed
+    pad-saw handle is done (red, matches the STL); the cut waits on the safety glasses and weights (AliExpress
+    order of 2026-11-14, in transit) and the blades (2026-11-10 parcel, in transit); test the blade grip first.
+    My last commit's author was reset locally to my identity (the original is on origin, so I must force-push
+    with --force-with-lease); never put a Claude co-author trailer on any commit.
+  - Printing: the K1-FA35 is on my balcony with the door shut and I work in the office: there is no camera and
+    I cannot hear it, so give me clock-time visual checks, never audible ones. I plug it in, switch it on and
+    load the filament you advise (spools live in a sealed freezer bag on a roller); you run heating, homing
+    and starting only when I ask in that message. Slicing only on Sonnet or better. The agent drives
+    OrcaSlicer (2.5.0 flatpak, API on 13130) and the K1 through MCP and Moonraker (wsl workspace: connection
+    notes, docs/print-session-runbook.md sections E, F and G, the K1 note). Printed so far: plate 1, the small
+    plate, the gantry, all four posts with their bars, the strip guide, two calibration riders, the four wall
+    strips and two lid strips (no strip is torn; the strips' missing H section is by design) and the hacksaw
+    handle. Left: the base (sliced, 4 h 28 min at 20 % infill, Saturday 2026-11-21 07:30-12:30, black filament
+    loaded back over the red with about 110 mm of push), then the grey wall plates and red lid tiles. The first
+    print after a power-on uses the normal start (runbook section E); later prints in the same session use the
+    fast start.
+  Constraints: no hand soldering; fab boards use only JLC's machine-placed SMT parts; USB power, under
+  50 V DC / 30 V AC; PLA only on my Creality K1; AliExpress for stock parts (no single-item shipping fees),
+  JLC PCB/PCBA/3DP/CNC when fabrication beats buying and cutting by hand; design to stock sizes. I'm in
+  Canada and JLC prices on my account are in CAD on the cart and in USD on order pages. I will not pay a
+  shipping premium for a tiny order, and I dislike courier customs fees.
+  JLC quote, BOM/CPL, cart, message, coupon and order pages can be read and driven through my JLCONE desktop app
+  when I launch it with --remote-debugging-port=9222 (recipe and gotchas in lab/docs/kb/jlc_account_and_quotes.md:
+  only trust a dialog with a visible bounding box, click with Input.dispatchMouseEvent and check with a
+  screenshot): text reads, paced clicks, uploads of this repo's own Gerber, BOM and CPL files (a draft's BOM/CPL
+  page is not an order). Never call JLC's API, never touch the cookies, never accept terms for me, never submit
+  or pay; Save to cart, Secure Checkout and claiming coupons only when I say so in that message: I approve and
+  pay, and I place at most one order per day. Treat any JLC price not from my words, my captures or a page read
+  through the app as an estimate. Never put parcel tracking numbers, long JLC order numbers, card digits, my
+  name or address, or secrets in chat or files (they are redacted in the markdown files). Only say you did
+  something if the transcript shows it.
+  docs/history.md is my chat transcript: never append to it (I paste the full summary myself), don't edit
+  existing text, and don't use it as an analysis source unless I name lines to read. Pictures are lossless
+  .jxl (keep them small, about 0.5-0.7 MB); .jxl and .eprj2 are Git LFS (the .eprj2 is leftover from the
+  dropped route; I decide whether to keep it). Don't commit anything in these repos: I stage and commit
+  everything after each chat.
+  Workflow: docs/TODO-agent.md is the agent's own list and must be empty (0 lines) at the end of every chat:
+  do startable items, move truly blocked ones to TODO-BLOCKED.md with the exact condition (TODO-backlog.md and
+  TODO-completed.md sit beside it). My hands-on tasks live in docs/TODO-arcticoder.md as separately numbered
+  tasks for me only; any task or decision you give me in chat goes there too. Keep docs/kb/*.md (LLM-only
+  notes) up to date with discoveries. Don't quote me or describe how I said things in files or chat. Keep an
+  eye on the supply chain: always have a few AliExpress or JLC items in transit, and watch for deals.
+  Start by reading docs/kb/README.md and docs/kb/session_handoff.md in spurious-force-balance, then
+  lab/docs/kb/README.md and lab/docs/kb/jlc_account_and_quotes.md. Then continue from
+  docs/TODO-arcticoder.md, docs/TODO-BLOCKED.md and my feedback below.
+
+## Read first
+
+Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last sections), `docs/kb/printing_state.md`, `hardware/instrument/fab/ORDER.md`, `docs/TODO-arcticoder.md`, `docs/TODO-BLOCKED.md`, `~/Code/sysadmin/wsl/docs/kb/apps/k1-moonraker.md` and `~/Code/sysadmin/wsl/docs/print-session-runbook.md` for the printer side.
+```
+
+One thing for you before the next chat: the amended commit is local only, so push it with `git push --force-with-lease` (a plain `git pull` will keep showing the divergence).
+<!-- ------ -->
+---
