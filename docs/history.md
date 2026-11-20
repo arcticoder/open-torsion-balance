@@ -4106,3 +4106,23 @@ What I'd expect on top, as my own estimates and not JLC's figures:
 So the all-in cost would be somewhat above C$220. I can't give you a firm number, because the page doesn't show one. If you want the figure before committing, the JLC support chat can say what the duty and tax would be, so add that question to the one about the Global Standard Direct Line cap. I'll add it to the message in task 1.
 <!-- ------ -->
 ---
+The main-board order is in production at JLC; I read it in the JLCONE app and updated the notes.
+
+**Order (read 2026-11-20, order page in USD):**
+- **Items:** the PCB (5 pcs, $31.70) and the Economic PCBA (2 pcs, $120.86). Merchandise is $152.56.
+- **Shipping and total:** UPS Worldwide Express Saver is $30.97 (about C$44). The discount is −$33.21. The total is $150.32, about C$215.
+- **Timeline:** submitted 2026-11-18 20:33 and the file was approved a minute later. It was reviewed, paid and put in production on 2026-11-20 at 05:50, and it's now in Data Preparation. The cart estimated shipping around 2026-11-24.
+- **Coupon:** it was the JLCONE 20% Off (Max $200), per the Used Coupons tab. It beat the C$42.91 the cart had shown, so the payment page's coupon selector is where to judge coupons, not the cart. I recorded that in the notes.
+- **Build time:** the order page shows PCB 3 days and PCBA 3-4 days.
+- **Fees at delivery:** UPS collects duty, tax and clearance fees on top, and none of that is in the $150.32. When the delivery notice arrives, tell me the amount and I'll log it.
+
+**Other parcels:** the `clamp_plate` order is now Shipped. That order cost $6.77, which is the C$9.64 you paid. With the main board and the two AliExpress orders still in transit, something is en route on every supply line.
+
+**Files updated:**
+- **[TODO-arcticoder.md](spurious-force-balance/docs/TODO-arcticoder.md):** the order task is gone and the main board is in "En route". Your tasks are now 1 print windows and 2 the brass cut.
+- **`TODO-BLOCKED.md`:** the JLC deal-watch item is removed.
+- **Notes and ledger:** TODO-completed, the handoff, `fabrication.md`, and the lab JLC notes and coupon ledger.
+
+I left out the card details and your address, which the order page prints. The base print is tomorrow at 07:30. TODO-agent.md is at 0 lines, and I committed nothing.
+<!-- ------ -->
+---
