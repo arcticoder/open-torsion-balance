@@ -4242,3 +4242,34 @@ The device card is its own small board. The main board isn't missing anything.
 The card is needed only for the lead-current runs, which come after the noise run. It also has no hand-soldered parts, so it has to be a JLC-assembled board. It should ride along with a later JLC order that carries other boards, so it isn't a tiny order with a shipping premium. That is why I parked it in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md).
 <!-- ------ -->
 ---
+Everything you listed is logged. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed. Your list wasn't clear on a couple of points, so I made assumptions, flagged below.
+
+**1–7. Arrivals.** I logged them in `lab/docs/orders.md` and `lab/docs/inventory.md`. That clears the washer gate, so the 2026-11-10 parcel is no longer blocking assembly. Your list named line 788 twice and skipped the LR44 cells, so I logged the cells as arrived but unconfirmed. Please tell me if that's wrong. I couldn't check whether the files are round or flat, or whether the 1 g weight is magnetic. The 1–20 g set is still in transit. Its listing says nickel-plated steel, so keep those weights away from the damper magnets.
+
+**8. Bags.** The three top-level bags are now in the inventory map, and the labelled bags (LEDS and so on) sit inside ELECTRONICS.
+- **ELECTRONICS:** the JST-SH cables, in the `MISC` inner bag.
+- **BALANCE MATERIALS:** the scale and the 1 g weight, which gets its own little baggie because that bag has no inner bags. The weight set goes the same way when it arrives.
+- **MISC TOOLS:** the washers, blades, needle files, calipers and spare cells.
+
+**9. Print windows.** The schedule is in task 2 of [TODO-arcticoder.md](docs/TODO-arcticoder.md).
+- **Sun 11-22 morning:** 2 big grey wall plates.
+- **Sun 11-22 afternoon:** 2 big wall plates and one plate of two small ones.
+- **Wed 11-25:** the second small-wall plate and 1 red lid tile.
+- **Sat 11-28:** 3 lid tiles.
+
+That fits the estimates, but the Sunday morning window is tight at about 112 of 120 minutes. I slice each file the day before, so the Sunday files get sliced on 11-21. Load grey before Sunday and red before the Wednesday lid tile.
+
+**10. Ballast hole.** Yes, check it now. It's task 3: caliper the rod at three places and the 10.2 mm hole, then push the rod through.
+
+**11. Tools.**
+- **Screwdriver:** try your Phillips drivers in a loose M3 pan head from the MISC TOOLS bag. The one that seats fully with no wobble, without touching the bottom of the recess, is the right one (usually PH1). It's task 4.
+- **Knife, ruler, level:** the X-acto, the 30 cm ruler and the small level all count, so I logged them as owned.
+- **Ground wire:** the pre-cut 0.5 mm tinned copper wires work. That's about 24 AWG, and the 1.3 mm insulation fits the 1.6 mm plated hole in the clamp tab.
+
+**12. TODO clutter.** [TODO-arcticoder.md](docs/TODO-arcticoder.md) is now six actions plus a three-line "En route" list. The arrival details moved to the KB and the completed log.
+
+**13. Spending.** The device card moved to [TODO-backlog.md](docs/TODO-backlog.md). I replaced the staged AliExpress cart there with a note that purchases are on hold. I also saved your spend-shy stance as a standing preference, so I won't propose purchases or carts until the build shows progress.
+
+The earlier note about "head-hole measurement steps" has no spec behind it, so I dropped it. The head's holes get a test-fit at assembly instead.
+<!-- ------ -->
+---

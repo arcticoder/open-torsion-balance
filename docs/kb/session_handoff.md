@@ -18,7 +18,7 @@
 - **Where the how-to lives:** `lab/docs/kb/jlc_account_and_quotes.md` (the app recipe, coupon rules, shipping findings, the order read of 2026-11-20), `lab/docs/jlc/coupons.md`.
 - **`docs/history.md` (user-owned):** never append, edit or use as a source unless the user names lines.
 
-- **Build order (chat 17, 2026-11-20):** `kb/build_dependency_graph.md` holds the gates; the user is told when assembly can start (G-P1 parcel with washers/files/blades plus the tools check, TODO-arcticoder task 3). After the base only the enclosure is left to print (about 9 h, 10 plates; booking request is task 1). Device card has no design and is not in the main order (parked in TODO-BLOCKED; dummy mass for the trim).
+- **Build order (chat 17, 2026-11-20):** `kb/build_dependency_graph.md` holds the gates; the user is told when assembly can start (G-P1 parcel with washers/files/blades plus the tools check, TODO-arcticoder task 3). After the base only the enclosure is left to print (about 9 h, 10 plates; booking request is task 1). Device card has no design and is not in the main order (TODO-backlog; dummy mass for the trim). The 2026-11-10 AliExpress parcel arrived 2026-11-20; four print windows are booked (graph note). Purchases are on hold: the user is spend-shy.
 
 ## Files that carry the state
 
