@@ -4232,3 +4232,13 @@ The base is not the last print, and you shouldn't start assembly yet.
 [TODO-agent.md](docs/TODO-agent.md) is at 0 lines. I also updated the KB index and handoff, plus the backlog's staged cart. Nothing is committed.
 <!-- ------ -->
 ---
+The device card is its own small board. The main board isn't missing anything.
+
+- **Main board:** it holds the current-sink electronics for the device load: the `DUT_EN` switch, the MOSFET, the shunt and a device connector. [bringup.md](docs/bringup.md) step 4.3 tests that connector with a loose 10 Ω resistor.
+- **Device card:** a 16 × 24 mm FR4 card bolted to the arm's −y face. It carries the 10 Ω resistor that acts as the dissipating device. During the lead-current runs the main board drives current through it over a two-wire cable to that connector. That is why it sits on the arm and can't be part of the main board.
+
+[fabrication.md](docs/fabrication.md) lists the card as "part of the electronics order later" and also as "with the main order", and I couldn't confirm which was meant. The main-board order, as placed, has no card, and no card design exists yet. Nothing on the main board is affected.
+
+The card is needed only for the lead-current runs, which come after the noise run. It also has no hand-soldered parts, so it has to be a JLC-assembled board. It should ride along with a later JLC order that carries other boards, so it isn't a tiny order with a shipping premium. That is why I parked it in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md).
+<!-- ------ -->
+---
