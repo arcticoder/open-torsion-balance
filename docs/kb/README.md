@@ -6,6 +6,7 @@ are in github.com/arcticoder/lab `docs/kb/README.md`.
 | Note | What it is for |
 |------|----------------|
 | `session_handoff.md` | state at the end of the last chat: done, in progress, waiting on the user, next three tasks, files to read |
+| `build_dependency_graph.md` | gates (parcels, prints, tools) for each assembly step, the device-card gap, the print remainder; check it before telling the user assembly can start |
 | `balance_design_notes.md` | the torsion balance's numbers, design findings, and the checks that guard them; what is superseded |
 | `instrument_electronics_notes.md` | the instrument board: decisions, simulation findings, open points before layout |
 | `fab_ordering_notes.md` | JLC shipping, minimums, tactics (tagged by source), and this repo's fabrication decisions |

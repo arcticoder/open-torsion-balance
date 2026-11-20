@@ -4218,3 +4218,17 @@ Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last se
 One thing for you before the next chat: the amended commit is local only, so push it with `git push --force-with-lease` (a plain `git pull` will keep showing the divergence).
 <!-- ------ -->
 ---
+The base is not the last print, and you shouldn't start assembly yet.
+
+**1. Print windows.** After the base, only the enclosure is left. That is 8 wall plates in grey and 4 lid tiles in red, about 9 h of printing in 10 plates. Each plate has to cool to under 40 °C before it comes off the bed, so the window time is about 11 h. I put this in task 1 of [TODO-arcticoder.md](docs/TODO-arcticoder.md) as two windows of about 3 h for the walls and one of about 4.5 h for the lid. Send dates after Saturday and I slice each file the day before. The walls aren't urgent, because parcels gate the build, not prints. These times are estimates from earlier test slices.
+
+**2. Assembly.** I hadn't written the build dependency graph down, so I have now, in [build_dependency_graph.md](docs/kb/build_dependency_graph.md). I'll tell you when assembly can start.
+- **Blades alone are not the gate.** The stainless M3 washers, which the frame and strip steps need, are in the same 2026-11-10 parcel and aren't in the inventory. The clamp plates (shipped) are also needed to hang the strip, and the safety glasses to cut the brass.
+- **The wall plates must be in place before the trim step.** The lid is only needed at the final enclosure step.
+- **Main board bring-up is independent of the mechanics.** Because of that, it will probably be your first hands-on task after Saturday's base.
+- **I added task 3 to your list.** It asks which assembly tools you already own: an M3 Phillips screwdriver, a craft knife, a steel ruler, a bubble level, and thin wire for the clamp's ground lead. None of them are in the inventory. Whatever is missing goes into the staged AliExpress cart.
+- **The device card has no design and isn't in the main board order.** I found this while mapping the steps. The 16 × 24 mm card with the 10 Ω resistor has no Gerber, BOM or placement file, and the 2026-11-18 order doesn't include it. It only matters for the lead-current runs. For the first trim I'd use a dummy of about 2 g, for example one of the spare `elec_board` boards (about 1.8 g by my volume estimate, unweighed). I parked the card design in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) until a larger JLC order can carry it.
+
+[TODO-agent.md](docs/TODO-agent.md) is at 0 lines. I also updated the KB index and handoff, plus the backlog's staged cart. Nothing is committed.
+<!-- ------ -->
+---
