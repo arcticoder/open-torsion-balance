@@ -59,3 +59,9 @@ The user launches the JLCONE app with `--remote-debugging-port=9222` when they w
 - **Photos:** the user drops a JPG in the repo root; convert to lossless `.jxl` in `docs/img/` with a descriptive name (via `tools/to_jxl.py` or Pillow with `pillow-jxl-plugin`, applying EXIF orientation), delete the original and its `:Zone.Identifier`, and parse what is in it against the CAD or inventory before relying on it.
 - **Estimates vs facts:** label slicer-based print times, masses and price guesses as estimates in user-facing text; never state JLC prices; say when a check was not run.
 - **Layout work:** read `kb/main_board_assessment.md` first (why it was slow: generic placement, all-at-once autorouting, planes, rebuilding KiCad in Python); change one thing per routing run and note the result in `kb/main_board_layout_notes.md`.
+
+## Standing preferences added 2026-11-20
+
+- No purchases or staged carts are proposed (spend-shy after the UPS order; JLC shipping scales about linearly, so bundling saves nothing). Needs go in `TODO-backlog.md` with a revisit condition.
+- `TODO-arcticoder.md` holds actions only: no internal notes, arrival logs or histories (those go in `docs/kb` or `TODO-completed.md`).
+- Inventory answers name the sub-bag, use the STL/3MF object names with a plain description, and cite photos by file name and mat coordinates; keep the storage table, the filing plan and the item rows consistent.
