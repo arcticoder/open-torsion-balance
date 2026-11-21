@@ -4337,3 +4337,19 @@ I moved the photos into the lab repo and renamed them. The inventory text now re
 I logged both prints and the mechanical pencil as owned. Nothing is left unidentified from the six photos.
 <!-- ------ -->
 ---
+All four points are answered below. I fixed the inventory in [inventory.md](../lab/docs/inventory.md), and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines. Nothing is committed.
+
+1. **Calibration riders.** They are the `fixture_cal_rider` part, printed twice. Each is a small saddle that clips over the arm board's top edge, with a seat on top for the 1 g weight or a bent filament piece. You use the pair for the added-inertia calibration in [procedures.md](docs/procedures.md) B.1.
+
+2. **Where the STL files are.** They are all in [hardware/balance/cad/](hardware/balance/cad/). `balance.3mf` holds only 19 of them. These are `base`, `gantry`, `head`, `sensor_bracket`, `damper_holder`, `elec_bracket`, `vane_holder`, the four corner posts, the four lid shelves, and `fixture_gap_gauge`, `fixture_saw_guide_base`, `fixture_saw_guide_plate` and `fixture_strip_guide`. These are not in it because they were added later:
+   - the corner bars `encl_post_*_bar`
+   - `fixture_cal_rider`
+   - the hacksaw handle body and cover
+   - the enclosure wall plates and lid tiles
+   - the six strips
+
+3. **Names.** The 3MF's object names are exactly the STL file names. The inventory now lists each part by that name with a plain description. For example, `head` is the round torsion head that carries the strip's upper clamp, and `vane_holder` is the one moving printed part, carrying the copper vane. In `encl_post_nn`, the two letters give the corner's sign in x and y (n negative, p positive).
+
+4. **The contradiction.** The JST-SH cables were in the `CABLES` sub-bag in one place and in `MISC` under ELECTRONICS in another. They now go to the `CABLES` sub-bag in BALANCE MATERIALS everywhere. I also set the other balance rows to their sub-bags: the strip sheet, `BRASS + COPPER`, and the scale and weights in `CALIBRATION`.
+<!-- ------ -->
+---
