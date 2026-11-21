@@ -4311,3 +4311,19 @@ The filing plan is now final, so you can start sorting. [TODO-agent.md](docs/TOD
 - **Notes for later:** the photos aren't a full tool list, so I'll ask when a tool is missing. The two tool bags have no specific purpose. Both are in the KB.
 <!-- ------ -->
 ---
+The corrections are in [inventory.md](../lab/docs/inventory.md), and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+
+- **Photo moved:** I moved the jpg out of `lab/docs/` into [docs/img/inbox/tools_bags_2026-11-20/](docs/img/inbox/tools_bags_2026-11-20/), the git-ignored folder with the other photos. No jpg is left in `lab/docs/`.
+- **X-acto:** it's listed with its one blade, and the utility-knife blades come with one two-part case.
+- **Not stored:** the ruler and the iron stay out of the bags. The ruler is inventoried as a tool with no bag.
+- **Bubble level:** the multi-tool pen carries the level, so it counts as the balance's bubble level. It's filed in `DRIVERS`, and the separate level entry is gone.
+- **`DRIVERS`:** it holds only the revolver screwdriver, its support stand and the pen.
+- **Missed items:** the new photo shows the washer bag, a mechanical pencil and a white printed U-clip. I added the pencil to `MEASURE`, and the washers were already planned.
+
+**Questions.** Coordinates are cm on the mat, as before.
+- **White U-clip:** photo 3, x 15–22, y 11–14.5, and photo 6, x 3–6, y 14.5–21 (the mat is rotated 180° in photo 6). What is it, and which bag should it go in?
+- **Grey printed piece:** photo 4, x 27–30, y 20–22, next to the brass brush. Is it one of the "few items" I missed, and what is it?
+
+If I've still missed an item, give me the photo number and its position.
+<!-- ------ -->
+---
