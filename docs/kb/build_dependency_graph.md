@@ -7,13 +7,13 @@ Audience: future LLM sessions. Purpose: decide when to tell the user that assemb
 | Gate | What it unlocks | Status |
 |------|-----------------|--------|
 | G-base | base print | Sat 2026-11-21 window |
-| G-P1 | AliExpress 2026-11-10 parcel: stainless M3 washers (none in inventory), LR44 cells (calipers, scale), hacksaw blades, needle files, JST-SH cable, scale, 1 g weight | arrived 2026-11-20 (cells unconfirmed) |
+| G-P1 | AliExpress 2026-11-10 parcel: stainless M3 washers (none in inventory), LR44 cells (calipers, scale), hacksaw blades, needle files, JST-SH cable, scale, 1 g weight | arrived 2026-11-20 except the LR44 cells (calipers unusable until they land; the files are flat) |
 | G-P2 | AliExpress 2026-11-14 parcel: safety glasses, 1-20 g weights | in transit |
 | G-CP | `clamp_plate` (JLC, 5 boards) | shipped |
 | G-walls | 8 enclosure wall plates printed (strips are done) | not booked |
 | G-lid | 4 lid tiles printed | not booked |
 | G-MB | main board (JLC, 2 assembled) | in production, est. ship about 2026-11-24 |
-| G-tools | craft knife (X-acto), 30 cm steel ruler, bubble level owned; ground wire: the pre-cut 0.5 mm (24 AWG) tinned copper wires with 1.3 mm insulation (they fit the 1.6 mm plated tab hole; jump wires are not inventoried); screwdriver: user to pick the PH size that seats (TODO-arcticoder task 4) | nearly clear |
+| G-tools | craft knife (X-acto), 30 cm steel ruler, bubble level owned; ground wire: the pre-cut 0.5 mm (24 AWG) tinned copper wires with 1.3 mm insulation (they fit the 1.6 mm plated tab hole; jump wires are not inventoried); the user's nearest Phillips driver fits an M3 head (nothing more to inventory) | nearly clear |
 
 ## Assembly steps and what each needs
 
@@ -42,7 +42,9 @@ After the base only the enclosure is left: 4 wall plates of 148 x 150 (about 46 
 
 ## Booked print windows (user, 2026-11-20) and the assignment
 
-Sun 11-22 07:30-09:30: 2 big wall plates (10 min start + 46 + about 10 swap + 46). Sun 13:00-16:30: 2 big plates + 1 small pair (62). Wed 11-25 19:30-22:00: second small pair + 1 lid tile. Sat 11-28 07:30-12:00: 3 lid tiles. Walls done by Wed 11-25; lid done 11-28. Grey loaded for Sunday, red for the Wednesday lid tile. Slice the day before each (TODO-BLOCKED).
+The user's windows are availability, not a quota (more print days follow; do not push). Planned fill: Sun 11-22 07:30-09:30: 2 big wall plates (10 min start + 46 + about 10 swap + 46). Sun 13:00-16:30: 2 big plates + 1 small pair (62). Wed 11-25 19:30-22:00: second small pair + 1 lid tile. Sat 11-28 07:30-12:00: 3 lid tiles. Walls done by Wed 11-25; lid done 11-28. Grey loaded for Sunday, red for the Wednesday lid tile. Slice the day before each (TODO-BLOCKED).
+
+Ballast fit: the user pushed the uncut 10 mm rod through the arm's 10.2 mm hole, snug but not tight (2026-11-20); no caliper work until the cells arrive.
 
 ## Spending stance (2026-11-20)
 

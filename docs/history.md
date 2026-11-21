@@ -4273,3 +4273,29 @@ That fits the estimates, but the Sunday morning window is tight at about 112 of 
 The earlier note about "head-hole measurement steps" has no spec behind it, so I dropped it. The head's holes get a test-fit at assembly instead.
 <!-- ------ -->
 ---
+Corrections are applied. The cells now show as still in transit, the files as flat, and the calipers as unusable until the cells land. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+
+**1.4 Magnet test.** Yes, touch an N42 disc to the 1 g weight. If it sticks or pulls, it's steel, so keep it away from the damper discs. That's task 4 in [TODO-arcticoder.md](docs/TODO-arcticoder.md). I'll also keep the reminder that the 1–20 g set (nickel-plated steel) goes in the `CALIBRATION` sub-bag, away from the discs, in "En route".
+
+**2 and 3. Sub-bags.** The full plan, with mat coordinates for every item, is in [inventory.md](../lab/docs/inventory.md) under "Filing plan for the tools and balance bags". It's marked proposed until you confirm it.
+- **HAND TOOLS** gets `CUT + FILE`, `GRIP + STRIP`, `MEASURE` and `PRINTER`. `PRINTER` takes your existing `NOZZLES` sub-bag, which stays closed.
+- **BENCH + FASTENERS** gets `SCREWS + NUTS`, which stays closed with the washer bag going in unopened, plus `SOLDERING` and `GLUE + GREASE`.
+- **BALANCE MATERIALS** gets nine sub-bags. The printed parts split into `PRINTED FRAME`, `PRINTED SMALL`, `JIGS` and `ENCLOSURE PRINTS`. The rest are `FAB BOARDS`, `STRIP SHEET`, `BRASS + COPPER`, `CALIBRATION` and `CABLES`. The strip sheet sits alone, on top, with nothing pressing on it.
+- The photos are in [docs/img/inbox/tools_bags_2026-11-20/](docs/img/inbox/tools_bags_2026-11-20/). They're git-ignored so the 27 MB of JPEGs doesn't get committed. The zip is deleted.
+
+New arrivals stay on your table until you've sorted the tools bags, and that sorting is task 3.
+
+**Questions.** I couldn't identify these. Photo numbers follow the file-name order, and coordinates are cm on the mat (x along the top, y down the side).
+- **Photo 2, x 15–22, y 0–8:** a red printed part with grey pads and knurled knobs. What is it?
+- **Photo 3, x 12–22, y 16–20 and x 17.5–22, y 21–25:** two black printed parts, a cylinder and a holder. What are they?
+- **Photo 4, x 15–20, y 15–21:** a yellow oval stand with a wire loop, and a pointed rod beside it. What are they?
+- **Photo 5, x 1–14, y 1–22:** five blue-tinted 6 cm film squares and a bag labelled "shuangmian-6x6-10PCS". What are they, and what are they for?
+- **Which bag?** I couldn't tell which of your two tool bags each item came from. I assigned items by function, so you only need to say if the bags have a different purpose in mind.
+
+**4. Print windows.** I read the windows as availability, not a quota. I fill what fits, walls first, and don't push. The base on Saturday is still task 1.
+
+**5. Calipers and rod.** There's no caliper work until the cells arrive. I logged that the uncut rod fits the arm's 10.2 mm hole, snug but not tight, so that check is done.
+
+**6. Screwdrivers.** No, the one you grabbed that fit an M3 head is enough. I removed that task and the other tool questions, since you own the knife, ruler and level.
+<!-- ------ -->
+---
