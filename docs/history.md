@@ -4327,3 +4327,13 @@ The corrections are in [inventory.md](../lab/docs/inventory.md), and [TODO-agent
 If I've still missed an item, give me the photo number and its position.
 <!-- ------ -->
 ---
+I moved the photos into the lab repo and renamed them. The inventory text now refers to them by file name, not "photo N". [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+
+- **Location:** the images are in `lab/docs/img/tools_bags_2026-11-20/`, which you can open from the lab folder in VS Code. `lab/.gitignore` ignores them, as the spurious-force-balance one did, so 27 MB of JPEGs isn't committed. That also means a fresh clone won't have them. I removed the old ignore line from the spurious-force-balance repo.
+- **Names:** the six files are now `tools_01_cutters_calipers_xacto_stripper.jpg` through `tools_06_washers_clip_pencil.jpg`. The inventory lists the full names once, then refers to them as `tools_0N`. I kept the mat-coordinate convention and added a line saying which images are portrait, which landscape, and that `tools_06` is rotated 180°.
+- **White U-clip:** it's the printed JST tweezers, filed in `GRIP + STRIP`. It's in `tools_03` and `tools_06`.
+- **Grey piece:** it's the printed wire-brush cap cover, filed in `PRINTER` with the brush. It's in `tools_04`.
+
+I logged both prints and the mechanical pencil as owned. Nothing is left unidentified from the six photos.
+<!-- ------ -->
+---

@@ -17,4 +17,3 @@ hardware/instrument/layout/out/*.log
 # SKiDL schematic-test outputs (they embed local paths; nothing reads them)
 schematic_test.erc
 schematic_test.log
-docs/img/inbox/
