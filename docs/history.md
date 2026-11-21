@@ -4299,3 +4299,15 @@ New arrivals stay on your table until you've sorted the tools bags, and that sor
 **6. Screwdrivers.** No, the one you grabbed that fit an M3 head is enough. I removed that task and the other tool questions, since you own the knife, ruler and level.
 <!-- ------ -->
 ---
+The filing plan is now final, so you can start sorting. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+
+- **1 g weight:** it isn't magnetic, so it's logged that way and the magnet-test task is gone from your list. The 1–20 g set is still nickel-plated steel, so it stays away from the damper discs.
+- **Identifications:** I mapped your answers by order onto my four questions, so tell me if I paired any wrong.
+  - **Photo 2, red part:** the printed solder-wire holder, filed in `SOLDERING`.
+  - **Photo 3, black cylinder and holder:** the printed revolver screwdriver and its black part, filed in a new `DRIVERS` sub-bag. The yellow multi-tool pen also goes there, since it's no longer in `MEASURE`.
+  - **Photo 4, yellow stand and rod:** the iron holder and its extra tip, in `SOLDERING`.
+  - **Photo 5, films:** the 60 × 60 × 1 mm double-sided acrylic adhesive squares, in `GLUE + GREASE`. Leave them in their bag. I logged the count as 10 from the listing, not from the bag.
+- **Inventory:** the printed holder, screwdriver and iron holder are logged as owned, along with the adhesive squares. The plan is in [inventory.md](../lab/docs/inventory.md) under "Filing plan for the tools and balance bags", and task 3 in [TODO-arcticoder.md](docs/TODO-arcticoder.md) points to it.
+- **Notes for later:** the photos aren't a full tool list, so I'll ask when a tool is missing. The two tool bags have no specific purpose. Both are in the KB.
+<!-- ------ -->
+---
