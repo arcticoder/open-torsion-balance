@@ -8,8 +8,8 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 ## What I need from you
 
-1. [ ] **Saturday 2026-11-21, 07:30-12:30: print the base** (black, sliced; plug the printer in and switch it on before 07:30; load the black filament over the red, about 110 mm of push).
-2. [ ] **Enclosure prints in your free windows (Sun 11-22 07:30-09:30 and 13:00-16:30, Wed 11-25 19:30-22:00, Sat 11-28 07:30-12:00):** I fill what fits, walls first, no pushing; more print days follow. I slice the day before each; load grey for the walls, red for the lid tiles.
+1. [ ] **Switch the printer off and leave the black filament loaded;** no more prints today (balcony too cold for the base).
+2. [ ] **Tell me the outdoor temperature and dew point when you want to print again;** I re-plan the base (part size and bed adhesion) and the enclosure plates for that weather.
 3. [ ] **Sort the tools into the `HAND TOOLS` and `BENCH + FASTENERS` bags and the balance stock into its sub-bags,** following the filing plan in `lab/docs/inventory.md` (section "Filing plan for the tools and balance bags", final); new arrivals can be filed once the bags are sorted.
 4. [ ] **Cut the ballast from the brass rod** (after the glasses arrive and the blade grip test in the printed handle; steps in `docs/assembly.md`, section 2).
 

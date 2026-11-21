@@ -4453,3 +4453,112 @@ Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last se
 ```
 <!-- ------ -->
 ---
+The printer is reachable and the base is ready to print. I haven't heated, homed or started anything.
+
+**Part names (item 1).** `balance.3mf` now holds 36 of the 66 STL files, up from 19. I updated the list in [inventory.md](../lab/docs/inventory.md) and in the KB. The new ones are:
+- `fixture_cal_rider`
+- the two `fixture_hacksaw_handle_*` parts
+- the 12 `encl_print_wall_*` plates
+- the two `encl_print_lid_*_mullion` strips
+
+Still missing from the 3MF: the corner bars `encl_post_*_bar`, the `encl_print_lid_*_a/_b` tiles, and the older and board parts (`arm`, `elec_board`, `clamp_*`, `strip`, `vane`, `ballast`, `magnet_*`, `hw_*`, `dut_card`, `panel_*`, `encl_lid_*`).
+
+**Printer checks (item 2).**
+- **Printer:** Moonraker is ready and idle. The bed is at 20 °C and the nozzle at 21 °C, both targets are 0, and it is unhomed. Total print hours are unchanged at 14.06 h.
+- **Slicer:** Orca answers with `base.stl` sliced. There are three duplicate Orca-bridge processes running, but they aren't causing trouble, so I left them alone.
+- **G-code:** `balance_p2_base_20261114.gcode` checks out. It uses 225/220 °C nozzle, a 60 °C bed, 3 walls, 20 % infill and no prime tower, and takes 4 h 28 min. The base is the first print after a power-on, so it uses the normal start, which adds about 10 minutes.
+
+**Which spool to grab: the heavy black one.** It's the cardboard Creality spool that has been in use since 11-11. The base needs 153 g and that spool has roughly 700 g left. The nearly empty black spool has only 65–90 g, so it would run out mid-print. Remember to keep the spool sealed in its freezer bag on the roller, and run the strand through the bag.
+
+**Load sequence.** The red filament is currently loaded, so the swap needs about 110 mm of push. When you're ready, tell me to heat and load. I'll park the head at about X200 Y110 and raise the bed, then heat to 225 °C. You pull the red out, seat and lock the black, and I push about 110 mm. The weather you gave shouldn't matter on the sheltered balcony. It's above the printer's limit for PLA, so there's no extra warm-up needed.
+
+When the black is clear, tell me to start. I'll upload with the normal start and arm the monitor. I'll then give you clock times for the first-layer look, about 8–10 minutes after the start, and one mid-print look. The window ends at 12:30.
+
+[TODO-agent.md](docs/TODO-agent.md) is at 0 lines, and nothing is committed.
+<!-- ------ -->
+---
+The base print started at 07:32 on the normal start and is running. The monitor is armed and will alert me on any state change or if the printer goes offline for 10 minutes.
+
+- **First-layer look at about 07:42–07:44.** Check that the corners are flat, the lines are continuous and the black is clean, with no red streaks.
+- **Mid-print look at about 09:45.**
+- **Expected finish at about 12:05.** That is inside your 12:30 limit.
+
+Tell me what you see at the first-layer look. I re-arm the monitor every 30 minutes.
+<!-- ------ -->
+---
+I cancelled the print at 07:40 and the heater targets are both 0. The bed is still at 59 °C and the nozzle at 206 °C, so wait for both to cool before you reach in. The nozzle is parked above the plate, at the right edge and about 123 mm up. I'd give it until about 07:50 before you touch the nozzle area. The plate itself is only warm.
+
+Before I restart, I need two things from you:
+
+1. **What the plate looked like at the first-layer look.** Tell me whether the lines were lifting at the corners or curling or dragging, or whether there was no line at all. And say whether the failure was across the whole plate or only in one area, such as where the blob was.
+2. **What the plate's surface is.** Tell me if it is smooth PEI or a textured plate. Say whether you can see a greasy film or leftover red residue from the blob.
+
+If it's grease or film, the usual fix is a wash with dish soap and warm water, then a dry wipe with no bare fingers on the print area. If you have isopropyl alcohol in your stock, that works too. A wash also shortens the cool-down. With the plate at 4 °C ambient, a warm plate is also better for adhesion than a cold one.
+
+On timing, a restart by about 07:50 would still finish near 12:28, right at your limit and with no margin. If the base doesn't fit, I'll re-plan it for a later window. Sunday has 13:00–16:30. I'll make that call once I know the cause.
+<!-- ------ -->
+---
+I looked at your photo and the printer's bed-level data, and I think the plate isn't sitting flat. I haven't started anything yet.
+
+**What I found**
+- The photo shows only one thin outer loop of the base. It wandered and got dragged into a tangle at one corner. That is what a line looks like when the nozzle is too far from the surface.
+- The bed-level map I read after the abort has a new problem. The usual front-to-back tilt of about 1.4 mm is there, but the right-hand column (at x = 215) reads 0.7–1.5 mm higher than the columns beside it. At the middle rows it is 2.11 mm against about 0.08 mm. The total spread is 2.78 mm.
+- That means the right edge of the plate is likely not seated, or something is under it. A fragment of red or black from the blob could be there, or the plate's magnet seating is off.
+- The outline sits 1 mm from the edge, outside the map, so the printer extrapolated the bad right-edge values.
+- I have no glue stick in stock, and I won't propose a purchase. Earlier prints stuck without glue.
+
+**Next steps**
+1. Lift the plate and look for debris on the bed under it, especially at the right edge. Wipe the bed clean, then reseat the plate fully against its locating edge and press along all four sides. Wipe the textured surface with a dry cloth, nothing else.
+2. Tell me when it's seated. I'll heat the bed to 60 °C, re-run the bed leveling and compare the right column with its neighbours. If it's still off, we'll look at the bed itself.
+3. If the map is clean, I'll start the base with the fast start. I'd then re-check the first layer, 3 minutes after the start.
+
+**Timing.** If we start at about 08:05, the base ends about 12:40, which is 10 minutes past your 12:30 limit. Sunday's 13:00–16:30 window is too short for it (about 3.5 hours). Tell me if the 12:40 finish is acceptable. If it isn't, the earliest fit is Saturday 11-28 at 07:30, and I'd do everything else in between.
+
+I put task 1 in [TODO-arcticoder.md](docs/TODO-arcticoder.md) and logged the failure in the KB. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---
+The base is printing again; it started at 08:00:52 on the fast start. The monitor is armed, and the 08:01 event it sent is a state read, not a message from you.
+
+**What fixed it.** I reheated the bed to 60 °C, soaked it for 2.5 minutes and re-ran the bed leveling. The right-hand column now matches its neighbours, with a total spread of 1.5 mm, which is just the known front-to-back tilt. The earlier map had a 2.8 mm spread, with that column 0.7–1.5 mm too high. So the plate edge being badly seated was the problem. The cold air wasn't, since the bed was already at 60 °C. Your reseat fixed it.
+
+**On the textured PEI.** You're right that I didn't have it in my notes. It's there now. It didn't change the temperature advice, because Hyper PLA stays capped at 60 °C on the bed. The bed-level map was what caught this.
+
+**Your first-layer look is at about 08:04–08:06.** The outer loop should be a clean square about 1 mm from the plate edges. The line should be flat and slightly wide, with no thread-thin or lifting sections, and clean black. If any part lifts, tell me right away, and I'll cancel.
+
+- **Mid-print look:** about 10:15.
+- **Expected finish:** about 12:32, which is 2 minutes past your 12:30 limit.
+
+I'll re-arm the monitor every 30 minutes. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---
+The base is printing again; attempt 3 started at 08:19:00. The monitor is armed, and its 08:19 event is a state read, not a message from you.
+
+I cancelled the paused job at 08:11, because removing the parts means it can't resume. Your photos show the first layer did stick in one corner, as a solid triangle of infill. The outer loop also ran along the edges. The glob and strings in the middle are the problem. I couldn't tell whether they came from ooze or the start's purge.
+
+Because the plate was lifted off and replaced, I re-ran the bed leveling with the bed at 60 °C, and the map came out clean. The spread is 1.5 mm, with no odd column.
+
+**Your first-layer look is at about 08:22–08:24.** Look first at the middle of the plate. If a glob shows up before the lines start, tell me right away so I can cancel before it spreads. Then check that the lines across the plate are flat and continuous, not thread-thin.
+
+- **Mid-print look:** about 10:30.
+- **Expected finish:** about 12:50, which is 20 minutes past your 12:30 limit. Sunday's 13:00–16:30 window can't fit the base, so stopping at 12:30 would waste it. If you need the printer by 12:30, say so, and I'll pause it for you and you can decide.
+
+I'll re-arm the monitor every 30 minutes. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---
+I cancelled the print at 08:53 after 34 minutes. Both heater targets are 0, and the nozzle was at 196 °C and the bed at 58 °C when I last read them. The monitor has ended.
+
+You can switch the printer off once the nozzle is under about 60 °C, which takes roughly 10 more minutes. The head is parked and the black filament is still loaded.
+
+I couldn't confirm what made it lift. The plate seating and bed leveling were clean by the third try. The cold is the most likely cause, but that's unconfirmed. The base is also a poor fit for a cold balcony, since it covers the whole 220 mm bed, and a slab that size lifts at the corners first.
+
+Before the next attempt, the base needs a change rather than another try. I noted these options in the KB and haven't tested any of them:
+- A brim on the corners.
+- A smaller or split base.
+- Printing on a warmer day.
+- Closing the printer's door.
+
+None of them involves a purchase.
+
+I rewrote [TODO-arcticoder.md](docs/TODO-arcticoder.md) to two tasks: switch the printer off, and tell me the outdoor temperature when you want to print again. The base is parked in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) with that condition. The Sunday and Wednesday enclosure windows are open and nothing is sliced for them yet. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---
