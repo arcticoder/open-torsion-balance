@@ -8,8 +8,7 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 ## What I need from you
 
-1. [ ] **Separate the two `fixture_cal_rider` copies and file them in `PRINTED SMALL`:** they are two separate riders; my plate arrangement overlapped their corners by about 6 x 3 mm, so they printed joined there. Cut the joint with the X-acto; the slot and seat are not in the overlap.
-2. [ ] **Cut the ballast from the brass rod** (after the glasses arrive and the blade grip test in the printed handle; steps in `docs/assembly.md`, section 2).
+1. [ ] **Cut the ballast from the brass rod** (after the glasses arrive and the blade grip test in the printed handle; steps in `docs/assembly.md`, section 2).
 
 ## En route
 

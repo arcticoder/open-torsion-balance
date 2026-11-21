@@ -4586,3 +4586,10 @@ The riders are not meant to be fused. They are two separate riders, and the join
 [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
 <!-- ------ -->
 ---
+I took the rider task off your list and logged it as done in [TODO-completed.md](docs/TODO-completed.md).
+
+One task is left on [TODO-arcticoder.md](docs/TODO-arcticoder.md): cutting the brass ballast. It waits on the safety glasses and the blade-grip test in the printed handle. The en-route items are the main board, `clamp_plate`, the safety glasses and weight set, and the LR44 cells.
+
+The base print and the enclosure plates wait in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) until you tell me a print day starts. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---
