@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-21 (chat 18) — Base print attempted three times on the cold balcony (plate edge unseated; a glob; lifted after 30 min) and cancelled; the printer is off and back in the office; the tool and balance bags are sorted; photos moved to `docs/img/inbox/` (git-ignored). See `kb/printing_state.md`.
+
 - 2026-11-20 (chat 17) — The 2026-11-10 AliExpress parcel arrived (JST-SH cables, blades, washers, scale, 1 g weight, files; cells assumed) and was logged with bags in `lab/docs/inventory.md`; four enclosure print windows booked (Nov 22 x2, 25, 28); build dependency graph written (`kb/build_dependency_graph.md`); TODO-arcticoder cut to actions only; purchases put on hold.
 
 - 2026-11-20 — Main-board order placed by the user on 2026-11-18 (read in the JLCONE app 2026-11-20): order W…(redacted), PCB 5 pcs ($31.70) + Economic PCBA 2 pcs ($120.86), merchandise $152.56, UPS Worldwide Express Saver $30.97, discount -$33.21 (JLCONE 20% Off, Max $200), total $150.32; In Production since 2026-11-20 05:50 (the file was approved 2026-11-18 20:34). Global Standard Direct Line is refused for orders over US$99 and JLC does not split orders, so UPS (duty and tax at delivery, not in the total). The `clamp_plate` parcel is Shipped.

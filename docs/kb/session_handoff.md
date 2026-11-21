@@ -117,3 +117,5 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; truly
 ## Read first
 
 Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last sections), `docs/kb/printing_state.md`, `docs/kb/build_dependency_graph.md`, `hardware/instrument/fab/ORDER.md`, `docs/TODO-arcticoder.md`, `docs/TODO-BLOCKED.md`, `~/Code/sysadmin/wsl/docs/kb/apps/k1-moonraker.md` and `~/Code/sysadmin/wsl/docs/print-session-runbook.md` for the printer side.
+
+- **Update 2026-11-21 (chat 18):** base failed 3 times at balcony 4 C (details `kb/printing_state.md`); user's rule: no printing below 8 C, he decides print days from the weather; enclosure windows may slip; spools load from a separate holder in a freezer bag, not on the printer back; printer off; bags sorted; `fixture_cal_rider.stl` = one rider (two copies printed); LR44 cells promised 2027-01-13 by AliExpress.

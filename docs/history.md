@@ -4562,3 +4562,16 @@ None of them involves a purchase.
 I rewrote [TODO-arcticoder.md](docs/TODO-arcticoder.md) to two tasks: switch the printer off, and tell me the outdoor temperature when you want to print again. The base is parked in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) with that condition. The Sunday and Wednesday enclosure windows are open and nothing is sliced for them yet. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
 <!-- ------ -->
 ---
+All seven points are handled. [TODO-agent.md](../spurious-force-balance/docs/TODO-agent.md) is at 0 lines and nothing is committed.
+
+1. **Photo files.** I moved `Photos-1-001 (1).zip` and `PXL_20261121_144347860.MP (1).jpg` into `docs/img/inbox/`. I added that folder to the repo's `.gitignore`, so the large files stay out of git. I left `Photos-1-006.zip` where it is, since you didn't mention it. Tell me if you want it moved too.
+2. **`fixture_cal_rider`.** Your photos show two identical riders, and the STL holds one. The inventory line now says two printed copies of `fixture_cal_rider`, and the STL holds one rider. Nothing else about the part was wrong. The riders are filed in [TODO-arcticoder.md](../spurious-force-balance/docs/TODO-arcticoder.md) as the one remaining bag-sorting item.
+3. **Below 8 °C.** I recorded the 8 °C rule and that the windows may slip, early mornings most. I saved it as a standing preference in my notes.
+4. **Printer and spools.** The printer is off and in the office, and the black filament is no longer loaded. I corrected my notes: spools sit on the separate Printables holder in a large freezer bag, not on the printer back. The load instructions now say so.
+5. **Weather tracking.** I removed the outdoor-temperature task. You'll tell me when printing starts, and I won't ask or track it.
+6. **Bag sorting.** The sorting task is done and moved to [TODO-completed.md](../spurious-force-balance/docs/TODO-completed.md).
+7. **LR44 cells.** I read your January 13 date as 2027-01-13 and updated the en-route list and the order ledger. The ledger also notes that the parcel left Humen on 2026-11-18, is tracked by two carriers, and the promise date looks padded rather than a real delay. The calipers stay without a cell until then, and I'm proposing no purchase.
+
+The base is parked in [TODO-BLOCKED.md](../spurious-force-balance/docs/TODO-BLOCKED.md) with a changed condition. It waits until you say a print day starts, at 8 °C or warmer. The enclosure slicing waits on the same condition.
+<!-- ------ -->
+---
