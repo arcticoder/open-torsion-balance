@@ -4575,3 +4575,14 @@ All seven points are handled. [TODO-agent.md](../spurious-force-balance/docs/TOD
 The base is parked in [TODO-BLOCKED.md](../spurious-force-balance/docs/TODO-BLOCKED.md) with a changed condition. It waits until you say a print day starts, at 8 °C or warmer. The enclosure slicing waits on the same condition.
 <!-- ------ -->
 ---
+The riders are not meant to be fused. They are two separate riders, and the join is my mistake.
+
+**The riders.** The STL holds one rider, and the calibration procedure uses two separate ones. I read the footprints in the plate's G-code. The two riders overlap by about 6 × 3 mm at one corner, so they printed joined there. I should have caught that before slicing. Cut the joint with the X-acto. The slot and the weight seat are not in the overlap, so the cut won't touch them. Then file them in `PRINTED SMALL`. [TODO-arcticoder.md](../../../python/spurious-force-balance/docs/TODO-arcticoder.md) task 1 now says this.
+
+**Photos and zips.** I looked at all the photos and deleted `Photos-1-006.zip`, and the earlier zip, photo and `docs/img/inbox/` folder are gone as well. Nothing is left in the repo root. What the photos showed is in the KB. I also removed the `.gitignore` entry I had added for the inbox. From now on I handle photos on my own. I look at each one, record what it shows in the KB, then delete it or convert it to a small `.jxl` in `docs/img/` if it helps document the build. I won't ask you what to do with them.
+
+**Previews.** For every plate I slice, I'll say which object is which, and whether the objects are meant to touch or stay apart. I'll leave a previewable file for each part, with STL as the final format, and name it. Before saving each G-code, I'll check the objects don't overlap and keep them at least 3 mm apart. The rule is in the KB and as a new step 2b in the printer runbook.
+
+[TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
+<!-- ------ -->
+---

@@ -65,3 +65,9 @@ The user launches the JLCONE app with `--remote-debugging-port=9222` when they w
 - No purchases or staged carts are proposed (spend-shy after the UPS order; JLC shipping scales about linearly, so bundling saves nothing). Needs go in `TODO-backlog.md` with a revisit condition.
 - `TODO-arcticoder.md` holds actions only: no internal notes, arrival logs or histories (those go in `docs/kb` or `TODO-completed.md`).
 - Inventory answers name the sub-bag, use the STL/3MF object names with a plain description, and cite photos by file name and mat coordinates; keep the storage table, the filing plan and the item rows consistent.
+
+## Photos and zips from the user (standing rule, 2026-11-21)
+- The user takes photos for the agent's reference; Google Photos bundles them in zips. Process them autonomously, never ask what to do with them: look at every photo at least once (extract in the scratchpad, never in the repo), write what they show into the relevant `kb/` note, then delete the zip and the loose files. Keep a photo only when it documents the build for the end user: convert to a small lossless `.jxl` (about 0.5-0.7 MB) in `docs/img/` with a dated descriptive name and reference it from a doc. No `inbox/` folders, nothing left in the repo root.
+
+## Previews of printed parts (standing rule, 2026-11-21)
+- When slicing, state for every plate which object is which and whether objects are meant to touch or stay separate; leave a previewable file for each part or plate (STL is fine, the final format must be named per part) so the user can see what the print should look like before assembly. Before saving each G-code, compare the `EXCLUDE_OBJECT_DEFINE` polygons for overlaps (objects meant to be separate must not overlap: the 2026-11-21 rider pair did) and fix the arrangement with spacing of at least 3 mm.

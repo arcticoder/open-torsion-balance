@@ -18,5 +18,3 @@ hardware/instrument/layout/out/*.log
 schematic_test.erc
 schematic_test.log
 
-# Raw user photos waiting to be used (large JPEG/zip files)
-docs/img/inbox/
