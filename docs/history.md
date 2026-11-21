@@ -4593,3 +4593,26 @@ One task is left on [TODO-arcticoder.md](docs/TODO-arcticoder.md): cutting the b
 The base print and the enclosure plates wait in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) until you tell me a print day starts. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing is committed.
 <!-- ------ -->
 ---
+Not quite. Printing and electronics are waiting, but three hands-on jobs can still start now, so I added them to your list.
+
+**Waiting, for both of us**
+- The base and the enclosure plates are parked until you tell me a print day starts, at 8 °C or warmer.
+- Board bring-up waits on the main board, which should ship about 2026-11-24.
+- Step 5 (hanging the strip and arm) waits on `clamp_plate`, which is shipped.
+- The trim and zero step waits on the printed walls.
+
+**Open on your side, in [TODO-arcticoder.md](docs/TODO-arcticoder.md)**
+1. Cut the sensor strip with the printed strip guide. Nothing it needs is in transit.
+2. Fit the damper discs into `damper_holder`. The discs and foam tape are in hand. Keep the nickel-plated weight set away from them when it arrives.
+3. Test that the hacksaw blade holds in the printed handle, under hand pressure with the cover screwed down. The test involves no cutting.
+4. Cut the ballast from the brass rod, after the glasses arrive and task 3 passes.
+
+I put the first three in because my dependency notes mark them startable, and without them your list was empty.
+
+**On my side**
+- [TODO-agent.md](docs/TODO-agent.md) is at 0 lines and nothing blocking me is startable.
+- Two backlog items, the device-card design and the schematic PDFs, aren't blocked. They are optional and low priority, so I haven't started them. Tell me if you want either one.
+
+Nothing is committed.
+<!-- ------ -->
+---
