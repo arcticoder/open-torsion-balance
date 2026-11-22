@@ -4672,3 +4672,23 @@ All six points are handled, and the first-layer look is due in a few minutes (13
 First-layer look: check the rim line along the long edges and the corners of `encl_print_wall_nx_a`, then tell me what you see.
 <!-- ------ -->
 ---
+**First strip.** Keep it. I'm not asking you to recut it. Use scissors for the spare, after scoring the line. Hang the first strip when you get to assembly. The scratch may turn out harmless, and I can't tell from a photo. The spare is insurance if the first one measures wrong later.
+
+**Disc pull.** That's fine. I overstated it: the disc is held mostly by its snug fit, and the pull toward its partner is only a gentle extra. Your tweezers test shows both discs act on steel across the slot, and nothing needs the pull to be strong. Leave the tape off.
+
+**The blade handle.** The blades don't fit it. The photo shows the cover propped open by the pin on the blade's end. I designed the handle for flat blades from the listing text, and I never checked the listing photos or asked you which blade style it was. That was my miss.
+
+- From the photo, the pin is roughly 5 mm long and 1.3 mm thick, judged against the 10 mm mat grid. The blade also looks only about 1–2 mm wide, not the 6 mm I assumed. Those are rough, so I'm not designing from them.
+- A thin pinned blade is probably meant for a tensioned frame. It may buckle on a push stroke unless the saw guide's slot supports it. I'll check that in the redesign.
+- I can redesign the handle to hook the pins in a pocket, but I need real numbers first. Task 3 in [TODO-arcticoder.md](docs/TODO-arcticoder.md) now asks you to measure one blade with the steel ruler:
+  - width and thickness
+  - overall length
+  - the pin's length and diameter
+  - the pin's distance from the blade end
+  - whether both ends have a pin
+  - which way the teeth point
+- The brass cut now waits on the new handle, not on the glasses. I recorded this in the KB and deleted the photo.
+
+The wall plate is 72% done, so it should finish by about 14:15.
+<!-- ------ -->
+---
