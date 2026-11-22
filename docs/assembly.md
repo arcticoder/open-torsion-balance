@@ -18,9 +18,8 @@ strip's clamping loop, so print variations don't shift the balance.
 ## 2. Cut the materials
 
 **Strip (4 mm × 58 mm from the 0.05 mm sheet).** Lay the sheet on a flat board, butt a straight (factory) edge against the ridge under `fixture_strip_guide`, hold the guide
-down with your free hand, and run a sharp craft-knife blade down the slot with its side against the slot's far wall. Make three or four light passes. The cut lands 4.00 mm
-from the ridge. Then cut across at 58 mm with the knife and a steel rule. Run a fine file lightly along both long edges (kinked or burred edges add friction in the strip), and
-handle it by the ends: a crease ruins it. Cut two strips; the second is a spare.
+down with your free hand, and scribe the cut line with a sharp craft-knife blade down the slot, its side against the slot's far wall: the guide only marks the line 4.00 mm from the ridge (one light pass). Then remove the guide, press the steel rule on the line and cut along it with the knife. The 50 µm stainless sheet takes many passes (about 50 on the first strip, on the cutting mat); a fresh blade, light pressure and a hard flat board under the foil (a soft mat lets the foil dimple under the blade) help, and the blade must not wander off the rule: a stray scored line along the strip is a flaw. Then cut across at 58 mm the same way. Run a fine file lightly along both long edges (kinked or burred edges add friction in the strip), and
+handle it by the ends: a crease ruins it. Hold each finished strip against a light and check that no groove runs along its length. Cut two strips; the second is a spare.
 
 **Ballast (brass, 10 mm rod).** Wear safety glasses for the whole cut and the filing; brass chips fly. Put the rod in the saw guide's groove with its end against the stop, close the plate with four M3×14 screws, and saw down the slot with a
 hacksaw until the piece drops free (blade in the printed pad-saw handle, `fixture_hacksaw_handle_*`; run the blade in the guide's slot with short strokes): its length is the ballast length plus 0.5 mm. File the sawn face flat until the piece is the length `balance.py` printed (15.1 mm
@@ -32,7 +31,7 @@ inner end holds it flat.
 ## 3. The damper
 
 The four N42 discs go flat in the round pockets, two above and two below the vane's slot (the twist test of 2026-10-26 showed they are magnetized through the flat faces: `MAGNET_MAGNETIZATION = "axial"`).
-Press each disc into its pocket from the open face with its flat face toward the vane, and cap it with foam tape. Keep steel tools away from loose discs. (If another batch of discs turns out to be
+Each pocket is open on the face away from the vane and has a 0.6 mm lip with a 4.6 mm window on the vane side, so a disc dropped in from the open face rests on the lip. The discs are magnetized through their two flat faces, which are equivalent: there is no "flat" side and either face may go toward the vane. Put the two discs on the same side of the slot in the same way and orient the upper and lower disc of each pair so they attract each other across the slot (you feel it as they go in). Then cap each pocket: stick a piece of foam tape across the open face of the pocket so the disc cannot fall out (a piece about 8 × 8 mm, pressed flat; the tape is only a retainer). Keep steel tools away from loose discs. (If another batch of discs turns out to be
 magnetized across the diameter, set `MAGNET_MAGNETIZATION = "diametric"` and rerun `balance.py` for the on-edge cradles.)
 
 ## 4. Frame

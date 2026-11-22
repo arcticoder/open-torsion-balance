@@ -71,3 +71,9 @@ The user launches the JLCONE app with `--remote-debugging-port=9222` when they w
 
 ## Previews of printed parts (standing rule, 2026-11-21)
 - When slicing, state for every plate which object is which and whether objects are meant to touch or stay separate; leave a previewable file for each part or plate (STL is fine, the final format must be named per part) so the user can see what the print should look like before assembly. Before saving each G-code, compare the `EXCLUDE_OBJECT_DEFINE` polygons for overlaps (objects meant to be separate must not overlap: the 2026-11-21 rider pair did) and fix the arrangement with spacing of at least 3 mm.
+
+## Chat endings (2026-11-22)
+- Do not say that nothing is committed at the end of a reply (the user knows; he commits himself).
+
+## Assembly-step realism (2026-11-22)
+- The 50 um stainless strip: the first real cut took about 50 knife passes with a ruler against a scribed line, not the 3-4 passes the docs had claimed; the strip guide is only a scribing aid. The strip came out about 58 mm x 4.2 mm with a shallow lengthwise knife groove (from his photos); only one strip was cut (the user cuts the spare when needed). Judge such tolerances from the user's photos and say what the photo cannot show. Check wording in `assembly.md` against the CAD (`balance.py`) before telling the user how to do a step: the old damper text said 'flat face toward the vane' for a disc that has two equivalent faces; the pockets are open on the far face with a 0.6 mm lip on the vane side and a foam-tape cap holds the disc.

@@ -4616,3 +4616,20 @@ I put the first three in because my dependency notes mark them startable, and wi
 Nothing is committed.
 <!-- ------ -->
 ---
+**Torsion strip.** From your photos it is about 58 mm long and about 4.2 mm wide, read off the ruler, so it is on target. The width is about 0.2 mm over the 4.00 mm target. I can't judge that from the photo, so I'd measure it once the calipers have a cell.
+
+**Bag.** Put the small `TORSION STRIP` bag inside the `STRIP SHEET` sub-bag of `BALANCE MATERIALS`, on top of the roll with nothing pressing on it. I updated the filing plan.
+
+**The groove.** It isn't a crease. A crease is a fold, and what the photo shows is a scratch along the strip. A scratch on a 50 µm foil is still a flaw. It thins part of the strip's width and can start a crack. From the photo I can't say how much it changes the torsion stiffness. The resonance and Q measurements will show it later, but only after you've hung it. I'd cut the spare before assembly. I'd use a fresh blade and a hard flat board under the foil. The soft mat probably explains the 50 passes, because the foil dimples under the blade. It's your call, and I haven't added a task for it.
+
+**The estimate was wrong.** The jig only scribes the line, and the cut is made along the ruler. I rewrote the cutting step in [assembly.md](docs/assembly.md) to say so. It now says about 50 passes and tells you to check for a lengthwise groove against a light.
+
+**Damper discs.** My wording was wrong. A disc has two identical flat faces, so there's no flat side, and either face can go toward the vane. Each pocket is open on the face away from the vane and has a 0.6 mm lip on the vane side that the disc rests against. What matters is that the upper and lower disc of each pair attract each other across the slot. You'll feel it as they go in.
+
+**Cap it.** Stick a piece of foam tape, about 8 × 8 mm, across the open face of each pocket. The tape only keeps the disc from falling out. That is now task 1 in [TODO-arcticoder.md](docs/TODO-arcticoder.md), and I corrected the assembly text.
+
+I can't see any discs in your holder photo, only the empty-looking round openings, so I can't confirm they are seated.
+
+I deleted the photos and the zip after looking at them, and noted in the KB that I won't announce commits.
+<!-- ------ -->
+---

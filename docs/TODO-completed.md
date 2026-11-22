@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-22 (chat 18) — One torsion strip cut by the user (about 58 mm long, about 4.2 mm wide from his photos, a shallow lengthwise knife groove, about 50 knife passes; bagged as `TORSION STRIP` in `STRIP SHEET`); damper discs placed in the `damper_holder` pockets (tape caps still to do).
+
 - 2026-11-21 (chat 18, later) — The two `fixture_cal_rider` copies were separated (they had printed joined at a corner overlap) and filed in `PRINTED SMALL` by the user.
 
 - 2026-11-21 (chat 18) — Base print attempted three times on the cold balcony (plate edge unseated; a glob; lifted after 30 min) and cancelled; the printer is off and back in the office; the tool and balance bags are sorted; photos moved to `docs/img/inbox/` (git-ignored). See `kb/printing_state.md`.

@@ -8,10 +8,9 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 ## What I need from you
 
-1. [ ] **Cut the sensor strip** (assembly.md step 2a: printed strip guide, craft knife, steel rule, file); nothing it needs is in transit.
-2. [ ] **Fit the damper discs into the printed `damper_holder`** (assembly.md step 3: discs and foam tape in hand); keep the nickel-plated weight set away from them when it arrives.
-3. [ ] **Blade-grip test of the hacksaw blade in the printed handle** (hand pressure, cover screwed down, no cutting); the cut itself waits on the glasses.
-4. [ ] **Cut the ballast from the brass rod** after the glasses arrive and the grip test passes (assembly.md, section 2).
+1. [ ] **Cap each damper-disc pocket with foam tape** (a piece about 8 x 8 mm over the open face; make the upper and lower disc of each pair attract; assembly.md step 3).
+2. [ ] **Blade-grip test of the hacksaw blade in the printed handle** (hand pressure, cover screwed down, no cutting); the cut itself waits on the glasses.
+3. [ ] **Cut the ballast from the brass rod** after the glasses arrive and the grip test passes (assembly.md, section 2).
 
 ## En route
 
