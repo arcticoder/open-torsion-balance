@@ -4692,3 +4692,12 @@ First-layer look: check the rim line along the long edges and the corners of `en
 The wall plate is 72% done, so it should finish by about 14:15.
 <!-- ------ -->
 ---
+The second wall plate, `encl_print_wall_ny_a`, started at 14:17 on the fast start. The bed leveling after your plate swap came out clean: spread 1.52 mm, no odd column. The monitor is armed.
+
+- **First-layer look at about 14:20–14:22.** On the fast start the first layer goes down sooner. Check the rim line along the edges and the corners, as before.
+- **Mid-print look at about 14:50.**
+- **Expected finish at about 15:15.** The first plate ran 61.7 minutes, so this one should end around then.
+
+The limit is 16:45. After this plate, a third big plate (about 1 h 3 min plus clearing the bed) would end about 16:35 if started by 15:25. That's tight. Tell me if you want to try it, and I'd slice `px_a` now. I'll re-arm the monitor every 30 minutes.
+<!-- ------ -->
+---
