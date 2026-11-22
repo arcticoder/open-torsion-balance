@@ -4701,3 +4701,14 @@ The second wall plate, `encl_print_wall_ny_a`, started at 14:17 on the fast star
 The limit is 16:45. After this plate, a third big plate (about 1 h 3 min plus clearing the bed) would end about 16:35 if started by 15:25. That's tight. Tell me if you want to try it, and I'd slice `px_a` now. I'll re-arm the monitor every 30 minutes.
 <!-- ------ -->
 ---
+Plate 2, `encl_print_wall_ny_a`, finished at 15:19 after 61.7 minutes and used 11.4 m of filament. Both heater targets read 0. At 15:19 the bed was at 58.8 °C and the nozzle at 197 °C. The bed should be under 40 °C at about 15:27.
+
+Both wall plates have now printed in grey at 8 °C, and both first-layer and mid-print looks were good. That's two of the twelve enclosure pieces. The remaining wall plates and the lid tiles are listed in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md).
+
+**Plate 3 doesn't fit.** I'd have to wait for the bed to cool, redo the warm leveling after you swap the plate, and reheat. That puts the start at about 15:40 and the finish at about 16:42, inside the 10% margin I keep before your 16:45 limit. `encl_print_wall_px_a` stays sliced as `balance_p13_wall_px_a_20261122.gcode` for the next print day.
+
+**What I need from you.** When the bed is under 40 °C, take the plate off the printer. Then switch the printer off and take the grey spool back to the office. That's task 1 in [TODO-arcticoder.md](docs/TODO-arcticoder.md). Check the finished plate's underside for a smooth surface and no lifted corners.
+
+I put the design fix, the print results and the hacksaw-blade note in the KB, and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+<!-- ------ -->
+---

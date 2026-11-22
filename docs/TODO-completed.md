@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-22 (chat 18, print window) — Wall plates `encl_print_wall_nx_a` and `encl_print_wall_ny_a` printed in grey at 8 C (61.7 min each, both looked good); CAD fixed so the plate is flush with the outside face (it had a 0.4 mm bridge); `px_a` sliced for next time; the pinned hacksaw blades do not fit the handle (redesign waits on blade measurements).
+
 - 2026-11-22 (chat 18) — One torsion strip cut by the user (about 58 mm long, about 4.2 mm wide from his photos, a shallow lengthwise knife groove, about 50 knife passes; bagged as `TORSION STRIP` in `STRIP SHEET`); damper discs placed in the `damper_holder` pockets (tape caps still to do).
 
 - 2026-11-21 (chat 18, later) — The two `fixture_cal_rider` copies were separated (they had printed joined at a corner overlap) and filed in `PRINTED SMALL` by the user.
