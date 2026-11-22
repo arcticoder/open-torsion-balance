@@ -48,9 +48,10 @@ def walls():
         mid_ = (c0 + c1) / 2
 
         def plate(a, b):
-            """a 1.2 mm plate from distance a to b along the run with a 2.0 mm, RIM_W wide rim on both vertical edges (the rim fills the slot)"""
+            """a 1.2 mm plate, flush with the outside face, from distance a to b along the run with a 2.0 mm, RIM_W wide rim on both vertical edges (the rim fills the slot; the inside face is recessed 0.8 mm)"""
             u = run(a, b)
-            thin = (u[0], u[1], mid_ - PLATE_T / 2, mid_ + PLATE_T / 2) if axis == "x" else (mid_ - PLATE_T / 2, mid_ + PLATE_T / 2, u[2], u[3])
+            pc = mid_ - inside * (T - PLATE_T) / 2  # flush with the OUTSIDE face (a centred plate leaves a 0.4 mm bridge under it on the printer bed)
+            thin = (u[0], u[1], pc - PLATE_T / 2, pc + PLATE_T / 2) if axis == "x" else (pc - PLATE_T / 2, pc + PLATE_T / 2, u[2], u[3])
             body = bx(thin)
             for r0, r1 in ((a, a + RIM_W), (b - RIM_W, b)):
                 q = run(r0, r1)

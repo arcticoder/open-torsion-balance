@@ -4633,3 +4633,42 @@ I can't see any discs in your holder photo, only the empty-looking round opening
 I deleted the photos and the zip after looking at them, and noted in the KB that I won't announce commits.
 <!-- ------ -->
 ---
+Two grey wall plates are sliced and ready for your 13:00–16:45 window. I haven't heated or started anything.
+
+**I found a CAD fault, and fixed it.** The 1.2 mm wall plates sat centred in the 2 mm rim. Laid flat on the bed, that left a 0.4 mm bridge under the plate over about 138 mm. The first slice came out at 1 h 27 min, with 41% bridging and only 8% of the first layer touching the bed. That would have been another bad first layer, and the earlier estimate of 46 min was wrong. I changed `enclosure_printed.py` so the plate is flush with the outside face, with the inside face recessed 0.8 mm. I regenerated only the eight wall-plate STLs. Plates now slice at 1 h 03 min with no bridging.
+
+Your `balance.3mf` still holds the old wall-plate geometry, so slice from the STLs, not the 3MF.
+
+**What's sliced.** Each plate is one grey wall plate, 148 × 150 mm, 33.9 g, 3 walls, 20% infill, bed 60 °C. They print outside-face down and don't touch anything else.
+- `balance_p11_wall_nx_a_20261122.gcode`
+- `balance_p12_wall_ny_a_20261122.gcode`
+
+**Plan.**
+- Plate 1 starts at about 13:05 on the normal start and finishes about 14:18.
+- Clear the plate, then plate 2 starts at about 14:30 on the fast start and finishes about 15:38.
+- A third plate doesn't fit before 16:45.
+
+**What I need from you.** Weather at 8 °C is right at your limit, and the earlier failures were at 4 °C. Plate 1 is a smaller footprint than the base, so I'll watch its first layer closely. Put the bagged grey spool on its holder on the balcony, feed the strand to the extruder, and tell me. I'll then run the loading. That's task 1 in [TODO-arcticoder.md](docs/TODO-arcticoder.md). The grey spool has about 930 g, far more than the 68 g needed.
+<!-- ------ -->
+---
+The first wall plate, `encl_print_wall_nx_a`, started printing at 12:52 on the normal start. The monitor is armed.
+
+- **First-layer look at about 13:01–13:03.** This is the check that matters, given the cold. Look at the first line along the rim, at the corners and at the plate surface. You want flat, continuous lines with no lifting at the corners. Expect a small amount of black streaking in the grey early on. Tell me straight away if anything lifts, and I'll pause or cancel.
+- **Mid-print look at about 13:30.**
+- **Expected finish at about 14:05.** The bed needs about 10 minutes to cool before you remove the plate.
+
+Then plate 2, `encl_print_wall_ny_a`, goes on the fast start. That one should finish at about 15:20, well inside your 16:45 limit. I'll re-arm the monitor every 30 minutes.
+<!-- ------ -->
+---
+All six points are handled, and the first-layer look is due in a few minutes (13:01–13:03).
+
+1. **Calipers.** I'll remind you when the LR44 cells arrive, then you measure the strip's width and thickness and the ballast. The reminder is in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md).
+2. **Scissors.** Yes. Score the line with the knife first, as you did. Cut so the strip stays flat and the waste is the piece that curls. Check the strip against a light afterwards, as before. I updated the cutting step in [assembly.md](docs/assembly.md). Cutting the spare strip is task 2 in [TODO-arcticoder.md](docs/TODO-arcticoder.md), and you bag it in `TORSION STRIP` next to the first.
+3. **Discs to the lip.** That works, and the attraction across the slot is what I wanted.
+4. **Tape.** Skip it. Each disc is held against its lip by the pull toward its partner across the slot, so snug is enough. The tape only matters if a steel object or magnet gets near the open face, so keep the nickel-plated weight set away from the holder. I made the tape optional in the assembly text and removed that task.
+5. **Photo.** I'll take your word that the discs are in, and I've made a note not to ask for a photo.
+6. **Hacksaw handle screws.** Use four M3×14 pan-head screws from the `SCREWS + NUTS` sub-bag. They thread directly into the 3 mm pilot holes in the body, so there are no nuts or washers. The heads sit in recesses in the cover. The assembly screw count had left the handle out, and I added it.
+
+First-layer look: check the rim line along the long edges and the corners of `encl_print_wall_nx_a`, then tell me what you see.
+<!-- ------ -->
+---
