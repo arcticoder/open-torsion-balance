@@ -4823,3 +4823,19 @@ Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last se
 ```
 <!-- ------ -->
 ---
+1. **Teeth direction.** You're right: the blade is symmetric along its length, so the teeth face whichever way you lay it, and I shouldn't have listed it as unknown. I fixed [balance_design_notes.md](docs/kb/balance_design_notes.md): that item is gone from the unknowns, with a note that it is a choice. [assembly.md](docs/assembly.md) already says teeth away from the handle for a push cut, so it needed no change. The other open unknowns on the handle are the pin's bearing in PLA, the tooth set against the 1.4 mm slot, and the blade's bow.
+
+2. **Waiting mode: yes.** [TODO-agent.md](docs/TODO-agent.md) is at 0 lines, so I have nothing startable. Every remaining item in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) has a condition that hasn't happened yet:
+   - **Printing:** the redesigned hacksaw handle, the remaining wall plates, the lid tiles and the base all wait for you to announce a print day at 8 °C or warmer. I slice the day before.
+   - **Main board:** it is in production at JLC. Bring-up and the firmware items wait for it to arrive.
+   - **LR44 cells:** the caliper reminder waits for them to arrive (promised 2027-01-13).
+   - **Measurement work:** the analysis script, the paper figures and the A5 noise measurement all need real data.
+
+   Your only task is the brass cut, in [TODO-arcticoder.md](docs/TODO-arcticoder.md). It needs the safety glasses (in transit), the printed handle, and a grip test with no cutting first. Nothing else is open for you.
+
+   The next things that can unblock work are:
+   - the safety glasses and the 1–20 g weights arriving;
+   - the UPS notice for the main board, when you tell me the duty amount;
+   - a print day you announce.
+<!-- ------ -->
+---
