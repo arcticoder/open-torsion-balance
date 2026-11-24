@@ -44,6 +44,8 @@ The electrostatic force F = c V^2 (c about 7.1e-10 N/V^2 from the geometry, know
 
 ## C. The measurement campaign (G1)
 
+> Proposed order and data rules (calibration vs claim runs, gates, epochs, provenance): [campaign_loop.md](campaign_loop.md). Not yet in force until the user approves it.
+
 The quantity: the force on the balance caused by (i) a current I through the supply leads, in the ambient field B (F = B I L), and (ii) the power dissipated by the device (thermal and convective forces), as functions of current, lead geometry
 and power. The method: modulate the cause on and off slowly and read the force at the modulation frequency with a lock-in (this rejects drift and the 1/f noise).
 1. **Conditions logged for every run:** date, time, operator absent, enclosure state, temperature (three TMP117 and the room), field vector (MMC5983MA), floor acceleration (LIS2DW12), lead geometry, current, polarity, device power, the plate DAC state (off), the

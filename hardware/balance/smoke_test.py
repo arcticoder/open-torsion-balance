@@ -238,6 +238,23 @@ check("functional — the chosen arm's first bending mode (with the device card,
 check("functional — 0.8 mm aluminium sheet is a like-for-like substitute for the FR4 arm in mass and first mode (within 10%)", abs(_al["arm_g"] / _fr4["arm_g"] - 1) < 0.1 and abs(_al["f1_Hz"] / _fr4["f1_Hz"] - 1) < 0.1, f"{_al['arm_g']:.1f} g and {_al['f1_Hz']:.0f} Hz against {_fr4['arm_g']:.1f} g and {_fr4['f1_Hz']:.0f} Hz")
 check("functional — a printed PLA arm needs about twice the thickness of FR4 for a similar first mode and has five times the thermal drift per kelvin", _pla["f1_Hz"] > 0.8 * _fr4["f1_Hz"] and _pla["t_mm"] / _fr4["t_mm"] > 1.5 and _pla["drift_um_per_K"] > 4 * _fr4["drift_um_per_K"], f"{_pla['t_mm']} mm gives {_pla['f1_Hz']:.0f} Hz, {_pla['drift_um_per_K']:.1f} um/K")
 
+# --- J2: the upgrade ranking and the eddy-vane sketch (2026-11-23) ---
+_air, _vac = MS.terms_for(), MS.terms_for(vacuum=True)
+check("functional — the unmodified material-study terms equal model.force_terms() (the study adds no hidden change)", all(abs(_air[k] - v) < 1e-18 for k, v in MS.M.force_terms().items()), "same eight terms")
+check("functional — in air the air term limits and swapping the frame path from PLA to FR4 changes the total by under 2% (invisible in air); in vacuum the same swap cuts the total by over 30%", MS.ranking(_air)[0][0][0] == "air currents" and abs(MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0)) / MS.M.total_density(_air) - 1) < 0.02 and MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0, vacuum=True)) < 0.7 * MS.M.total_density(_vac), f"air {MS.M.total_density(_air)*1e9:.2f} nN/rtHz; vacuum PLA {MS.M.total_density(_vac)*1e9:.3f} -> FR4 {MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0, vacuum=True))*1e9:.3f}")
+check("smoke — the study restores params.py after every what-if", abs(P.PLA_EXPANSION - 70e-6) < 1e-12 and abs(P.AIR_AREA - 2e-3) < 1e-12 and abs(P.FRAME_PATH - 0.10) < 1e-12, "PLA_EXPANSION, AIR_AREA, FRAME_PATH unchanged")
+try:
+    import eddy_vane_sim as EV  # noqa: E402
+
+    _h = 0.25e-3
+    _xs, _ys, _bz = EV.bz_grid(h=_h)
+    _c, _free = EV.damping(EV.mask_pad(_xs, _ys), _bz, _h, P.VANE_THICKNESS)
+    _c2, _ = EV.damping(EV.mask_pad(_xs, _ys), _bz, _h, 2 * P.VANE_THICKNESS)
+    _cs, _ = EV.damping(EV.mask_pad(_xs, _ys, slits=list(EV.patterns().values())[1]), _bz, _h, P.VANE_THICKNESS)
+    check("functional — the sheet-current solver gives less damping than the no-return-path bound, doubles with the thickness, and a slit lowers it", 0 < _c < _free and abs(_c2 / _c - 2) < 1e-6 and _cs < _c, f"{_c:.3e} of {_free:.3e} N s/m; slit {_cs/_c:.2f}x")
+except ImportError as _e:
+    print(f"[SKIP] the eddy-vane checks need magpylib and scipy: {_e}")
+
 try:
     import arm_dxf as AD  # noqa: E402
 

@@ -71,3 +71,5 @@ parts inventory and order ledger.
 - **Hardware designs and their documentation** (CERN-OHL-P v2, [LICENSE-HARDWARE](LICENSE-HARDWARE)): the CAD outputs (STL, STEP), KiCad
   files when they exist, SPICE netlists, parts tables and BOMs, and the assembly and design documents. A CadQuery `.py` file is code (MIT)
   whose output is hardware (CERN-OHL-P).
+
+Scope and next steps: [docs/campaign_loop.md](docs/campaign_loop.md) (measurement-to-improvement loop) and [docs/scope_and_rename.md](docs/scope_and_rename.md) (the repo is being generalised).

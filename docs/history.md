@@ -4839,3 +4839,36 @@ Both `docs/kb/README.md` files, `lab/docs/kb/jlc_account_and_quotes.md` (last se
    - a print day you announce.
 <!-- ------ -->
 ---
+All four items are done, apart from implementing the demodulation script and provenance code. That waits on your approval of the design (your task 2 below). The smoke tests pass: the 3 new checks sit in `hardware/balance/smoke_test.py`, and both smoke tests run clean. [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+
+**1 and 1.1: the feedback loop.** [campaign_loop.md](docs/campaign_loop.md) is a design only, and nothing in it is implemented.
+- It lists each assumed value in `params.py`, which run replaces it, and which budget term it moves.
+- The campaign order is noise and drift first, then the injected transfer coefficients (heater, tilt and coil steps, plus the lid-lifted air test), then calibration, then the claim runs last.
+- The guardrails are a calibration-versus-claim split, gates fixed in advance (proposed numbers, which you can change), epochs and provenance. I proposed the gate values myself: temperature drift under 0.05 K/h, floor acceleration under 20 mm/s², no field step over 1 µT, and a start-of-day calibration within 5 % of the day before.
+- The slow-demodulation script is specified step by step:
+  - **Regression:** it fits the modulation harmonics, drift and the temperature, tilt and field channels together.
+  - **Uncertainty:** it reports the largest of three estimates (fit, bootstrap, split-half), and tests run on synthetic data.
+  - **Provenance:** the table is `runs.csv`, `provenance.csv` and `epochs.csv`, with a smoke check that every measured value in `params.py` has a matching row.
+- Your note named `host/analyze.py`. It is actually `hardware/instrument/host/analyze.py`, and the new script goes beside it.
+
+**2 and 2.1: the upgrade ranking.** `material_study.py --terms` ranks the terms at each stage using the current `params.py` assumptions.
+- In air, the air term is 98 % of the total. Swapping the frame path from PLA to FR4 changes the total by under 1 %.
+- In vacuum, the same swap halves the total, from 0.705 to 0.340 nN/√Hz. Carbon rod only gets it to 0.316.
+- After vacuum and an FR4 frame, floor acceleration (0.206) and floor tilt (0.202) limit. Both come from the centre-of-mass offset, so the lever is trimming, not material.
+- Arm material only moves the 0.126 term. Aluminium would give 0.207 and PLA 0.612.
+- The vacuum row only zeroes the air term, so it is a lower bound.
+- The air term is linear in air-exposed area only because the model's formula says so. That is unverified.
+- The study also prints the injected-test coefficients (frame 315 nN/K, tilt 1.0 nN/µrad, and so on), which A5 would measure.
+
+**3: scope and rename.** [scope_and_rename.md](docs/scope_and_rename.md) has a draft scope statement, four name candidates (I recommend `open-torsion-balance`) and the rename plan. Nothing has been renamed. Your two decisions are tasks 2 and 3 in [TODO-arcticoder.md](docs/TODO-arcticoder.md).
+
+**4 and 4.1: the damper vane.** `eddy_vane_sim.py` solves the sheet currents in the copper on the repo's magpylib field. The grid is converged to 0.2 %.
+- **Slits:** one slit along the swing gives 0.67× the plain pad's damping, one across it 0.91×, and 1 mm holes at 3 mm pitch 0.78×. Four-slit combs give 0.13–0.15×. Slits only lower damping, which makes them a downward tuning knob.
+- **Pad ζ:** the plain pad comes out at 0.56× of what `model.eddy_damping_field` assumes, because that function ignores the current return path. That would put ζ nearer 0.22 than 0.40. It is a sketch with no back-action, so I did not change `DAMPING_RATIO`. Run the A5 decay test first.
+- **JLC copper:** one 35 µm layer is 0.12× the 0.3 mm pad.
+
+Cutting a slit pad and decay-testing it waits for the balance to run. That is in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md) along with the other gated items (the script, the rename and the procedures rewrite).
+
+I also added a note to the KB: the hacksaw blade's teeth direction is a free choice, not an unknown.
+<!-- ------ -->
+---

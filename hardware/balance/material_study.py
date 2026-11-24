@@ -68,5 +68,119 @@ def main():
     print("CAD arm (FR4 1.2 mm, with its holes): 26.5 g, 8.84e-5 kg m^2 about z; the uniform-strip inertia above is the bare board without the finger and holes")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and "--terms" not in sys.argv:
     main()
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------------
+# Part J2 — which force-noise term limits at each upgrade stage, and what a material/geometry change buys (added 2026-11-23)
+#
+#     python3 hardware/balance/material_study.py --terms
+#
+# The arm study above never touched the force-noise budget. This part does: it recomputes `model.force_terms()` with a swapped frame-path material
+# (the clamp-to-sensor path, params.FRAME_PATH, now PLA), a swapped arm material and a scaled flag area, in two environments (air; vacuum, where the air term is
+# zero by assumption: residual-gas damping and radiometer forces are NOT modelled, so a vacuum row is a lower bound until they are). CTEs are handbook values
+# [assume], so the ranking is only as good as they are; the first measured transfer coefficient (a heater step, nN per K) replaces them (docs/campaign_loop.md).
+# Terms scale with the environment assumptions in params.py (TEMP_NOISE, AIR_SPEED_FLUCT ...), which A5 measures: the ranking is conditional on them.
+# ---------------------------------------------------------------------------------------------------------------------------------------
+
+import model as M  # noqa: E402
+
+# name: (CTE ppm/K, note) — the frame path is the length between the strip's top clamp and the sensor bracket that carries the flag-to-sensor distance
+FRAME_MATERIALS = {
+    "PLA (now)": (70.0, "printed; creeps; handbook 68-70"),
+    "FR4 rod/board": (14.0, "in-plane glass-cloth direction; JLC 3DP not needed, boards cut by routing"),
+    "304 steel rod": (17.3, "stock rod; magnetic-permeability low for 304 but not zero: keep clear of the arm's field sensor"),
+    "6061 aluminium": (23.0, "CNC or stock bar; the expensive option the user wanted to avoid"),
+    "carbon-fibre rod": (1.0, "axial CTE about -1..+1 ppm/K for pultruded rod [assume]; conductive, adhesive-bonded"),
+    "Invar 36": (1.3, "reference only: no stock source in the repo, not a candidate for buying"),
+}
+SHORT = {"air currents": "air", "temperature (printed frame to the sensor)": "frame-path temp", "temperature (arm expansion)": "arm temp",
+         "floor acceleration through centre-of-mass offset": "floor accel", "floor tilt through centre-of-mass offset": "floor tilt",
+         "thermal (Brownian, eddy damper)": "Brownian", "magnetic (stray moment x field noise)": "magnetic", "readout (shot + electronics + LED)": "readout"}
+ARM_MATERIALS = {"FR4 (chosen)": 14.0, "6061 aluminium": 23.0, "PLA": 68.0}
+
+
+def terms_for(frame_cte_ppm=None, arm_cte_ppm=None, flag_area_scale=1.0, vacuum=False, frame_path=None):
+    """force_terms() with a changed frame material, arm material, flag area, and air or vacuum. Restores params afterwards."""
+    keep = (P.PLA_EXPANSION, P.ARM_EXPANSION, P.AIR_AREA, P.FRAME_PATH)
+    try:
+        if frame_cte_ppm is not None:
+            P.PLA_EXPANSION = frame_cte_ppm * 1e-6
+        if arm_cte_ppm is not None:
+            P.ARM_EXPANSION = arm_cte_ppm * 1e-6
+        if frame_path is not None:
+            P.FRAME_PATH = frame_path
+        P.AIR_AREA = keep[2] * flag_area_scale
+        t = M.force_terms()
+        if vacuum:
+            t["air currents"] = 0.0
+        return t
+    finally:
+        P.PLA_EXPANSION, P.ARM_EXPANSION, P.AIR_AREA, P.FRAME_PATH = keep
+
+
+def ranking(terms):
+    """Terms sorted largest first as (name, nN/rtHz, share of the quadrature total)."""
+    tot = M.total_density(terms)
+    return [(n, v * 1e9, (v / tot) ** 2) for n, v in sorted(terms.items(), key=lambda a: -a[1])], tot
+
+
+def transfer_coefficients():
+    """Force per unit input of each environmental channel (the numbers the injected-signal tests measure). nN per K for the two thermal paths; the rest as given by the model."""
+    k = M.k_eff(M.strip_stiffness(), P.ARM_HALF_LENGTH)
+    return {
+        "frame path (nN/K), PLA now": k * P.PLA_EXPANSION * P.FRAME_PATH * 1e9,
+        "arm (nN/K)": k * P.ARM_EXPANSION * P.ARM_HALF_LENGTH * 1e9,
+        "tilt (nN/urad)": P.MOVING_MASS * P.G_ACC * P.COM_OFFSET / P.ARM_HALF_LENGTH * 1e-6 * 1e9,
+        "floor acceleration (nN per mm/s^2)": P.MOVING_MASS * P.COM_OFFSET / P.ARM_HALF_LENGTH * 1e-3 * 1e9,
+        "magnetic (nN/uT)": P.STRAY_MOMENT / P.ARM_HALF_LENGTH * 1e-6 * 1e9,
+    }
+
+
+def upgrade_stages():
+    """(label, terms) for the order of upgrades: baseline in air, cheaper air-term steps, a material swap, then vacuum with and without it."""
+    st = [("0 baseline, air, PLA frame, 20 cm2 flag", terms_for())]
+    st.append(("1a air: air-exposed area x0.5 (the model is linear in AIR_AREA = flag + device mount; unverified)", terms_for(flag_area_scale=0.5)))
+    st.append(("1b air: air-speed fluctuation 0.5x via enclosure/gasket (an assumption, not a design)", None))
+    st.append(("2 frame path to FR4 (CTE 14), air", terms_for(frame_cte_ppm=14.0)))
+    st.append(("3 vacuum, PLA frame", terms_for(vacuum=True)))
+    st.append(("4 vacuum + frame path to FR4", terms_for(frame_cte_ppm=14.0, vacuum=True)))
+    st.append(("5 vacuum + carbon-rod frame path", terms_for(frame_cte_ppm=1.0, vacuum=True)))
+    return st
+
+
+def main_terms():
+    k = None
+    print("Force-noise terms at %.3f Hz, one 1000 s measurement resolution = density x sqrt(1/(2 T)) (model.py, params.py assumptions)\n" % P.F_MOD)
+    for label, t in upgrade_stages():
+        if t is None:  # 1b: halve the air-speed fluctuation
+            keep = P.AIR_SPEED_FLUCT
+            try:
+                P.AIR_SPEED_FLUCT = keep * 0.5
+                t = terms_for()
+            finally:
+                P.AIR_SPEED_FLUCT = keep
+        rk, tot = ranking(t)
+        print("%s\n  total %.3f nN/rtHz -> %.3f nN in 1000 s; limiting term: %s (%.0f%% of the quadrature sum)" % (label, tot * 1e9, M.resolution(tot) * 1e9, SHORT.get(rk[0][0], rk[0][0]), 100 * rk[0][2]))
+        print("  " + "; ".join("%s %.3f" % (SHORT.get(n, n), v) for n, v, _ in rk[:4]))
+    print("\nFrame-path material swap (air and vacuum), arm material in FR4, frame path %.0f mm:" % (P.FRAME_PATH * 1e3))
+    print("  %-18s %6s  %12s %10s  %12s %10s  %s" % ("material", "ppm/K", "air nN/rtHz", "1000 s nN", "vac nN/rtHz", "1000 s nN", "limiting in vacuum"))
+    for name, (cte, note) in FRAME_MATERIALS.items():
+        ta, tv = terms_for(frame_cte_ppm=cte), terms_for(frame_cte_ppm=cte, vacuum=True)
+        da, dv = M.total_density(ta), M.total_density(tv)
+        print("  %-18s %6.1f  %12.3f %10.3f  %12.3f %10.3f  %s" % (name, cte, da * 1e9, M.resolution(da) * 1e9, dv * 1e9, M.resolution(dv) * 1e9, SHORT.get(ranking(tv)[0][0][0], "")))
+    print("\nArm material alone (frame stays PLA): only the arm-expansion term moves")
+    for name, cte in ARM_MATERIALS.items():
+        t = terms_for(arm_cte_ppm=cte)
+        print("  %-18s arm-expansion term %.3f nN/rtHz, total in air %.3f" % (name, t["temperature (arm expansion)"] * 1e9, M.total_density(t) * 1e9))
+    print("\nFlag area scaling of the air term (linear in AIR_AREA in model.force_terms: 1.2 x 1.0 x area x v_rms x v_fluct):")
+    for s in (0.25, 0.5, 1.0, 2.0):
+        print("  flag area x%.2f -> air %.3f nN/rtHz" % (s, terms_for(flag_area_scale=s)["air currents"] * 1e9))
+    print("\nTransfer coefficients (what the injected-signal tests measure; predicted noise = coefficient x measured environment noise):")
+    for n, v in transfer_coefficients().items():
+        print("  %-38s %.4g" % (n, v))
+
+
+if __name__ == "__main__" and "--terms" in sys.argv:
+    main_terms()

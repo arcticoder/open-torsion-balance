@@ -10,6 +10,8 @@
 - **Previews:** when slicing, say which object is which and whether objects are meant to touch; compare the `EXCLUDE_OBJECT_DEFINE` polygons for overlaps (the two riders were printed joined); leave previewable STLs and name them. Do not announce "nothing is committed" at the end of replies.
 - **Assembly steps startable now (user's list):** the brass cut after the new handle; most mechanics wait on the base (frame), `clamp_plate` and the walls (`kb/build_dependency_graph.md`).
 
+- **Chat 19 (2026-11-23) additions:** scope is widening from a spurious-force study to a general self-improving torsion balance (repo rename pending, user tasks 2-3); `docs/campaign_loop.md` (design only, nothing implemented until the user answers task 2), `material_study.py --terms` (upgrade ranking), `eddy_vane_sim.py` (sketch), three new smoke checks. The sketch suggests zeta for one plain pad is nearer 0.22 than 0.40: measure in A5 step 4 before changing params. Teeth direction of the hacksaw blade is a free choice, not an unknown. Not yet reflected in the pasted context block below (scope line, new docs).
+
 ## Files that carry the state
 
 `docs/TODO-arcticoder.md` (user tasks: the brass cut, plus the en-route list), `docs/TODO-agent.md` (0 lines), `docs/TODO-BLOCKED.md` (print remainder, handle print, base fix, caliper reminder, firmware/analysis items), `docs/TODO-backlog.md`, `docs/TODO-completed.md` (newest first).

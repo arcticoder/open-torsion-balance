@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-23 (chat 19) — Designed the campaign feedback loop (`docs/campaign_loop.md`), wrote the per-term upgrade ranking for air and vacuum (`material_study.py --terms`), the slit-vane damping sketch (`eddy_vane_sim.py`), the scope and rename note, and 3 smoke checks; blade-teeth direction is a free choice, not an unknown.
+
 - 2026-11-22/23 (chat 18, end) — Blade measured by the user (6 x 0.8 x 153.5 mm, pin 1 x 5 mm at 3 mm from each end, both ends pinned, sawtooth); the hacksaw handle was redesigned and its STLs regenerated; the user confirmed the ny_a underside is smooth with no lifted corners and removed the plate; the printer was switched off by the user.
 
 - 2026-11-22 (chat 18, print window) — Wall plates `encl_print_wall_nx_a` and `encl_print_wall_ny_a` printed in grey at 8 C (61.7 min each, both looked good); CAD fixed so the plate is flush with the outside face (it had a 0.4 mm bridge); `px_a` sliced for next time; the pinned hacksaw blades do not fit the handle (redesign waits on blade measurements).
