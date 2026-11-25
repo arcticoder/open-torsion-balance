@@ -10,7 +10,7 @@
 - **Previews:** when slicing, say which object is which and whether objects are meant to touch; compare the `EXCLUDE_OBJECT_DEFINE` polygons for overlaps (the two riders were printed joined); leave previewable STLs and name them. Do not announce "nothing is committed" at the end of replies.
 - **Assembly steps startable now (user's list):** the brass cut after the new handle; most mechanics wait on the base (frame), `clamp_plate` and the walls (`kb/build_dependency_graph.md`).
 
-- **Chat 19 (2026-11-23) additions:** scope is widening from a spurious-force study to a general self-improving torsion balance (repo rename pending, user tasks 2-3); `docs/campaign_loop.md` (design only, nothing implemented until the user answers task 2), `material_study.py --terms` (upgrade ranking), `eddy_vane_sim.py` (sketch), three new smoke checks. The sketch suggests zeta for one plain pad is nearer 0.22 than 0.40: measure in A5 step 4 before changing params. Teeth direction of the hacksaw blade is a free choice, not an unknown. Not yet reflected in the pasted context block below (scope line, new docs).
+- **Chat 19 (2026-11-23) additions:** the repo is RENAMED `open-torsion-balance` (GitHub rename done by `gh`; fresh clone `~/Code/python/open-torsion-balance`, added to `lab/lab.code-workspace`; the old directory is a duplicate the user deletes, task 4; work from the new clone; old name replaced in live text, history.md files untouched; scope text and README draft in `docs/scope_and_rename.md` await approval, tasks 2-3). Gate design revised after the user's review: three run purposes, per-run-type gates, rule D (drive-correlated witnesses excluded from gates and regression), freeze rule F, epochs = hardware states, calibrated forces poolable across epochs; `docs/campaign_loop.md` (design only, nothing implemented until the user answers task 2), `material_study.py --terms` (upgrade ranking), `eddy_vane_sim.py` (sketch), three new smoke checks. The sketch suggests zeta for one plain pad is nearer 0.22 than 0.40: measure in A5 step 4 before changing params. Teeth direction of the hacksaw blade is a free choice, not an unknown. Not yet reflected in the pasted context block below (scope line, new docs).
 
 ## Files that carry the state
 
@@ -30,7 +30,7 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; truly
         "Filing plan"; photos in docs/img/tools_bags_2026-11-20/) and my JLC account notes (docs/jlc/:
         coupons read from my account, captures and reads of JLC's quote pages,
         docs/kb/jlc_account_and_quotes.md).
-      - spurious-force-balance (github.com/arcticoder/spurious-force-balance): the first experiment — an open,
+      - open-torsion-balance (github.com/arcticoder/open-torsion-balance): the first experiment — an open,
         low-cost torsion balance that quantifies the spurious forces (supply-lead Lorentz forces, heating,
         convection) that dominate small-thrust measurements. Printable mechanics (CadQuery), FR4 fab boards for
         the arm and electrodes, a force-noise model, and JLCPCB-assembled RP2040 electronics (KiCad 9, SKiDL,
@@ -106,7 +106,7 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; truly
     tasks for me only (actions only, one-line justifications; internal notes go in docs/kb); any task or decision
     you give me in chat goes there too. Keep docs/kb/*.md (LLM-only notes) up to date with discoveries. Don't
     quote me or describe how I said things in files or chat. Watch for deals only; buy nothing unless I ask.
-    Start by reading docs/kb/README.md and docs/kb/session_handoff.md in spurious-force-balance, then
+    Start by reading docs/kb/README.md and docs/kb/session_handoff.md in open-torsion-balance, then
     lab/docs/kb/README.md and lab/docs/kb/jlc_account_and_quotes.md. Then continue from
     docs/TODO-arcticoder.md, docs/TODO-BLOCKED.md and my feedback below.
 

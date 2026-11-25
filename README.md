@@ -1,4 +1,4 @@
-# spurious-force-balance
+# open-torsion-balance
 
 An open, low-cost torsion balance for measuring the spurious forces that dominate small-force and thrust
 experiments, with printable mechanics, a validated force-noise model and fab-assembled electronics.

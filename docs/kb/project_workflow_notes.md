@@ -7,11 +7,11 @@ Audience: future LLM sessions. Facts about the repos, the Opus/Sonnet routine an
 - `~/Code/python/pico`: the user's Pico/RP2040 sandbox (the Claude Code memory directory is keyed to it).
 - `~/Code/python/lab` (github.com/arcticoder/lab, public): reusable bench circuits (SPICE netlists, breadboard guides, pass/fail smoke tests, MicroPython) plus the shared parts ledger (`docs/inventory.md`,
   `docs/orders.md`, `docs/parts_reference.md`) and its own knowledge base (`docs/kb/`). Every circuit there is ephemeral on a breadboard; parts return to inventory.
-- `~/Code/python/spurious-force-balance` (github.com/arcticoder/spurious-force-balance, public, split from `lab` on 2026-10-23 with history): the torsion-balance experiment: plan, CAD, noise model, FR4 boards for JLC,
+- `~/Code/python/open-torsion-balance` (github.com/arcticoder/open-torsion-balance, public, split from `lab` on 2026-10-23 with history): the torsion-balance experiment: plan, CAD, noise model, FR4 boards for JLC,
   the fab-assembled electronics design. Experiment-specific work lives in its own repo; a circuit built for an experiment stays in `lab` if it is reusable (`optical_shadow_readout`, `lockin_amplifier`) and the experiment links to it.
   Cross-repo references are GitHub URLs, not relative paths. `lab/lab.code-workspace` lists all three folders; the user keeps that one workspace.
 - Licenses (both repos): MIT for code, CERN-OHL-P v2 for hardware designs and their documentation (`LICENSE`, `LICENSE-HARDWARE`).
-- Git identity in both: `Arcticoder <10162808+arcticoder@users.noreply.github.com>`. Never commit: the user stages and commits both repos after each chat. Only flag, in `TODO-arcticoder.md`, milestones at which `hardware/easyeda/spurious-force-balance.eprj2` is worth committing (decided 2026-10-30). Commit messages end with the attribution line the session's system reminder gives.
+- Git identity in both: `Arcticoder <10162808+arcticoder@users.noreply.github.com>`. Never commit: the user stages and commits both repos after each chat. Only flag, in `TODO-arcticoder.md`, milestones at which `hardware/easyeda/open-torsion-balance.eprj2` is worth committing (decided 2026-10-30). Commit messages end with the attribution line the session's system reminder gives.
 
 ## The Opus plans / Sonnet actions routine
 

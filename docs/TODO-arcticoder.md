@@ -9,8 +9,9 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 ## What I need from you
 
 1. [ ] **Cut the ballast from the brass rod** after the glasses arrive and the redesigned pinned-blade handle is printed and holds the blade (grip test first, no cutting) (assembly.md, section 2).
-2. [ ] **Review the gates, epochs and data split** in [campaign_loop.md](campaign_loop.md) sections 3 and 5 and say which to change: the code that applies them is written only once you approve them.
-3. [ ] **Choose the repo's new name** from [scope_and_rename.md](scope_and_rename.md) (or give another) and say whether the scope statement there is right: the rename and the README rewrite wait on it.
+2. [ ] **Review the revised gates, purposes, epochs and provenance** in [campaign_loop.md](campaign_loop.md) sections 3-6 and say which to change: the code that applies them is written only once you approve them.
+3. [ ] **Approve the scope text and the README opening draft** in [scope_and_rename.md](scope_and_rename.md), including the factor 3 for the second claim: the README rewrite waits on it.
+4. [ ] **Commit and push the new clone's changes**, then delete the old `spurious-force-balance` folder and its workspace entry (the new clone `open-torsion-balance` replaces it; the old folder's remote already points at the new URL).
 
 ## En route
 

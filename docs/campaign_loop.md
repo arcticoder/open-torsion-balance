@@ -32,38 +32,65 @@ Predicted noise after the loop is each transfer coefficient times the environmen
 
 ## 3. Guardrails (to approve; the numbers are proposals)
 
-- **Calibration data and claim data never overlap.** Runs have a `purpose` field: `calibration` (T0-T2, may update params.py) or `claim` (T3, read-only against params.py). A run is never used for both. Claim uncertainties use the parameters as frozen at the start of the claim epoch.
-- **Gates are fixed before the data arrive** and every run that passes feeds back, not only the favourable ones. Proposed gates, written into the run manifest as numbers: temperature drift under 0.05 K/h over the run (TMP117 slope), lid state as recorded, no LIS2DW12 sample above 20 mm/s^2 (door slam, footsteps), no field step over 1 uT (a moved magnet), the optical DC level inside 20-80 % of its range, the day's start calibration within 5 % of the previous day's. A failed gate rejects the run and is logged with its reason; rejected runs are listed in the table, not deleted.
-- **Epochs.** An epoch is a stretch with one hardware state. Any change to trim, ballast, pad count, gasket, frame material, enclosure state (lid, vacuum), strip, or board starts a new epoch; parameters carry the epoch id; pooling across epochs is not allowed except for the T0 comparison that measures the change itself.
-- **Provenance.** Every `params.py` value that came from a measurement records run id, epoch, date, value, uncertainty and the script version (section 5).
+**Run purposes (three).** `calibration` (T0-T2: may set parameters), `control` (baselines, leads-unplugged runs, plate checks and no-current hours during claim days: the claim analysis uses them for offset subtraction, they never set parameters), `claim` (T3: read-only against the parameters). A run has exactly one purpose and is never reused under another.
+
+**Rule D (drive-correlated witnesses).** A witness channel that the run drives, or that responds to the drive, is excluded from that run's gates AND from that run's witness regression. "Responds to the drive" is tested, not assumed: the script correlates each witness with the run's reference (the DUT_EN or heater square wave) at f_mod and its odd harmonics up to 5, in the same high-passed form as the regression; a witness whose in-phase or quadrature amplitude exceeds 3 times its own noise there is flagged drive-correlated and dropped, and the amplitude is reported (it is a result: the board's field reading of 300 mA at about 1 cm is about 6 uT). The manifest also lists the channels the run is designed to drive (`driven`), which are excluded without the test. A high-pass does not replace this rule, because the 3rd and 5th harmonics of a square wave pass it.
+
+**Gates are per run type.** Proposed values (revisable once, rule F):
+
+| Run type | Drives (`driven`) | Gates that apply (all others excluded) |
+|---|---|---|
+| T0 noise baseline, control baseline, leads-unplugged control | none | all gates below |
+| T1 heater step; C.4 heating | frame or device temperature | no temperature-slope gate; tilt, field, optical DC, accelerometer (if fitted) apply |
+| T1 tilt step | tilt | no tilt gate; temperature, field, optical DC, accelerometer apply |
+| T1 coil run; C.3 lead-current | field (C.3 also device temperature if the card heats) | no field gate (no temperature gate if the card heats); the others apply |
+| B calibration, plate steps | plate voltage only | all gates below |
+
+The gates: temperature slope under 0.05 K/h over the run (TMP117, where not driven); field step under 1 uT between 60 s blocks (where not driven); the optical DC level inside 20-80 % of its range; no more than N excursions above a band-limited rms threshold of the accelerometer (a block rms in 0.01-1 Hz, over 60 s blocks); for calibration runs, the B.2 fit's residuals under 2 %.
+- **The accelerometer gate is optional** until the LIS2DW12 is fitted (it is not placed on the first articles). Its threshold is derived from the first T0 record (proposal: 5 times the median block rms) and frozen with the gates; a fixed 20 mm/s^2 per sample is not used, because the sensor's own noise over 1000 s at a high sample rate can exceed it.
+- **No agreement gate on the calibration.** The day's calibration is gated on its own quality (residuals under 2 %). Day-to-day change in the plate constant and kappa is logged as a trend; a jump triggers investigation or a new epoch, never a silent rejection of that day's claim runs.
+- A failed gate rejects the run, with the gate name and value in `runs.csv`; rejected runs are kept in the table.
+
+**Rule F (freeze).** The gates may be revised once, after the T0 record shows the real noise, and are then frozen with a `gates_version` before the first claim run. `script_version` is frozen the same way. If claim data are reanalysed with a later version, both results are reported.
+
+**Rule P (parameters and the force scale).** Two rules: (1) model parameters (transfer coefficients, zeta, the form of kappa) are frozen for the epoch; (2) the force scale of a claim run comes from that day's bracketing `calibration` runs (B.3: start and end of day, and after a 2 C change). A claim run's own data never enter either.
+
+**Epochs are hardware states, not conditions.** A new epoch starts at: a change to ballast or pad count (moves I and the centre of mass; "trim" means only these); the dummy mass swapped for the device card; a change of Rf or LED current (A.2 allows both); a change to the firmware's acquisition or lock-in code; the strip re-clamped or replaced; the gasket, enclosure or frame material changed; the board replaced; the apparatus moved. Not epochs: the lid state for A.6, the choice of f_mod, a torsion-head re-zero (a setpoint), the day, the lead geometry. These are conditions in `runs.csv`.
+
+**Pooling.** Raw signals and parameter fits are never pooled across epochs. Calibrated forces (newtons, each from its own epoch's calibration) may be pooled across epochs with epoch as a grouping term, and the scatter between epochs is reported next to the pooled value. This keeps C.2's five repeats on different days possible across a mid-campaign epoch break.
 
 ## 4. Slow-demodulation script (design): `hardware/instrument/host/slowdemod.py`
 
 (The user's note named `host/analyze.py`; it is `hardware/instrument/host/analyze.py`. The new script sits beside it and reuses `asd` and `allan_deviation`.)
 
-Input: a run directory `runNNN_label/` with the logger's CSV (the demodulated optical output, 20 samples/s or more) and a `manifest.json` (schema in section 5). Output: `runNNN_label/result.json` plus one text report.
+Input: a run directory `runNNN_label/` with the logger's CSV (the demodulated optical output, 20 samples/s or more) and `manifest.json` (section 5). Output: `result.json` and a text report in the same directory.
 
-Algorithm:
-1. Convert the channel to force with the epoch's calibration (displacement scale V/mm from A.3, kappa, lever arm, plate constant); the conversion constants and their run ids are copied into the result.
-2. Cut the record into whole modulation cycles (drop the partial cycle at each end, drop the first cycle for the thermal transient unless the run is a step run); reference is the DUT_EN square wave read back from the logger's own channel, not a nominal clock, so a dropped sample cannot rotate the phase.
-3. Regress, in one least-squares fit over the kept samples, the force on: in-phase and quadrature reference at f_mod and its odd harmonics up to 5 (a square wave carries them), a constant, a linear drift and a quadratic drift, and the witness channels (frame temperature, tilt, field components), each high-passed at 3 x the lowest modulation frequency so they cannot absorb the signal. Report the signal amplitude and phase before and after the witness regression (the noise reduction is itself a result).
-4. Uncertainty: the fit's covariance scaled by the residual's own spectrum near f_mod (red noise makes the white-noise formula too small), cross-checked by a block bootstrap over the cycles and by the split-half scatter. The reported number is the larger. A run whose three estimates disagree by over a factor 1.5 is flagged.
-5. Express the coupling per ampere (I from the logger), per watt, or per kelvin; apply the Lorentz second check (section 6) when the run is a lead-current run.
-6. Tests (`hardware/instrument/host/test_host.py` pattern): synthetic runs with known amplitude, injected 1/f drift and known witness leakage; the recovered amplitude within its stated uncertainty in over 90 % of 200 realizations; a run with a leaked witness shows the regression removing it; a polarity swap flips the sign.
+1. Convert the channel to force with the day's bracketing calibration (displacement scale V/mm from A.3, kappa, lever arm, plate constant); the constants and their run ids are copied into the result.
+2. Cut the record into whole modulation cycles (drop the partial cycle at each end, drop the first cycle for the thermal transient unless the run is a step run); the reference is the DUT_EN or heater square wave read back from the logger's own channel, not a nominal clock, so a dropped sample cannot rotate the phase.
+3. Regress, in one least-squares fit over the kept samples: in-phase and quadrature references at f_mod and its odd harmonics up to 5, a constant, a linear and a quadratic drift, and the witness channels that rule D leaves in (temperature, tilt, field components), each high-passed at 3 times the lowest modulation frequency. Report amplitude and phase before and after the witness regression (the noise reduction is itself a result).
+4. Uncertainty: the fit covariance scaled by the residual's own spectrum near f_mod (red noise makes the white-noise formula too small), cross-checked by a block bootstrap over cycles and by the split-half scatter. The reported number is the largest; a run whose three estimates differ by over a factor 1.5 is flagged.
+5. Express the coupling per ampere, per watt or per kelvin; apply the Lorentz check (section 6) on lead-current runs.
+6. Tests (the `test_host.py` pattern): synthetic runs with known amplitude, injected 1/f drift and known witness leakage; recovered amplitude within its stated uncertainty in over 90 % of 200 realizations; a leaked witness is removed by the regression; a driven witness (field on a lead-current run) is dropped by rule D and the signal is NOT reduced; a polarity swap flips the sign.
 
-## 5. Provenance table (design): `hardware/balance/provenance.csv` and the run manifest
+## 5. Provenance and the run manifest (design)
 
-`runs.csv` (one row per run, written by the script from the manifest): `run_id, date, epoch, purpose, label, condition, T_mean_C, T_slope_K_per_h, tilt_urad, B_uT, lid, gates_passed, reject_reason, calib_id, script_version, result_path`.
+**Where files live.** In git, under `hardware/balance/campaign/`: `runs.csv`, `epochs.csv`, `provenance.csv`, and per run `runs/runNNN_label/manifest.json` and `result.json`. The raw logger CSVs stay outside git (they are large; Git LFS bandwidth is already used by the pictures) in a directory named in `epochs.csv`'s header comment, with their SHA-256 in the manifest, so a result can be checked against the file that produced it.
 
-`provenance.csv` (one row per measured parameter value): `param, value, unit, sigma, epoch, run_ids, date, method, supersedes`. `params.py` keeps its `[assume]` tags until a row exists; then the tag becomes `[meas: epoch E, runs a-b]` and the number in the file equals the row.
-The smoke test gains two checks when the files exist: every `[meas]` tag in params.py has a provenance row with the same value, and no `claim` run id appears in a provenance row.
-`epochs.csv`: `epoch, start, hardware_change, trim_state, pads, frame_material, enclosure, strip_id`, appended by hand at each change (an agent task: asked of the user when a change is reported).
+**`manifest.json`** (written by the logger at the start of a run, completed at its end; the analysis reads it):
+`run_id, label, purpose (calibration|control|claim), run_type (T0|T1_heater|T1_tilt|T1_coil|B_cal|C3|C4|control), epoch, start, end, operator_absent, condition {lid, enclosure, lead_geometry, polarity, current_A, device_power_W, f_mod_Hz, duty}, device_config (dummy|card|leads_only), hardware {rf_ohm, led_mA, firmware_version, board_serial}, driven [channel names], channels {name: unit, source}, reference_channel, calibration_ids {start, end}, gates_version, script_version, raw {path, sha256, samples, fs_Hz}, notes`.
+The logger refuses to start a run unless `epoch` is present in the manifest and exists in `epochs.csv`, and unless `purpose`, `run_type` and `gates_version` are set: a forgotten epoch entry surfaces when the run starts, not during analysis.
+
+**`runs.csv`** (one row per run, written by the script): `run_id, start, end, epoch, purpose, run_type, label, condition (lid state and lead geometry are fields of the condition, not extra columns), device_config, rf_ohm, led_mA, firmware_version, gates_version, script_version, calib_id_start, calib_id_end, T_mean_C, T_slope_K_per_h, tilt_mean_urad, tilt_rms_urad, B_mean_uT, B_rms_uT, drive_correlated (list), gate_values (one number per gate, with its limit), gates_passed, reject_reason, result_path`. Tilt and field are given as both mean and rms; no column holds an unlabelled one.
+
+**`provenance.csv`** (one row per measured parameter value): `param, value, unit, sigma_stat, sigma_sys, epoch, run_ids, date, method, supersedes`. Both sigmas are 1 sigma; the calibration budget in the paper needs the statistical and the systematic part separately. `params.py` keeps its `[assume]` tag until a row exists; then the tag is `[meas: epoch E, runs a-b]` and the number in the file equals the row.
+Smoke checks (when the files exist): every `[meas]` tag in params.py has a provenance row whose value agrees to the number of significant figures stated in the row (not as an exact float); no `claim` or `control` run id appears in `provenance.csv`; every `runs.csv` epoch exists in `epochs.csv`.
+**`epochs.csv`**: `epoch, start, trigger, ballast_g, pads, strip_id, frame_material, enclosure, device_config, rf_ohm, led_mA, firmware_version, location_note`; a row is appended (by the agent, when the user reports a change) before the next run; the logger check above catches a miss.
 
 ## 6. Second scale check, witness regression, modulation frequency
 
-- **Lorentz scale check.** For a lead-current run, the predicted force is B I L with B from the MMC5983MA at the leads, I from the logger and L from the lead geometry; compare it with the force read through the plate calibration. They agree within the combined uncertainty or one of the two has an error. The field and its gradient at the leads dominate the prediction's error (the magnetometer sits on the board, not at the leads): the check is a consistency test, not a calibration, until the field is mapped along the leads.
-- **Witness channels.** The regression in 4.3 is the noise-reducing step; its gain is the ratio of residual ASD to raw ASD at f_mod, reported per run. Done in analysis only: no hardware change.
-- **Modulation frequency and integration time.** After T0, pick f_mod and the on/off cycle count where the measured force ASD (witness-regressed) is lowest, subject to f_mod below the resonance 0.215 Hz and at least 10 cycles per run. The 0.025/0.05 Hz values stay until a measured ASD says otherwise; a change opens a new epoch for the claim runs only.
+- **Lorentz scale check.** For a lead-current run the predicted force is B I L with B from the MMC5983MA at the leads (the field channel is driven in that run and is excluded from the regression by rule D, but it is read here as a measurement), I from the logger and L from the lead geometry; compare it with the force read through the plate calibration. Agreement within the combined uncertainty or one of the two has an error. The field and its gradient at the leads dominate the error (the magnetometer sits on the board, not at the leads): a consistency test, not a calibration, until the field is mapped along the leads.
+- **Witness channels.** The gain of the regression is the ratio of residual ASD to raw ASD at f_mod, reported per run; analysis only, no hardware change.
+- **Modulation frequency and integration time.** After T0, pick f_mod and the cycle count where the measured, witness-regressed force ASD is lowest, with f_mod below the resonance (0.215 Hz) and at least 10 cycles per run. f_mod is a condition, not an epoch; a change of the claim runs' f_mod after rule F needs a new `gates_version` entry and is reported.
 
 ## 7. How the upgrade studies connect
 

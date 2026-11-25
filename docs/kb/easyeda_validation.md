@@ -2,7 +2,7 @@
 
 # EasyEDA offline validation layer (2026-11-01)
 
-Purpose: a second, tool-independent check of the EasyEDA project, runnable by any LLM or CI job without MCP access to EasyEDA. The user's rule: run it at every milestone, i.e. before telling them to commit `hardware/easyeda/spurious-force-balance.eprj2`, and report the result in `TODO-arcticoder.md`.
+Purpose: a second, tool-independent check of the EasyEDA project, runnable by any LLM or CI job without MCP access to EasyEDA. The user's rule: run it at every milestone, i.e. before telling them to commit `hardware/easyeda/open-torsion-balance.eprj2`, and report the result in `TODO-arcticoder.md`.
 
 ## What runs
 - `python3 tools/validate_easyeda.py [project.epro2] [--json report.json] [--strict] [-v] [--board NAME]` (standard library only). Default input: the newest `.epro2` in `hardware/easyeda/exports/`, else the newest `hardware/easyeda/*_backup/*.epro2` (EasyEDA writes those itself; the folder is gitignored).

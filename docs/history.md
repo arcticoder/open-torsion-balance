@@ -4872,3 +4872,44 @@ Cutting a slit pad and decay-testing it waits for the balance to run. That is in
 I also added a note to the KB: the hacksaw blade's teeth direction is a free choice, not an unknown.
 <!-- ------ -->
 ---
+I renamed the repo to `open-torsion-balance` and rewrote the campaign-loop design and the scope note to cover all 15 points. Both smoke tests pass from the new clone. Nothing is committed.
+
+## Rename (2.1)
+- **GitHub:** `gh repo rename` succeeded. The old URL redirects, and the old folder's `origin` now points at the new URL.
+- **Clone:** I cloned the repo to `~/Code/python/open-torsion-balance` (Git LFS filled). The old folder was clean and fully pushed before the rename, so the clone is current.
+- **Workspace:** the new folder is added to [lab.code-workspace](../lab/lab.code-workspace). The old `spurious-force-balance` entry is still there as a duplicate; deleting it is your task 4.
+- **Old name:** I replaced it in the live text of this repo, `lab`, `wsl`, and my notes. I left both `history.md` files alone. The `lab` change is 26 lines, only the name.
+- **Working copy:** work from the new clone from now on. My doc edits went into it, not the old folder.
+
+## Gates, provenance and data rules (1)
+All edits are in [campaign_loop.md](docs/campaign_loop.md), sections 3 to 6. It is still a design, and I implement it only after you approve it.
+
+- **Gates (1–5):**
+  - **Run types:** gates are now set per run type, in a table.
+  - **Rule D:** a witness channel that the run drives, or that responds to the drive, is dropped from that run's gates and its regression. The response is tested at f_mod and its odd harmonics up to the fifth, and the field reading of 300 mA at about 1 cm (about 6 µT) is reported as a result.
+  - **Accelerometer:** this gate is optional until the LIS2DW12 is fitted. It uses a band-limited block rms count, and the threshold comes from the first T0 record.
+  - **Calibration:** the calibration is gated only on its own residuals (under 2 %). Day-to-day change is logged as a trend and never rejects a day's claim runs.
+  - **Freeze rule:** gates are revised once after T0, then frozen under a `gates_version` before the first claim run. `script_version` is frozen the same way, and a reanalysis reports both results.
+- **Data split (6, 7):** there are three purposes: calibration, control and claim. Model parameters are frozen per epoch, and each claim run's force scale comes from that day's bracketing calibration runs.
+- **Epochs (8–10):**
+  - **Hardware states:** epochs are hardware states only. Lid state, f_mod and a torsion-head re-zero are conditions.
+  - **New triggers:** swapping the dummy mass for the device card, changing Rf or LED current, changing the firmware's acquisition code, re-clamping the strip and moving the apparatus.
+  - **Pooling:** calibrated forces may be pooled across epochs, with the epoch scatter reported. Raw signals and parameter fits may not.
+- **Provenance (11–15):**
+  - **Manifest and runs.csv:** the full `manifest.json` schema is written out. `runs.csv` gained start and end, firmware, Rf, LED current, the per-gate values with their limits, and tilt and field as both mean and rms.
+  - **provenance.csv:** `sigma` is 1σ, split into statistical and systematic parts.
+  - **Logger and files:** the logger refuses to start a run without a valid epoch. Files live in `hardware/balance/campaign/`, with raw CSVs outside git and hashed in the manifest.
+  - **Smoke check:** it compares `params.py` to its provenance row to the row's stated significant figures.
+
+## Name and scope (2)
+[scope_and_rename.md](docs/scope_and_rename.md) now carries the name and your four scope changes, and it has the README opening as a draft only. I set the factor for the second claim to 3, as you suggested, and froze it with the gates. The rename plan now says a normal commit and push, with no force-push.
+
+## Your tasks
+These are tasks 2 to 4 in [TODO-arcticoder.md](docs/TODO-arcticoder.md):
+- **Task 2:** review the revised campaign-loop sections 3 to 6.
+- **Task 3:** approve the scope text and the factor of 3.
+- **Task 4:** commit and push from the new clone, then delete the old folder.
+
+The README rewrite waits on task 3, and the script and logger code wait on task 2. Both are in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md), and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+<!-- ------ -->
+---

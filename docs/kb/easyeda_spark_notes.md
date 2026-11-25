@@ -30,7 +30,7 @@
 - Tool limits that shape the redesign: schematic writes (place_component, connect_pin_to_net, batch_write, net flags) exist; the PCB side is read-only plus DRC and autoroute; footprints reach the PCB only through `schematic_sync_to_pcb`, whose confirmation dialog the user must click. Custom board outlines, the 208 mm arm shape, placement and copper for the mechanical boards probably need EasyEDA's own UI or the extension API; check `api_inventory` filtered on PCB_ before promising it.
 
 ## Project file and profiles
-- `hardware/easyeda/spurious-force-balance.eprj2` is a SQLite database (tables: boards, components, ...; 389 KB empty), rewritten on every save, so diffs are opaque: tracked through Git LFS (`*.eprj2` in `.gitattributes`), committed at milestones only, not every save. The OSHWLab copy is uploaded from EasyEDA itself, not from git.
+- `hardware/easyeda/open-torsion-balance.eprj2` is a SQLite database (tables: boards, components, ...; 389 KB empty), rewritten on every save, so diffs are opaque: tracked through Git LFS (`*.eprj2` in `.gitattributes`), committed at milestones only, not every save. The OSHWLab copy is uploaded from EasyEDA itself, not from git.
 - `canvas_capture` works with the project open (empty PCB, mil grid). The PCB API (`api_inventory` filter `PCB_`) has create/modify for components, pads, lines, polylines, pours, vias, regions; the `pro` profile exposes none of them. `full` adds "controlled documented API method calls" and CircuitIR floorplanning, so the profile was switched to `full` in the VS Code mcp.json (needs a restart). `dev` adds probes; avoid unless debugging.
 
 - The server a Claude Code session talks to is spawned from `~/.claude.json` (not the VS Code `mcp.json`); changing the profile in the wrong file leaves `easyeda_health_check` reporting the old one. Check `profile` there before relying on `full` tools. Only one server process should run, or the bridge may bind to the wrong one.
@@ -70,7 +70,7 @@
 - Head 1 after the 2026-10-30 reconnect: bottom pour recreated (id ff793f60...), five 24/12 mil GND vias placed in big GND pads, DRC still 6 GND connection errors (bottom pour unfilled).
 
 - Head 1 finished (2026-10-30, evening): the user rebuilt the bottom pour from EasyEDA's menu (the pour was renamed GND_BOT2 and held one fill); the tool's guard stayed locked anyway. The 6 remaining errors were GND pads enclosed by autorouted 3V3/SDA traces; a second `easyeda_pcb_autoroute` with `routingNets:["GND"]`, `existingPrimitiveMode:"keep"` connected them with GND tracks/vias and DRC read 0 (`PCB_Drc.check` returns `[]` when clean). Order that works: signals (ignore GND), pours (user rebuilds copper), then GND autoroute.
-- EasyEDA writes `.epro2` auto-backups to `hardware/easyeda/spurious-force-balance_backup/` on save (timestamped, about 360 KB each); the folder is gitignored (`hardware/easyeda/*_backup/`).
+- EasyEDA writes `.epro2` auto-backups to `hardware/easyeda/open-torsion-balance_backup/` on save (timestamped, about 360 KB each); the folder is gitignored (`hardware/easyeda/*_backup/`).
 
 - Head 2 (2026-10-31): same recipe; outline, signals autorouted (3/3 nets), GND_TOP/GND_BOT pours created, waiting for the user's Copper Manager rebuild, then the GND autoroute and DRC. Copper Manager lists nothing until pours exist (a user's empty list on a board without pours is expected). C5 in the schematic title block still to move.
 

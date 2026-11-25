@@ -1,4 +1,4 @@
-# KB index — `spurious-force-balance/docs/kb`
+# KB index — `open-torsion-balance/docs/kb`
 
 LLM-facing notes for future sessions. Read `session_handoff.md` first (state, what waits on the user, next tasks), then the topic you need. The sibling repo's notes (RP2040, lock-in, ordering, conventions)
 are in github.com/arcticoder/lab `docs/kb/README.md`.
