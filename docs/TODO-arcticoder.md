@@ -10,8 +10,9 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 1. [ ] **Cut the ballast from the brass rod** after the glasses arrive and the redesigned pinned-blade handle is printed and holds the blade (grip test first, no cutting) (assembly.md, section 2).
 2. [ ] **Review the revised gates, purposes, epochs and provenance** in [campaign_loop.md](campaign_loop.md) sections 3-6 and say which to change: the code that applies them is written only once you approve them.
-3. [ ] **Approve the scope text and the README opening draft** in [scope_and_rename.md](scope_and_rename.md), including the factor 3 for the second claim: the README rewrite waits on it.
+3. [ ] **Approve the scope text and the README opening draft** in [scope_and_rename.md](scope_and_rename.md), including the revised second claim (factor 3 band, non-air terms, lid test): the README rewrite waits on it.
 4. [ ] **Commit and push the new clone's changes**, then delete the old `spurious-force-balance` folder and its workspace entry (the new clone `open-torsion-balance` replaces it; the old folder's remote already points at the new URL).
+5. [ ] **Name the folder for raw logger files and a second location for their backup** (a different disk or cloud folder): the logger and `campaign/config.json` need both paths.
 
 ## En route
 

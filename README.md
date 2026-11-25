@@ -20,7 +20,7 @@ measurement, at a parts cost to be filled in from the final bill of materials.
 | WP1–WP3: requirements, 50 JLC-stocked parts, analog block simulations | done |
 | WP4 schematic | done as checked netlists (main board + four head boards, 50 JLC parts); readable sheet rendering is in the backlog |
 | WP5 main-board layout | done to the DFM gate (120 x 90 mm, 4 layers, routed); fab files in `hardware/instrument/fab/` (Gerbers, BOM, CPL, `ORDER.md`) |
-| Main-board order | route decided (Economic PCBA, 2 boards assembled, LIS2DW12 not placed on the first articles); in the JLC cart, held for the Black Friday sale |
+| Main-board order | route decided (Economic PCBA, 2 boards assembled, LIS2DW12 not placed on the first articles); placed 2026-11-18, in production at JLC (Economic PCBA, 2 assembled, LIS2DW12 not placed) |
 | A5: prototype noise measurement | after the board arrives and passes bring-up (`docs/bringup.md`); it runs on the assembled board, not on breadboards |
 
 The prediction is dominated by air currents (4.8 nN/√Hz), so the verdict flips at about 4 mm/s of air-speed

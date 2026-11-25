@@ -644,9 +644,8 @@ def stitch_pour(b, net=None, reach=1.2):
 
 
 FAB = os.path.join(HERE, "..", "fab")
-# Left off the fab BOM and CPL (the footprint stays on the board, unpopulated): U7 (LIS2DW12TR) is Standard-PCBA-only and the first articles use Economic PCBA.
-# Leaving it in makes JLC's BOM page ask about "unselected parts" at every NEXT. Reinstate it here when the Standard route is used.
-DNP_FIRST_ARTICLES = {"U7"}
+sys.path.insert(0, HERE)
+from fab_route import DNP_FIRST_ARTICLES  # noqa: E402  (U7 is left off the Economic-route BOM and CPL; see fab_route.py)
 
 
 def fab():

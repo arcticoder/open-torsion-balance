@@ -2,6 +2,8 @@
 
 Dated entries, newest first.
 
+- 2026-11-24 (chat 19, review) — Commits 847c970 and 10ba3ad rewritten to the user's identity (author and committer) and force-pushed with lease (new hashes 7886066, 2b7f93c); the repo audit's seven items done (README/plan order status, ORDER.md route sentence and `layout/fab_route.py`, LIS2DW12 marked when-fitted, numpy-guarded parcel-mass checks, params-restore check on all five values, unused variable, DNP BOM/CPL smoke checks); campaign_loop.md revised for the Opus review (witness set fixed in advance and checked on controls, ambient B from drive-off, lead-geometry kappa/zeta runs, per-sensor temperature gates, residual field gate, B_cal vs control, bracket interpolation and failure, per-epoch gate revision, excursion counts, config file for raw paths); scope_and_rename.md: claim 2 restated for non-air terms plus a lid test, README draft edits.
+
 - 2026-11-23 (chat 19) — Designed the campaign feedback loop (`docs/campaign_loop.md`), wrote the per-term upgrade ranking for air and vacuum (`material_study.py --terms`), the slit-vane damping sketch (`eddy_vane_sim.py`), the scope and rename note, and 3 smoke checks; blade-teeth direction is a free choice, not an unknown.
 
 - 2026-11-22/23 (chat 18, end) — Blade measured by the user (6 x 0.8 x 153.5 mm, pin 1 x 5 mm at 3 mm from each end, both ends pinned, sawtooth); the hacksaw handle was redesigned and its STLs regenerated; the user confirmed the ny_a underside is smooth with no lifted corners and removed the plate; the printer was switched off by the user.

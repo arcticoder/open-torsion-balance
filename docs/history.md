@@ -4913,3 +4913,42 @@ These are tasks 2 to 4 in [TODO-arcticoder.md](docs/TODO-arcticoder.md):
 The README rewrite waits on task 3, and the script and logger code wait on task 2. Both are in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md), and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
 <!-- ------ -->
 ---
+Everything is done, and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines. The smoke tests pass from the new clone with the venv Python, and I ran the numpy-dependent parts there. I didn't run the bare no-numpy case. I left the changes uncommitted.
+
+**1. Git identity and the two commits**
+- I set `user.name` and `user.email` in the clone.
+- Commit 10ba3ad was authored by `Claude <noreply@anthropic.com>` (the audit commit), so I pulled it first.
+- I rewrote both commits so author and committer are you. Both had a wrong author, not only a wrong committer.
+- I force-pushed with `--force-with-lease`.
+- The commits are now 7886066 (was 847c970) and 2b7f93c (was 10ba3ad). The old folder `~/Code/python/spurious-force-balance` still holds the old hashes, so delete it (your task 4) instead of pushing from it.
+
+**4. Audit findings** (all seven were small)
+- **Order status:** I fixed the stale "held for Black Friday" status in the README and `docs/plan.md`.
+- **ORDER.md:** the route sentence now describes the real procedure. I moved `DNP_FIRST_ARTICLES` into a small `layout/fab_route.py` so the instrument smoke test can import it without kiutils. The new check asserts U7 is absent from `bom.csv` and `cpl.csv`, and that every BOM designator has a CPL row.
+- **LIS2DW12:** it is now marked "when fitted" in `campaign_loop.md` and `procedures.md`.
+- **Parcel-mass block:** the numpy-dependent block in the balance smoke test is guarded and skips instead of crashing.
+- **Params-restore check:** it now snapshots all five values and runs the upgrade stages plus an every-override what-if.
+- **Unused variable:** I removed it from `material_study.py`.
+
+**2. The Opus review of `campaign_loop.md`**
+I took all ten points. The substantive choices:
+- **Witnesses:** the set is fixed in advance from `driven` and the physics, then confirmed on pooled control runs. The per-run test stays as a backstop.
+- **Lorentz check:** it now uses the ambient field from drive-off half-cycles or a drive-off run.
+- **Lead geometry:** each geometry gets its own κ and ζ calibration run before its claim runs.
+- **Gates:** temperature gates are per sensor, and the field gate on lead-current runs applies after the drive-locked component is fitted out.
+- **Calibration runs:** B.3's start- and end-of-day plate calibrations are `calibration`, and only B.4 is `control`.
+- **Scale between brackets:** it is linear in time. If one bracket fails, the other is used alone with an added systematic (5 % until five days exist). If both fail, that day's claim runs are rejected.
+- **Rule F:** one gate revision per epoch.
+- **Excursions:** none allowed in T0, control, B_cal or claim runs, and at most 2 in a T1 run.
+- **Provenance files:** `condition` is a JSON string, raw paths live in a config file with a backup path, and `provenance.csv` gains a `sig_figs` column.
+
+**3. Scope text and README draft** ([scope_and_rename.md](docs/scope_and_rename.md))
+- I checked `lab`'s README: it keeps a general-purpose foundation under a driving objective, so I reworded the sentence to say that.
+- Claim 2 now follows the review's option (b). The predicted non-air terms must stay below the measured floor, and the measured floor must be within 1/3 to 3 times the model's total. The air term inferred from the floor must be larger with the lid lifted. The model gives no size for that change, so only the direction and the factor are recorded. The full air test waits for a vacuum epoch or a flow sensor.
+- The README draft says "checked against published balances", keeps the parts cost under the instrument, and says the provenance record "will be" kept.
+
+**Your tasks** (tasks 2–5 in [TODO-arcticoder.md](docs/TODO-arcticoder.md)): review the revised gates, approve the scope text and the revised claim 2, commit and delete the old folder, and the new task 5.
+
+Task 5 asks you to name the folder for raw logger files and a second backup location. I can't choose a backup disk or cloud folder for you.
+<!-- ------ -->
+---

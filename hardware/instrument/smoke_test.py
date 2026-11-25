@@ -160,6 +160,19 @@ try:
 except ImportError:
     print("[SKIP] the layout trace-shape test needs kiutils")
 
+# the fab files against the order route (Economic PCBA: U7 is not placed on the first articles)
+import csv  # noqa: E402
+
+sys.path.insert(0, os.path.join(HERE, "layout"))
+from fab_route import DNP_FIRST_ARTICLES  # noqa: E402
+
+with open(os.path.join(HERE, "fab", "bom.csv")) as _f:
+    _bom = {d.strip() for r in csv.DictReader(_f) for d in r["Designator"].split(",")}
+with open(os.path.join(HERE, "fab", "cpl.csv")) as _f:
+    _cpl = {r["Designator"].strip() for r in csv.DictReader(_f)}
+check("functional — the committed BOM and CPL leave out every part of DNP_FIRST_ARTICLES (a U7 in either file brings back the Standard-only unselected-parts prompt on an Economic order)", not (DNP_FIRST_ARTICLES & (_bom | _cpl)), f"left out: {sorted(DNP_FIRST_ARTICLES)}; BOM {len(_bom)} designators, CPL {len(_cpl)} rows")
+check("functional — every BOM designator has a CPL row (nothing the assembler must place is missing from the placement file)", _bom <= _cpl, f"missing from the CPL: {sorted(_bom - _cpl)}" if not _bom <= _cpl else "all present")
+
 if failures:
     print(f"\n{len(failures)} check(s) failed: {failures}")
     sys.exit(1)

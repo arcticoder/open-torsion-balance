@@ -151,7 +151,6 @@ def upgrade_stages():
 
 
 def main_terms():
-    k = None
     print("Force-noise terms at %.3f Hz, one 1000 s measurement resolution = density x sqrt(1/(2 T)) (model.py, params.py assumptions)\n" % P.F_MOD)
     for label, t in upgrade_stages():
         if t is None:  # 1b: halve the air-speed fluctuation

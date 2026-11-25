@@ -48,7 +48,7 @@ The electrostatic force F = c V^2 (c about 7.1e-10 N/V^2 from the geometry, know
 
 The quantity: the force on the balance caused by (i) a current I through the supply leads, in the ambient field B (F = B I L), and (ii) the power dissipated by the device (thermal and convective forces), as functions of current, lead geometry
 and power. The method: modulate the cause on and off slowly and read the force at the modulation frequency with a lock-in (this rejects drift and the 1/f noise).
-1. **Conditions logged for every run:** date, time, operator absent, enclosure state, temperature (three TMP117 and the room), field vector (MMC5983MA), floor acceleration (LIS2DW12), lead geometry, current, polarity, device power, the plate DAC state (off), the
+1. **Conditions logged for every run:** date, time, operator absent, enclosure state, temperature (three TMP117 and the room), field vector (MMC5983MA), floor acceleration (LIS2DW12, if fitted; not on the first articles), lead geometry, current, polarity, device power, the plate DAC state (off), the
    calibration constant in use.
 2. **Order of runs:** a baseline run (no current, 1000 s) before and after every group of conditions; conditions randomized within a day; at least five repeats of every condition on different days; one day with the lid lifted to measure the air term.
 3. **Lead-current runs:** with the device card as a 10 ohm resistor on the arm (or leads only), switch `DUT_EN` on and off in a square wave at 0.025 Hz (20 s on, 20 s off) for 1000 s at 100, 200 and 300 mA, positive and negative lead orientation (swap the leads), and the three

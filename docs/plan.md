@@ -1,7 +1,7 @@
 # Research instrument plan — a fab-assembled force balance
 
 Status: gates G1–G3, requirements (WP1), candidate parts (WP2), the analog block simulations (WP3) and the mechanical redesign to FR4 boards (fabrication.md) done
-2026-10-22 (G1 confirmed 2026-10-23); the main board is laid out to the DFM gate and its JLC order (Economic PCBA) is held for the Black Friday sale (2026-11-15); the arm, elec_board, clamp_ground and clamp_plate boards are ordered; the breadboard stage was dropped on 2026-11-08, so A5 runs on the assembled boards. The task list that drives this is
+2026-10-22 (G1 confirmed 2026-10-23); the main board is laid out to the DFM gate and its JLC order (Economic PCBA, 2 assembled, LIS2DW12 not placed) was placed 2026-11-18 and is in production; the arm, elec_board, clamp_ground and clamp_plate boards are ordered; the breadboard stage was dropped on 2026-11-08, so A5 runs on the assembled boards. The task list that drives this is
 [TODO-arcticoder.md](TODO-arcticoder.md) (the user's tasks) and [TODO-BLOCKED.md](TODO-BLOCKED.md); the original Part A planning is archived in [kb/part_a_planning_archive.md](kb/part_a_planning_archive.md); the scope decision is recorded in
 [circuit_lifecycle_and_repo_scope](https://github.com/arcticoder/lab/blob/main/docs/kb/circuit_lifecycle_and_repo_scope.md) in the `lab` repo.
 

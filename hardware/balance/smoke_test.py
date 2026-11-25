@@ -239,10 +239,13 @@ check("functional — 0.8 mm aluminium sheet is a like-for-like substitute for t
 check("functional — a printed PLA arm needs about twice the thickness of FR4 for a similar first mode and has five times the thermal drift per kelvin", _pla["f1_Hz"] > 0.8 * _fr4["f1_Hz"] and _pla["t_mm"] / _fr4["t_mm"] > 1.5 and _pla["drift_um_per_K"] > 4 * _fr4["drift_um_per_K"], f"{_pla['t_mm']} mm gives {_pla['f1_Hz']:.0f} Hz, {_pla['drift_um_per_K']:.1f} um/K")
 
 # --- J2: the upgrade ranking and the eddy-vane sketch (2026-11-23) ---
+_snap = (P.PLA_EXPANSION, P.ARM_EXPANSION, P.AIR_AREA, P.FRAME_PATH, P.AIR_SPEED_FLUCT)
 _air, _vac = MS.terms_for(), MS.terms_for(vacuum=True)
 check("functional — the unmodified material-study terms equal model.force_terms() (the study adds no hidden change)", all(abs(_air[k] - v) < 1e-18 for k, v in MS.M.force_terms().items()), "same eight terms")
 check("functional — in air the air term limits and swapping the frame path from PLA to FR4 changes the total by under 2% (invisible in air); in vacuum the same swap cuts the total by over 30%", MS.ranking(_air)[0][0][0] == "air currents" and abs(MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0)) / MS.M.total_density(_air) - 1) < 0.02 and MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0, vacuum=True)) < 0.7 * MS.M.total_density(_vac), f"air {MS.M.total_density(_air)*1e9:.2f} nN/rtHz; vacuum PLA {MS.M.total_density(_vac)*1e9:.3f} -> FR4 {MS.M.total_density(MS.terms_for(frame_cte_ppm=14.0, vacuum=True))*1e9:.3f}")
-check("smoke — the study restores params.py after every what-if", abs(P.PLA_EXPANSION - 70e-6) < 1e-12 and abs(P.AIR_AREA - 2e-3) < 1e-12 and abs(P.FRAME_PATH - 0.10) < 1e-12, "PLA_EXPANSION, AIR_AREA, FRAME_PATH unchanged")
+MS.upgrade_stages()
+MS.terms_for(frame_cte_ppm=1.0, arm_cte_ppm=70.0, flag_area_scale=3.0, vacuum=True, frame_path=0.2)
+check("smoke — the study restores params.py after every what-if (upgrade stages and a what-if with every override)", _snap == (P.PLA_EXPANSION, P.ARM_EXPANSION, P.AIR_AREA, P.FRAME_PATH, P.AIR_SPEED_FLUCT), "PLA_EXPANSION, ARM_EXPANSION, AIR_AREA, FRAME_PATH, AIR_SPEED_FLUCT unchanged")
 try:
     import eddy_vane_sim as EV  # noqa: E402
 
@@ -264,15 +267,18 @@ try:
 except ImportError as _e:  # arm_dxf pulls in boards.py -> balance.py -> cadquery, ezdxf, kiutils
     print(f"[SKIP] the arm DXF checks need cadquery, ezdxf and kiutils: {_e}")
 
-import jlc_parcel_mass as JM  # noqa: E402
+try:
+    import jlc_parcel_mass as JM  # noqa: E402
 
-_parcels = JM.planned_parcels()
-_arm = JM.parcel_total(_parcels["arm board"])
-_both = JM.combined_total(_parcels, ["arm board", "small boards (3 designs)"])
-check("functional — the arm order alone stays under the 0.3 kg line of JLC's cheap shipping tier at 1.2 mm (their rule plus the packing calibrated on the user's quote)", _arm < JM.LIMIT_G, f"{_arm:.0f} g against {JM.LIMIT_G:.0f} g (1.6 mm would be {(JM.board_mass_g(208, 60, 1.6, 5) + JM.PACKING_G):.0f} g: the quote's 0.34 kg)")
-check("functional — the arm and the three small designs in one parcel would cross the line, so they are ordered and shipped separately", _both > JM.LIMIT_G, f"{_both:.0f} g combined")
-_all = JM.combined_total(_parcels, list(_parcels))
-check("functional — boards plus printed-part candidates combined would also cross the line (Combine Shipping stays off across services)", _all > JM.LIMIT_G, f"{_all:.0f} g combined")
+    _parcels = JM.planned_parcels()
+    _arm = JM.parcel_total(_parcels["arm board"])
+    _both = JM.combined_total(_parcels, ["arm board", "small boards (3 designs)"])
+    check("functional — the arm order alone stays under the 0.3 kg line of JLC's cheap shipping tier at 1.2 mm (their rule plus the packing calibrated on the user's quote)", _arm < JM.LIMIT_G, f"{_arm:.0f} g against {JM.LIMIT_G:.0f} g (1.6 mm would be {(JM.board_mass_g(208, 60, 1.6, 5) + JM.PACKING_G):.0f} g: the quote's 0.34 kg)")
+    check("functional — the arm and the three small designs in one parcel would cross the line, so they are ordered and shipped separately", _both > JM.LIMIT_G, f"{_both:.0f} g combined")
+    _all = JM.combined_total(_parcels, list(_parcels))
+    check("functional — boards plus printed-part candidates combined would also cross the line (Combine Shipping stays off across services)", _all > JM.LIMIT_G, f"{_all:.0f} g combined")
+except ImportError as _e:  # jlc_parcel_mass needs numpy
+    print(f"[SKIP] the parcel-mass checks need numpy: {_e}")
 
 if failures:
     print(f"\n{len(failures)} check(s) failed: {failures}")
