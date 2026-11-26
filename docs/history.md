@@ -4952,3 +4952,117 @@ I took all ten points. The substantive choices:
 Task 5 asks you to name the folder for raw logger files and a second backup location. I can't choose a backup disk or cloud folder for you.
 <!-- ------ -->
 ---
+The K1 is up and answering. Klipper is ready and everything is at room temperature (about 21 °C), idle and cold. Moonraker's counter reads 17 jobs and 15.95 h of print time. I haven't heated or homed anything, because the filament isn't on the printer yet.
+
+**Spool:** bring the grey one, in its freezer bag on the roller. The black spool is what's normally loaded, and the grey wall plates need grey.
+
+**First print:** this is the first print since the power-on, so it uses the normal start, about 8–10 min of start-up (heating, homing, levelling) before the first layer. The fast start would crash Klipper after a cold boot.
+
+**Candidate:** `encl_print_wall_px_a` is already sliced as `balance_p13_wall_px_a_20261122.gcode`. It takes 1 h 3 min and about 34 g.
+
+**What I need from you:**
+1. Tell me what time your window ends. I only offer a plate if its start, print and cool-down leave at least 10 % margin before then.
+2. Say "go" when the spool is at the printer and you want it loaded. Then I park the head at about X200 Y110, raise the bed and heat to 225 °C. You hand-feed the filament and I push 80 mm through.
+
+If the window allows more than one plate, I can slice `py_a` and the `_b` walls now so they're ready. That's four more grey plates after `px_a`.
+<!-- ------ -->
+---
+Thanks, that's all I need about the spool. I'm not heating yet, because I only heat when you say "go" in a message. The window end time is also still open.
+
+I need these from you:
+1. **Go.** Say "go" and I park the head at about X200 Y110 and raise the bed. Then I heat to 225 °C, which takes a few minutes.
+2. **Window end time.** I use it to decide whether `px_a` (1 h 3 min) fits, and whether a second plate would too.
+3. **Black strand.** Is the black strand still in the extruder, or has it already been pulled out? I won't assume.
+   - If it's still in, the hot nozzle lets it retract. I can run that retraction when I heat. Then you lock in the grey.
+   - If it's already out, you only need to feed the grey.
+
+Once the nozzle reads 225 °C, I'll tell you the clock time. You push the grey strand in until the extruder grips it, and I then extrude 80 mm to clear the black.
+<!-- ------ -->
+---
+The nozzle read 225.6 °C at 19:27:43. The head is parked at X200 Y110 with the bed raised to Z120, and nothing is extruding.
+
+**Now:**
+1. Insert the grey strand into the extruder and hold the feeder lever until it seats and locks.
+2. Tell me when it's locked. I then run `M83`, `G1 E40 F150`, `G1 E40 F200`, which pushes 80 mm through.
+
+The extruder was empty, so there's no black to clear. The first few centimetres may still be slightly dark from residue in the nozzle. A short strand may fall near X200 Y110. Lift it off the plate before the start.
+
+**Window.** It ends at 22:00, so there's room for several plates. After the load I'll slice `py_a` and the `_b` walls (two per plate) in parallel, and `px_a` goes first because it's already sliced. Each plate takes about 1 h 3 min after the first start, which adds about 10 min.
+<!-- ------ -->
+---
+The 80 mm push is done (extruder position 80.0), and the nozzle is holding at 225 °C at X200 Y110. `px_a`'s G-code is checked: `START_PRINT EXTRUDER_TEMP=225 BED_TEMP=60`, one object.
+
+**Before I start it, you need to:**
+1. Lift any loose strand off the plate. The push may have dropped one near X200 Y110. Confirm the plate is clear.
+2. Say "start the print", since I only start a print on an explicit request.
+
+**What happens after you say it:**
+- **Timing:** this is the normal start, so about 8–10 min of heating, homing and levelling before the first layer. If I start at about 19:40, the first-layer look is at about 19:50. The print finishes at about 20:45, and the bed is under 40 °C about 8 min after that.
+- **Cooling the nozzle:** a hot idle nozzle at the park position can drip, so don't leave it long.
+- **While it prints:** I'll slice `py_a` and the `_b` walls so they're ready. The window ends at 22:00. That fits `px_a`, plus at most one more 1 h plate, after the plate swap, a warm re-mesh and the 10 % margin.
+<!-- ------ -->
+---
+`px_a` started at 19:32:38 on the normal start. A monitor on the printer's state is armed and expires after 30 minutes, so I'll re-arm it.
+
+**Your checks:**
+- **First layer, about 19:43–19:45** (the nozzle heats to 225 °C after levelling). Look at the plate for continuous lines, corners flat and no lifted edges.
+- **Mid-print, about 20:10.** Look for the part still stuck flat and no stringing blobs.
+- **Finish, about 20:40.** The bed is under 40 °C about 8 minutes later.
+
+While it prints I'll slice `py_a` and the `_b` walls. After the swap, `py_a` fits well inside the 22:00 window.
+<!-- ------ -->
+---
+`px_a` is printing, and a second plate fits in your window if the first finishes on time. The monitor shows only `printing` so far. The first-layer look is still due about 19:43–19:45.
+
+**Plate 2: `encl_print_wall_px_b`**
+- It's a 100 × 150 wall, laid flat with the outside face down.
+- It takes 44 min 51 s and uses 23.4 g, with no bridge and a 20 % bottom surface.
+- File: `balance_p15_wall_px_b_20261125.gcode`.
+- The timing:
+
+| Step | Time |
+|---|---|
+| `px_a` finishes | about 20:36 |
+| Bed under 40 °C | about 20:44 |
+| You swap the plate, then warm re-mesh and heat | about 20:58 start |
+| `px_b` finishes | about 21:43 |
+
+- That leaves about 17 min before 22:00, which is more than the 10 % margin.
+
+**Other slices**
+- **`py_a`:** it's sliced as `balance_p14_wall_py_a_20261125.gcode` (1 h 3 min, 33.9 g). It doesn't fit tonight: a start at about 20:58 would end about 22:01.
+- **Two `_b` walls on one plate:** about 90 min, so that doesn't fit either.
+
+If you'd rather leave the plate in place and skip the re-mesh, the same start is about 6 min earlier, but a lifted plate needs the re-mesh before the next print.
+<!-- ------ -->
+---
+Agreed: `px_b` follows `px_a` tonight. I put the schedule on your list as task 0 in [TODO-arcticoder.md](docs/TODO-arcticoder.md).
+
+**State at 19:37.** The printer is still in its own start-up. The nozzle is at 135 °C for homing and the bed is at 60 °C. Extrusion starts after levelling.
+
+**Your times:**
+- **About 19:45:** first-layer look. Lines should be continuous and the corners flat.
+- **About 20:10:** one more look. The part should be flat, with no blobs.
+- **About 20:44:** the bed should be under 40 °C. Take the plate off and put it back, then tell me.
+
+**My steps after you tell me.** I run the warm re-mesh (about 6 min), then the fast start with the `px_b` file, and re-arm the monitor. The target is a start at about 20:58 and a finish at about 21:43.
+
+I'll re-arm the monitor before it lapses at about 20:03.
+<!-- ------ -->
+---
+Good. The print is at 7 % with the nozzle at 226 °C and the bed at 60 °C.
+
+My earlier times were off. The first layer began at about 19:41, not 19:33, because the normal start took 8 min. `px_a` therefore finishes at about 20:44, not 20:36.
+
+| Step | New time |
+|---|---|
+| `px_a` finishes | about 20:44 |
+| Bed under 40 °C | about 20:52 |
+| `px_b` start (after swap, warm re-mesh and heat) | about 21:06 |
+| `px_b` finishes | about 21:51 |
+
+That leaves about 9 min before 22:00, which still clears my 10 % margin for a 45-min print. It's tight, though. If the swap or re-mesh runs long, I'll tell you before starting. If the start slips past about 21:10, I'll drop `px_b` rather than risk the window.
+
+The next look is the mid-print one, about 20:10.
+<!-- ------ -->
+---

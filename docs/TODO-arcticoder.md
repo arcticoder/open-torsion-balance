@@ -8,6 +8,7 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 ## What I need from you
 
+0. [ ] **Tonight's print (2026-11-25, window to 22:00):** look at the `px_a` first layer at about 19:45 (continuous lines, corners flat) and once about 20:10 (part flat, no blobs); at about 20:44 (bed under 40 °C) take the plate off and put it back, then tell me so I re-mesh warm and start `px_b` (about 20:58-21:43); take the part and the grey spool back when it finishes.
 1. [ ] **Cut the ballast from the brass rod** after the glasses arrive and the redesigned pinned-blade handle is printed and holds the blade (grip test first, no cutting) (assembly.md, section 2).
 2. [ ] **Review the revised gates, purposes, epochs and provenance** in [campaign_loop.md](campaign_loop.md) sections 3-6 and say which to change: the code that applies them is written only once you approve them.
 3. [ ] **Approve the scope text and the README opening draft** in [scope_and_rename.md](scope_and_rename.md), including the revised second claim (factor 3 band, non-air terms, lid test): the README rewrite waits on it.
