@@ -143,6 +143,26 @@ check("the Allan deviation of a random walk rises as tau^+1/2 (slope +0.5 +-0.1)
 short = AN.allan_deviation(np.zeros(100), 50, [0.01, 0.1])
 check("the Allan deviation with a tau shorter than one sample returns NaN instead of dividing by zero", np.isnan(short[0]) and not np.isnan(short[1]), str(short))
 
+# ---- the campaign manifest check
+import json as _json
+
+with tempfile.TemporaryDirectory() as _d:
+    _ep = os.path.join(_d, "epochs.csv")
+    open(_ep, "w").write("epoch,start\nE1,2026-12-01\n")
+    _good = {"run_id": "run001", "label": "x", "purpose": "calibration", "run_type": "T0", "epoch": "E1", "gates_version": "g1", "script_version": "s1"}
+
+    def _try(m):
+        p = os.path.join(_d, "m.json")
+        _json.dump(m, open(p, "w"))
+        try:
+            LG.check_manifest(p, _ep)
+            return None
+        except ValueError as e:
+            return str(e)
+
+    check("a complete manifest with a known epoch is accepted", _try(_good) is None)
+    check("a manifest without an epoch, with an unknown epoch, or with an invalid purpose is refused before the run starts", all(_try(m) for m in ({k: v for k, v in _good.items() if k != "epoch"}, dict(_good, epoch="E9"), dict(_good, purpose="claims"))))
+
 print()
 if failures:
     print("%d check(s) failed: %s" % (len(failures), failures))

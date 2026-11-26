@@ -13,7 +13,7 @@ one consolidated order, USB power, nothing above the repo's 50 V DC / 30 V AC li
 
 ---
 
-## G1 — the measurement goal (confirmed 2026-10-23)
+## G1 — the measurement goal (confirmed 2026-10-23; the first campaign of the generalised instrument, see `scope_and_rename.md`)
 
 > **Quantify, on an open, fully SMT-assembled, low-cost torsion balance operating in air, the spurious
 > forces that dominate small-force and thrust measurements — the Lorentz force of supply-lead currents

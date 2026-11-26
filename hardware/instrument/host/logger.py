@@ -101,6 +101,30 @@ def run(source, prefix, fs=8000.0, chunk=4096, eof_on_empty=True):
     return w.counts, dec
 
 
+REQUIRED_MANIFEST = ("run_id", "label", "purpose", "run_type", "epoch", "gates_version", "script_version")
+PURPOSES = ("calibration", "control", "claim")
+
+
+def check_manifest(path, epochs_csv):
+    """Campaign runs (docs/campaign_loop.md section 5): refuse to start without a manifest that names the run, a purpose, a run type, a gates version and an epoch
+    that exists in epochs.csv, so a forgotten epoch entry shows when the run starts, not during analysis. Returns the manifest dict or raises ValueError."""
+    import csv
+    import json
+
+    with open(path) as f:
+        m = json.load(f)
+    missing = [k for k in REQUIRED_MANIFEST if not m.get(k)]
+    if missing:
+        raise ValueError("manifest lacks: " + ", ".join(missing))
+    if m["purpose"] not in PURPOSES:
+        raise ValueError("purpose must be one of %s, not %r" % (PURPOSES, m["purpose"]))
+    with open(epochs_csv) as f:
+        known = {r["epoch"] for r in csv.DictReader(f)}
+    if str(m["epoch"]) not in known:
+        raise ValueError("epoch %r is not in %s: add its row (epochs.csv) before the run" % (m["epoch"], epochs_csv))
+    return m
+
+
 def main():
     ap = argparse.ArgumentParser()
     src_arg = ap.add_mutually_exclusive_group(required=True)
@@ -108,7 +132,17 @@ def main():
     src_arg.add_argument("--file")
     ap.add_argument("--out", required=True)
     ap.add_argument("--fs", type=float, default=8000.0)
+    ap.add_argument("--manifest", help="campaign run: manifest.json (required unless --bench)")
+    ap.add_argument("--epochs", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "balance", "campaign", "epochs.csv"))
+    ap.add_argument("--bench", action="store_true", help="bring-up or bench run, not a campaign run: no manifest")
     a = ap.parse_args()
+    if not a.bench:
+        if not a.manifest:
+            ap.error("a campaign run needs --manifest (or --bench for bring-up)")
+        try:
+            check_manifest(a.manifest, a.epochs)
+        except (ValueError, OSError) as e:
+            ap.error("refusing to start: %s" % e)
     if a.file:
         src = open(a.file, "rb")
     else:

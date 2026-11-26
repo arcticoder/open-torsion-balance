@@ -1,14 +1,17 @@
 # open-torsion-balance
 
-An open, low-cost torsion balance for measuring the spurious forces that dominate small-force and thrust
-experiments, with printable mechanics, a validated force-noise model and fab-assembled electronics.
+An open, low-cost torsion balance for measuring small forces in air, with printable mechanics, a force-noise model checked against published balances, fab-assembled electronics and a documented loop that feeds each campaign's calibration data back into the instrument's metrology ([docs/campaign_loop.md](docs/campaign_loop.md)).
 
-**The question.** On an open, fully SMT-assembled, low-cost torsion balance operating in air, quantify the
+**The instrument.** A horizontal arm on a taut stainless strip, read optically and calibrated electrostatically and by added inertia, with a resolution target of 0.4 nN (5σ on a 20 nN term) in a 1000 s measurement, at a parts cost to be filled in from the final bill of materials. Every noise term is predicted from a parameter file (`hardware/balance/params.py`), and every parameter that a measurement replaces will be recorded with the run that set it (the provenance table is designed, not built).
+
+**The first campaign: the question.** On an open, fully SMT-assembled, low-cost torsion balance operating in air, quantify the
 forces that usually pass for thrust: the Lorentz force of supply-lead currents in the ambient magnetic field,
 and the thermal and convective forces of a dissipating device. Measure them as functions of current, lead
 geometry and dissipated power, with the balance's force noise floor, calibration constant and drift fully
 characterized. The instrument claim is a resolution of 0.4 nN or better (5σ on a 20 nN term) in a 1000 s
-measurement, at a parts cost to be filled in from the final bill of materials.
+measurement.
+
+**Next campaigns.** Materials and geometry for the frame and damper, chosen by simulation and checked by injected-signal transfer coefficients, so improvements are measured in air before any vacuum work ([docs/scope_and_rename.md](docs/scope_and_rename.md)).
 
 ## Status
 

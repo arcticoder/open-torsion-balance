@@ -280,6 +280,25 @@ try:
 except ImportError as _e:  # jlc_parcel_mass needs numpy
     print(f"[SKIP] the parcel-mass checks need numpy: {_e}")
 
+# --- campaign provenance (docs/campaign_loop.md section 5): checked once the tables have rows ---
+import csv as _csv  # noqa: E402
+
+_camp = os.path.join(HERE, "campaign")
+if os.path.isdir(_camp):
+    with open(os.path.join(_camp, "provenance.csv")) as _f:
+        _prov = list(_csv.DictReader(_f))
+    with open(os.path.join(_camp, "runs.csv")) as _f:
+        _runs = list(_csv.DictReader(_f))
+    with open(os.path.join(_camp, "epochs.csv")) as _f:
+        _eps = {r["epoch"] for r in _csv.DictReader(_f)}
+    _purpose = {r["run_id"]: r["purpose"] for r in _runs}
+    _src = open(os.path.join(HERE, "params.py")).read()
+    _bad_tag = [r["param"] for r in _prov if not hasattr(P, r["param"]) or abs(getattr(P, r["param"]) - float(r["value"])) > 0.5 * 10 ** (math.floor(math.log10(abs(float(r["value"])) or 1)) - int(r["sig_figs"]) + 1) * abs(1)]
+    check("functional — every provenance row's value agrees with params.py to its stated significant figures", not _bad_tag, f"{len(_prov)} rows" if not _bad_tag else f"differ: {_bad_tag}")
+    _leak = [i for r in _prov for i in r["run_ids"].split(";") if _purpose.get(i) in ("claim", "control")]
+    check("functional — no claim or control run feeds a parameter in provenance.csv", not _leak, f"{len(_prov)} rows" if not _leak else f"claim/control runs used: {_leak}")
+    check("functional — every run's epoch exists in epochs.csv", all(r["epoch"] in _eps for r in _runs), f"{len(_runs)} runs, {len(_eps)} epochs")
+
 if failures:
     print(f"\n{len(failures)} check(s) failed: {failures}")
     sys.exit(1)

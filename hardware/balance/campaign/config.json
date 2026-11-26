@@ -1,0 +1,5 @@
+{
+  "raw_dir": "/home/echo_/data/open-torsion-balance/raw",
+  "raw_backup_dir": "/mnt/d/open-torsion-balance-data/raw_backup",
+  "note": "raw logger CSVs stay outside git; the backup is on D: (a separate drive letter; 17 GB free on 2026-11-25: demodulated runs are about 1-2 MB each)"
+}

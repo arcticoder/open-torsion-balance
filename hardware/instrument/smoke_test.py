@@ -147,6 +147,10 @@ _host = subprocess.run([sys.executable, "-I", os.path.join(HERE, "host", "test_h
 _host_fail = [ln for ln in _host.stdout.splitlines() if ln.startswith("[FAIL]")]
 check_run("functional — the streaming protocol resynchronizes after garbage, damage and false sync patterns, the logger writes correct CSV, and the noise analysis recovers known ASD, tone amplitude and Allan slopes", _host, _host_fail[:2])
 
+_sd = subprocess.run([sys.executable, "-I", os.path.join(HERE, "host", "test_slowdemod.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "host"))
+_sd_fail = [ln for ln in _sd.stdout.splitlines() if ln.startswith("[FAIL]")]
+check_run("functional — the slow demodulation recovers a known step within its stated uncertainty on synthetic runs, removes a leaked witness, drops a drive-correlated witness (rule D) without reducing the signal, and flips sign with the polarity", _sd, _sd_fail)
+
 _panel = subprocess.run([sys.executable, "-I", os.path.join(HERE, "heads_panel", "check_panel.py")], capture_output=True, text=True, cwd=os.path.join(HERE, "heads_panel"))
 _panel_fail = [ln for ln in _panel.stdout.splitlines() if ln.startswith("[FAIL]")]
 check_run("functional — the sensor-head panel for the early PCBA order: BOM equals two head-1 and two head-2 circuits, DRC has no unconnected nets or clearance errors, the panel meets Standard PCBA's 70 x 70 mm minimum", _panel, _panel_fail[:2])

@@ -1,0 +1,1 @@
+run_id,start,end,epoch,purpose,run_type,label,condition,device_config,rf_ohm,led_mA,firmware_version,gates_version,script_version,calib_id_start,calib_id_end,T_mean_C,T_slope_K_per_h,tilt_mean_urad,tilt_rms_urad,B_mean_uT,B_rms_uT,drive_correlated,gate_values,gates_passed,reject_reason,result_path

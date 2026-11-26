@@ -5066,3 +5066,33 @@ That leaves about 9 min before 22:00, which still clears my 10 % margin for a 45
 The next look is the mid-print one, about 20:10.
 <!-- ------ -->
 ---
+Printing is on schedule: `px_a` is at 90 % and should finish at about 20:43.
+
+**Your tasks 2–4.** I treated them as done and removed them from your list. The old folder is gone and the workspace entry is already removed.
+
+**Task 5 (raw data folders).** I chose both paths:
+- **Raw files:** `~/data/open-torsion-balance/raw`.
+- **Backup:** `/mnt/d/open-torsion-balance-data/raw_backup`, which I created. D: is 99 % full with 17 GB free, which is plenty because the demodulated runs are about 1–2 MB each. D: and WSL's disk may still share a physical drive, so it protects against losing the WSL install but not against a drive failure. Both paths are in `campaign/config.json`.
+
+**Work done while the print ran:**
+- **README and plan:** the README now has the instrument / first campaign / next campaigns structure. The plan's G1 heading and the paper title are updated.
+- **Campaign tables:** `hardware/balance/campaign/` has the empty tables and `config.json`.
+- **`slowdemod.py`:** it has synthetic-run tests, which are in the instrument smoke test and pass. They cover recovery of a known step, removing a leaked witness, dropping a drive-correlated witness, and flipping sign with polarity.
+- **High-pass fix:** the design said to high-pass the witnesses at 3 × f_mod. That would remove the signal, so I implemented f_mod / 3 and corrected the doc.
+- **Logger:** `logger.py` now refuses a campaign run without a manifest that names a purpose, run type, gates version and a known epoch. Bring-up runs use `--bench`.
+- **Smoke checks:** the provenance and epoch checks are added.
+- **Procedures:** section C of [procedures.md](docs/procedures.md) is now ordered T0 to T3.
+- **Not built yet:** the script that writes `result.json` and the `runs.csv` rows isn't written. It needs the gate thresholds from the first T0 record, so it's in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md). [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+
+**Next for you.** At about 20:52 the bed is under 40 °C. Take the plate off and put it back, then tell me, and I run the warm re-mesh and start `px_b`. The start target is about 21:06, which leaves about 9 min before 22:00.
+<!-- ------ -->
+---
+`px_a` finished at 20:42:39 after 61.7 min of printing and used 11.39 m of filament. Both heater targets read 0. The bed was 57.8 °C and the nozzle 194 °C at 20:42.
+
+**For you:**
+1. The bed should be under 40 °C at about 20:50. Don't lift the plate before then.
+2. Take the plate off, check the part's underside is smooth with no lifted corners, and put the plate back. Then tell me.
+
+**What I do after you tell me:** the warm re-mesh (about 6 min), then the fast start with `balance_p15_wall_px_b_20261125.gcode`. If you're done by about 20:52, `px_b` starts at about 21:00 and finishes at about 21:46. That leaves about 14 min before 22:00. If the start slips past about 21:10, I drop `px_b`.
+<!-- ------ -->
+---

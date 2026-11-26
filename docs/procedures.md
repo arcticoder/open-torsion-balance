@@ -2,7 +2,7 @@
 
 Three procedures in the order they are done: A5, the prototype check before anything is ordered for layout; the calibration; and the measurement campaign that supports the claim in `docs/plan.md` (G1). Each step names the data
 to record and the command that analyzes it. Run `docs/bringup.md` first on any electronics. Keep a test log (one text file per day: date, what was done, every number, every surprise); the analysis scripts read the CSV
-files the logger writes (`host/logger.py --out runNNN`), and each run is named by a running number plus what it was (`run012_decay`).
+files the logger writes (`host/logger.py --port ... --out runNNN --bench` for bring-up and A5, or `--manifest runNNN/manifest.json` for campaign runs: the logger refuses a campaign run whose epoch is not in `hardware/balance/campaign/epochs.csv`), and each run is named by a running number plus what it was (`run012_decay`).
 
 Numbers from the model that the measurements are compared with (`tools/force_noise_budget.py`, `hardware/balance/params.py`): strip stiffness 4.5e-4 N m/rad; moving inertia 2.47e-4 kg m^2; undamped resonance 0.215 Hz
 (4.66 s); damping ratio 0.40 with one 0.3 mm copper pad (damped period about 5.1 s) and 0.86 with two; predicted force noise 0.11 nN per 1000 s lock-in measurement (1 sigma), dominated by air currents (4.8 nN/rtHz at 0.05 Hz).
@@ -44,7 +44,12 @@ The electrostatic force F = c V^2 (c about 7.1e-10 N/V^2 from the geometry, know
 
 ## C. The measurement campaign (G1)
 
-> Proposed order and data rules (calibration vs claim runs, gates, epochs, provenance): [campaign_loop.md](campaign_loop.md). Not yet in force until the user approves it.
+> Order and data rules (calibration, control and claim runs; gates per run type; epochs; provenance): [campaign_loop.md](campaign_loop.md), in force from 2026-11-25. Run the groups in the order T0, T1, T2, T3 below; the steps C.1-C.7 that follow describe the T3 claim runs and their controls.
+
+- **T0, noise and drift:** A.5 (3600 s at rest) plus a no-current hour; records the TMP117, MMC5983MA (and LIS2DW12 if fitted) channels. After it the gates are revised once for the epoch (`gates_version`) and frozen.
+- **T1, injected transfer coefficients** (lock-in at 0.025 Hz, a known input, force read per unit input): (a) the frame heater: a resistor taped to the clamp-to-sensor path, 0.1 W stepped at 0.025 Hz, force in nN per K of the frame sensor; (b) tilt: a known step on a levelling screw (urad from the screw pitch and the screw spacing), force in nN per urad; (c) field: a coil near the arm driven at 0.025 Hz, nN per uT from the magnetometer; (d) the lid-lifted air test (A.6). Needs a frame heater resistor and a coil from stock (a check of the parts bags comes first; no purchase). Drive-correlated witnesses are excluded by rule D.
+- **T2, calibration:** B.1-B.4 (B.4 is a `control`), plus an inertia-pair kappa and a decay (zeta) run for each lead geometry before its claim runs.
+- **T3, claim runs:** C.1-C.7, with the baselines and leads-unplugged runs recorded as `control`.
 
 The quantity: the force on the balance caused by (i) a current I through the supply leads, in the ambient field B (F = B I L), and (ii) the power dissipated by the device (thermal and convective forces), as functions of current, lead geometry
 and power. The method: modulate the cause on and off slowly and read the force at the modulation frequency with a lock-in (this rejects drift and the 1/f noise).
