@@ -5096,3 +5096,26 @@ Printing is on schedule: `px_a` is at 90 % and should finish at about 20:43.
 **What I do after you tell me:** the warm re-mesh (about 6 min), then the fast start with `balance_p15_wall_px_b_20261125.gcode`. If you're done by about 20:52, `px_b` starts at about 21:00 and finishes at about 21:46. That leaves about 14 min before 22:00. If the start slips past about 21:10, I drop `px_b`.
 <!-- ------ -->
 ---
+`px_b` started at 20:58:17 on the fast start. The nozzle was at 227 °C and the bed at 60 °C when I checked, and the monitor is armed.
+
+**Your look:** the first layer at about 21:01–21:03, since the fast start has little warm-up. Look for continuous lines, flat corners and no lifted edges. Tell me the result.
+
+**Finish:** about 21:43, then the bed is under 40 °C at about 21:51. Tell me if you want the part removed before then, and take the grey spool back to the office afterwards.
+<!-- ------ -->
+---
+`px_b` finished at 21:42:01 and printed cleanly: 43.2 min, 7.87 m of filament, both heater targets at 0. The bed was 58.0 °C and the nozzle 197 °C at 21:42. Moonraker totals are 19 jobs and 17.7 h of print time.
+
+**For you (task 0 in [TODO-arcticoder.md](docs/TODO-arcticoder.md)):** the bed is under 40 °C at about 21:50. Take the `px_b` part off and check its underside is smooth, with no lifted corners. Then switch the printer off and take the grey spool back to the office.
+
+**Grey enclosure walls printed so far:** `nx_a`, `ny_a`, `px_a` and `px_b`.
+
+**Still to print**, all waiting for the next print day at 8 °C or warmer:
+- `py_a`, already sliced as `balance_p14_wall_py_a_20261125.gcode`.
+- `py_b`, `nx_b` and `ny_b`, about 45 min each.
+- The four red lid tiles.
+- The base.
+- The hacksaw handle.
+
+I updated `kb/printing_state.md` and the print entry in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md). [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+<!-- ------ -->
+---
