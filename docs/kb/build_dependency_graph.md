@@ -8,8 +8,8 @@ Audience: future LLM sessions. Purpose: decide when to tell the user that assemb
 |------|-----------------|--------|
 | G-base | base print | Sat 2026-11-21 window |
 | G-P1 | AliExpress 2026-11-10 parcel: stainless M3 washers (none in inventory), LR44 cells (calipers, scale), hacksaw blades, needle files, JST-SH cable, scale, 1 g weight | arrived 2026-11-20 except the LR44 cells (calipers unusable until they land; the files are flat) |
-| G-P2 | AliExpress 2026-11-14 parcel: safety glasses, 1-20 g weights | in transit |
-| G-CP | `clamp_plate` (JLC, 5 boards) | shipped |
+| G-P2 | AliExpress 2026-11-14 parcel: safety glasses, 1-20 g weights | ARRIVED 2026-11-26 (glasses in `CUT + FILE`, weights in `CALIBRATION`; weights not yet weighed) |
+| G-CP | `clamp_plate` (JLC, 5 boards) | ARRIVED 2026-11-26 (in `BALANCE MATERIALS` > `FAB BOARDS`) |
 | G-walls | 8 enclosure wall plates printed (strips are done) | not booked |
 | G-lid | 4 lid tiles printed | not booked |
 | G-MB | main board (JLC, 2 assembled) | in production, est. ship about 2026-11-24 |

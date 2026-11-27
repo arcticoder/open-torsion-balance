@@ -5119,3 +5119,25 @@ Printing is on schedule: `px_a` is at 90 % and should finish at about 20:43.
 I updated `kb/printing_state.md` and the print entry in [TODO-BLOCKED.md](docs/TODO-BLOCKED.md). [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
 <!-- ------ -->
 ---
+Here's what I did with the three arrivals, plus a few related notes.
+
+**1. `main_board` shipped, confirmed.** I read the JLCONE orders tab. The 2026-11-18 order still showed "In Production", but the page text was stale. After reloading the tab (the reload is the only thing I did there) it reads **Shipped**, via UPS Worldwide Express Saver. I recorded no tracking number. UPS bills duty, tax and clearance at delivery. When the parcel lands, tell me the amount.
+
+**2. `clamp_plate` arrived.** I looked at both photos in `Photos-1-008.zip`: five square boards, about 1.6 cm, two holes each. The `CLAMP` silkscreen is on one face only. The edges are clean and there is no visible damage. I logged it in the KB, deleted the zip and its `Zone.Identifier` file, and noted it in the inventory and the dependency graph.
+
+**3. Bags for the new arrivals.**
+- **Safety glasses:** `HAND TOOLS` → sub-bag `CUT + FILE`. That is where the hacksaw blades and needle files are, so the glasses sit with the brass cut's tools.
+- **1/2/5/10/20 g weight set:** `BALANCE MATERIALS` → sub-bag `CALIBRATION`, next to the 0.1 g scale and the 1 g weight. The N42 discs are in `ELECTRONICS` → `MISC`, a different bag, so the steel set stays away from them.
+
+I logged both in `lab/docs/inventory.md` and `orders.md`.
+
+**What changed on your list in [TODO-arcticoder.md](docs/TODO-arcticoder.md):**
+- The en-route items for `main_board`, `clamp_plate` and the glasses and weights are updated or removed. Only the LR44 cells are still en route.
+- The brass cut now waits only on the printed handle and its grip test, since the glasses are here.
+- New task 2: weigh the 20, 10 and 5 g pieces on the 0.1 g scale and measure each piece's diameter with the ruler. Tell me the readings. The 1 g and 2 g pieces are too light for that scale.
+
+Task 0 is still on the list because I haven't heard it's done: taking the `px_b` part off and returning the grey spool to the office. The printer isn't answering on the network, which fits it being switched off. Tell me when it's done and I'll drop it.
+
+I changed nothing in git, and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
+<!-- ------ -->
+---

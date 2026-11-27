@@ -102,7 +102,7 @@ coupon ledger is `lab/docs/jlc/coupons.md`; prices on the user's account are in 
 |---|---|---|---|---|---|
 | 1 | the arm alone (`ORDER.md`) | JLCONE $8 PCB (-C$8.42 applied in the cart) | 11-26 | 294 g with packing | quoted: C$7.86 net, ready to pay |
 | 1b | `elec_board`, `clamp_ground` (placed 2026-11-05/06), `clamp_plate` (placed alone 2026-11-15, C$9.64; the coupon took only US$1.20 because the goods line cannot reach $0) | New User PCB / JLCONE PCB $5 | 11-25 | 170 g | shipped / arrived / in production |
-| 1c | main board PCB + Economic PCBA (`hardware/instrument/fab/ORDER.md`) | JLCONE 20% Off (Max $200), applied at payment: -$33.21 on $152.56 | placed 2026-11-18 | 0.76 kg | in production at JLC since 2026-11-20; UPS (Global Standard Direct Line refused over US$99); total $150.32 |
+| 1c | main board PCB + Economic PCBA (`hardware/instrument/fab/ORDER.md`) | JLCONE 20% Off (Max $200), applied at payment: -$33.21 on $152.56 | placed 2026-11-18 | 0.76 kg | shipped by 2026-11-26 (read on the orders page); UPS (Global Standard Direct Line refused over US$99); total $150.32 |
 | 2 | sensor-head PCBA panel (Part N, optional; `hardware/instrument/heads_panel/ORDER.md`) | New User SMT C$14.03 (a PCBA Special Offer of $9 expires in about 3 days: only worth it if ordered at once; the stencil coupons cannot stack) | 11-25 | 79 g of boards + packing | layout done; the user decides after the quote |
 | 3 | printed parts at JLC3DP (the shortlist above) | New User 3D Printing 1 C$14.03 | 11-25 | about 25 g | needs the user's pick |
 | 4 | second JLC3DP order, if more parts are worth it | New User 3D Printing 2 C$14.03 | 12-25 | | |
