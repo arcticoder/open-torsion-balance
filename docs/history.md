@@ -5141,3 +5141,24 @@ Task 0 is still on the list because I haven't heard it's done: taking the `px_b`
 I changed nothing in git, and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines.
 <!-- ------ -->
 ---
+The KB files are up to date. The context block for the next chat is rewritten, and [TODO-agent.md](docs/TODO-agent.md) is at 0 lines. I haven't committed anything.
+
+**Where the context block is.** It's at the end of [session_handoff.md](docs/kb/session_handoff.md), under "Context block for the next chat (paste this)". Everything above it is rewritten for this chat's state, not appended.
+
+**What changed in the block:**
+- **Repo rename:** the repo is now `open-torsion-balance`, and I told the next chat to ignore the old `.bak` folder. The scope is a general torsion balance with a measurement-to-improvement loop, with the spurious-force study as the first campaign.
+- **Approved loop and tooling:** the approved campaign loop and the tooling built for it are listed, including the `slowdemod.py` script and the logger's manifest check.
+- **Orders and arrivals:** `main_board` now reads Shipped, and I kept the instruction to ask you for the UPS duty amount. All the other fab boards are in hand. The glasses and weight set arrived, and the weights still need weighing.
+- **Printing:** `px_a` and `px_b` are printed. `py_a` is sliced, and the other walls, lid tiles, base and handle are still to do. I added the clock-time lesson: the first layer comes about 9–11 min after upload on the normal start and 3–5 min on the fast start.
+- **JLC notes:** an already-open orders tab shows stale text until it's reloaded. I also dropped the old line about force-pushing your commit.
+- **Rules and reading list:** I added the rule not to say notes are written before they are. The read-first list now includes `docs/campaign_loop.md`.
+
+**Other notes updated this session:**
+- **`wsl` runbook:** I added section I. It has the load sequence that worked, the first-layer look times, the warm re-mesh acceptance numbers, how to run long G-code from the shell, and the two-plates-in-one-window result.
+- **`wsl` K1 note:** I added a 2026-11-25 session entry.
+- **`lab`:** I added the arrivals filing to the storage notes and the stale-page lesson to the JLC notes.
+- **This repo's KB:** the printing state, balance design notes, build dependency graph, fab ordering notes and the TODO files were updated during the chat.
+
+Your task 0 is still on the list, since I haven't heard it's done: taking the `px_b` part off and returning the grey spool to the office.
+<!-- ------ -->
+---
