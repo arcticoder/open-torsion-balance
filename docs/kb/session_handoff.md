@@ -4,8 +4,8 @@
 - **Repo is now `open-torsion-balance`** (renamed from spurious-force-balance on 2026-11-23/25 by `gh repo rename`; fresh clone at `~/Code/python/open-torsion-balance`, in `lab/lab.code-workspace`; the user kept the old folder as `~/Code/python/spurious-force-balance.bak`; old name replaced in live text everywhere except the `history.md` files). Git identity set in the clone; commits 847c970 and 10ba3ad were rewritten to the user's identity and force-pushed (now 7886066, 2b7f93c). Scope: a general torsion balance for small forces in air with a measurement-to-metrology loop; the spurious-force study is the first campaign (`docs/scope_and_rename.md`, approved by the user; second acceptance claim fixed: non-air terms below the measured floor and floor within 1/3-3 x the model, plus a lid-lifted air test).
 - **Campaign loop (`docs/campaign_loop.md`, approved):** run purposes calibration/control/claim, per-run-type gates, rule D (drive-correlated witnesses dropped from gates and regression, set fixed in advance and checked on pooled controls), rule F (gates frozen per epoch after its T0), rule P, epochs = hardware states, lead geometry gets its own kappa/zeta run, provenance tables in `hardware/balance/campaign/` (empty; `config.json`: raw files `~/data/open-torsion-balance/raw`, backup `/mnt/d/open-torsion-balance-data/raw_backup`). Implemented: `hardware/instrument/host/slowdemod.py` (+ `test_slowdemod.py`, in the instrument smoke test; high-pass cut-off is f_mod/3), the logger's `--manifest`/`--bench` check, provenance smoke checks. Waits on the first T0 record (TODO-BLOCKED): the campaign writer and gate thresholds.
 - **Upgrade study:** `hardware/balance/material_study.py --terms` (air is 98 % of the total in air; frame path PLA to FR4 halves the total only in vacuum; then floor tilt/acceleration via `COM_OFFSET` limit) and `eddy_vane_sim.py` (sheet-current solver: plain pad c = 5.2e-2 N s/m, 0.56x the no-return-path value so zeta may be about 0.22, not 0.40; slits only lower damping; `DAMPING_RATIO` unchanged until A5 step 4). Details in `kb/balance_design_notes.md`.
-- **Orders and arrivals:** JLC `main_board` (placed 2026-11-18, Economic PCBA, U7 not placed, total US$150.32) reads SHIPPED via UPS on the orders tab (reload the tab to refresh; no tracking number kept); duty/tax/clearance at delivery: ask the user for the amount. `clamp_plate` x5 arrived 2026-11-26 (filed `FAB BOARDS`): all fab boards are now in hand except the main board. Safety glasses (`CUT + FILE`) and the 1/2/5/10/20 g set (`CALIBRATION`, not weighed, away from the N42 discs) arrived 2026-11-26. LR44 cells promised 2027-01-13 (remind the user to measure the strip and ballast then). No purchases proposed (spend-shy).
-- **Printing, 2026-11-25 (window to 22:00, 21 C):** grey `px_a` (normal start 19:32:38, 61.7 min) and `px_b` (fast start 20:58:17, 43.2 min) printed well; Moonraker totals 19 jobs, 17.7 h. Printed overall: plate 1, small plate, gantry, four posts with bars, strip guide, two riders, four wall strips, two lid strips, first (obsolete) hacksaw handle, grey `nx_a`, `ny_a`, `px_a`, `px_b`. Left: `py_a` (SLICED `balance_p14_wall_py_a_20261125.gcode`), `py_b`, `nx_b`, `ny_b` (about 45 min each, `rotate [0,90,0]`), four red lid tiles, the base (parked: brim, smaller or warmer day), the redesigned hacksaw handle (about 72 min; the brass cut waits on it and a grip test). Lessons in the wsl runbook section I (first-layer look = upload + 9-11 min on the normal start).
+- **Orders and arrivals:** JLC `main_board` (placed 2026-11-18, Economic PCBA, U7 not placed, total US$150.32) reads SHIPPED via UPS on the orders tab (reload the tab to refresh; no tracking number kept); import charges CA$32.97 were paid by the user 2026-11-27 (details in `kb/fab_ordering_notes.md`); estimated delivery 2026-12-02. `clamp_plate` x5 arrived 2026-11-26 (filed `FAB BOARDS`): all fab boards are now in hand except the main board. Safety glasses (`CUT + FILE`) and the 1/2/5/10/20 g set (`CALIBRATION`, away from the N42 discs; weighed 2026-11-27, 1/2/5/10/20 g read nominal at 0.1 g resolution; the scale's zero and 1 g check pass; diameters still to be measured by the user with the ruler) arrived 2026-11-26. LR44 cells promised 2027-01-13 (remind the user to measure the strip and ballast then). No purchases proposed (spend-shy).
+- **Printing, 2026-11-25 (window to 22:00, 21 C):** grey `px_a` (normal start 19:32:38, 61.7 min) and `px_b` (fast start 20:58:17, 43.2 min) printed well; Moonraker totals 19 jobs, 17.7 h. Printed overall: plate 1, small plate, gantry, four posts with bars, strip guide, two riders, four wall strips, two lid strips, first (obsolete) hacksaw handle, grey `nx_a`, `ny_a`, `px_a`, `px_b`. Left (all SLICED 2026-11-27, see `kb/printing_state.md`; windows Nov 29 07:30-09:45 handle p16, Nov 29 19:30-22:00 `py_a` p14 then `py_b` p17, Nov 30 19:30-22:00 `nx_b`+`ny_b` p18): `py_a`, `py_b`, `nx_b`, `ny_b`, four red lid tiles (not sliced), the base (parked: brim, smaller or warmer day), the redesigned hacksaw handle (sliced, 63 min; the brass cut waits on it and a grip test). Lessons in the wsl runbook section I (first-layer look = upload + 9-11 min on the normal start).
 - **Hacksaw blade:** pinned, 6 x 0.8 x 153.5 mm, sawtooth; the teeth face whichever way it is laid (a choice, not an unknown: push cut = teeth away from the handle).
 - **Torsion strip:** one cut and bagged `TORSION STRIP`; a spare is cut just in time. Damper discs seated.
 - **Photos and zips from the user:** look at every one once, write findings to the KB, delete the zip and loose files; never ask. **Previews:** name objects, say whether they touch, leave previewable STLs. Do not announce "nothing is committed".
@@ -13,7 +13,7 @@
 
 ## Files that carry the state
 
-`docs/TODO-arcticoder.md` (user tasks: return the grey spool/printer if not yet done, the brass cut, weigh the 20/10/5 g pieces, plus the en-route list), `docs/TODO-agent.md` (0 lines), `docs/TODO-BLOCKED.md` (print remainder, handle print, base fix, caliper reminder, firmware/analysis items), `docs/TODO-backlog.md`, `docs/TODO-completed.md` (newest first).
+`docs/TODO-arcticoder.md` (user tasks: the print windows, the grip test and brass cut, the weight diameters, plus the en-route list), `docs/TODO-agent.md` (0 lines), `docs/TODO-BLOCKED.md` (print remainder, handle print, base fix, caliper reminder, firmware/analysis items), `docs/TODO-backlog.md`, `docs/TODO-completed.md` (newest first).
 
 ## Standing rules (see `kb/project_workflow_notes.md`)
 
@@ -41,17 +41,17 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; truly
         MicroPython firmware tested on the host). KiCad/SKiDL is the design source: I dropped the EasyEDA/Spark
         route on 2026-11-01 (shelved; never offer EasyEDA, Spark, its MCP or the validator again). No more
         hand-built electronics: the instrument is fab-assembled boards.
-        State (2026-11-27, end of chat 19): the main board (WP5, 120 x 90 mm, 4 layers) was placed 2026-11-18
+        State (2026-11-27, chat 20): the main board (WP5, 120 x 90 mm, 4 layers) was placed 2026-11-18
         (5 PCBs + 2 Economic PCBA boards, LIS2DW12 (U7) left off the BOM and CPL; total US$150.32 including UPS
-        shipping US$30.97) and now reads SHIPPED on JLC's orders page (UPS). UPS bills duty, tax and clearance
-        at delivery, not in that total: ask me for the amount when it lands. JLC takes ONE coupon per order;
+        shipping US$30.97) and now reads SHIPPED on JLC's orders page (UPS). UPS billed CA$32.97 duty, tax and
+        brokerage at delivery, which I paid on 2026-11-27 (estimated delivery 2026-12-02). JLC takes ONE coupon per order;
         unused flash coupons run to 2026-12-03 (lab/docs/jlc/coupons.md). All other fab boards are in hand
         (arm, elec_board, clamp_ground, clamp_plate). Next for the electronics: arrival, then docs/bringup.md
         (skip the LIS2DW12 check). The device card (16 x 24 mm FR4, 10 ohm, only for the lead-current runs) has
         no design and is not in the main order; a spare elec_board stands in as dummy mass (TODO-backlog). The
         safety glasses and the 1/2/5/10/20 g nickel-plated-steel weight set arrived 2026-11-26 (glasses in
-        CUT + FILE, set in CALIBRATION, keep it away from the damper magnets; the set is not weighed yet, my
-        task). The LR44 cells for the calipers are promised 2027-01-13 (remind me to measure the strip and
+        CUT + FILE, set in CALIBRATION, keep it away from the damper magnets; weighed 2026-11-27: all read
+        nominal at 0.1 g; I still measure the diameters). The LR44 cells for the calipers are promised 2027-01-13 (remind me to measure the strip and
         ballast then). I cut one torsion strip (a spare is cut just in time) and seated the damper discs. The
         hacksaw blades are pinned (6 x 0.8 x 153.5 mm, a 1 x 5 mm pin near each end; teeth face whichever way it
         is laid); the redesigned handle's print waits for a print day, then a grip test, then the brass ballast
@@ -74,7 +74,8 @@ TODO-agent.md must be 0 lines at the end of every chat (do startable work; truly
         docs/print-session-runbook.md sections E-I, the K1 note). Printed so far: plate 1, the small plate, the
         gantry, all four posts with their bars, the strip guide, two calibration riders, the four wall strips,
         two lid strips, the first hacksaw handle (obsolete) and the grey wall plates nx_a, ny_a, px_a and px_b.
-        Left: wall plates py_a (sliced) and py_b, nx_b, ny_b, four red lid tiles, the new hacksaw handle, and the
+        Left: wall plates py_a, py_b, nx_b, ny_b and the new hacksaw handle (all sliced; my windows: Nov 29 07:30-09:45
+        handle, Nov 29 19:30-22:00 py_a then py_b, Nov 30 19:30-22:00 nx_b + ny_b), four red lid tiles, and the
         base (failed three times at 4 C and a badly seated plate; parked until a fix: brim, smaller or a warmer
         day). A plate I lift off the printer needs a warm re-mesh before the next print.
       - Inventory: my bags are `ELECTRONICS` (inner labelled bags), `BALANCE MATERIALS`, `HAND TOOLS` and

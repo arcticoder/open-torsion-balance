@@ -21,6 +21,7 @@ The user is in Canada (British Columbia area) and pays by the cheapest postal ti
 - **Canada:** JLC's shipping-policy page lists a 20 CAD threshold for Canada [community snippet of jlcmc.com/help/article/Shipping-Policies;
   read it before ordering]. Couriers (DHL, UPS, FedEx) bill brokerage on parcels over about CAD 20, which can double a small order's cost;
   postal tiers are usually cheaper, with an optional Canada Post collection fee (users report $5–10). [community] **Check at checkout** whether GST is collected up front.
+  [confirmed 2026-11-27, JLC `main_board` by UPS, US$150.32 order] UPS did not collect duty or tax up front: it billed CA$32.97 at delivery (government CA$20.37 = HST CA$8.49 + other CA$11.88; brokerage CA$12.60 = fee CA$12.00 + GST/HST CA$0.60), about 15 % of the order (about C$215). The tracking page showed CA$39.27, the pay page then asked CA$32.97: the pay page's total is the one charged. Budget about 15 % on top of a UPS-shipped JLC order, not a flat fee.
 - **Combine Shipping (a JLC add-on)** [confirmed, `jlcpcb.com/help/article/combine-shipping-service`, page dated Sep 2026]: turn it on under
   Add-On Services, choose a trigger (by weight, by order count, or a fixed weekly schedule), and orders are held until the trigger is
   met; you then pick a courier and pay storage and shipping. **Free storage is 15 days** from the first order's arrival at the warehouse

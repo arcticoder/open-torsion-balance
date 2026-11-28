@@ -5162,3 +5162,30 @@ The KB files are up to date. The context block for the next chat is rewritten, a
 Your task 0 is still on the list, since I haven't heard it's done: taking the `px_b` part off and returning the grey spool to the office.
 <!-- ------ -->
 ---
+Written for you (the user): all three print windows are sliced, and the notes and TODO files are updated. Nothing is committed. `TODO-agent.md` is at 0 lines.
+
+**Your items**
+- **Import charges:** I recorded the CA$32.97 you paid, with the breakdown, in the order notes and the JLC kb. The estimated delivery of 2026-12-02 is now on the en-route list. The kb notes that the pay page's lower total was what was charged, not the tracking page's CA$39.27. A UPS-shipped JLC order to Canada adds about 15% on top of the order total.
+- **Weights:** I logged them in `lab/docs/inventory.md`. The scale's zero and 1 g check passed, and the 1/2/5/10/20 g pieces read nominal at 0.1 g. That resolution can't test the seller's ±0.003 g claim. Your diameter measurements are still outstanding, so I kept them as a smaller task.
+- **`px_b` task:** removed as done.
+- **Slicing is on Sonnet 5.5, with no printer contact.**
+
+**Print windows**
+
+| Window | Print | File | Time |
+|---|---|---|---|
+| Nov 29, 07:30–09:45 | red hacksaw handle (body and cover on one plate, 2 mm apart) | `p16` | 63 min |
+| Nov 29, 19:30–22:00 | grey `py_a`, then `py_b` | `p14` and `p17` | 63 min, then 45 min |
+| Nov 30, 19:30–22:00 | grey `nx_b` and `ny_b` on one plate | `p18` | 88 min |
+
+- **Morning:** nothing else fits after the handle. It needs a red spool.
+- **Nov 29 evening:** `py_b` runs only if `py_a` is done by about 20:50, since it must start by about 21:10 to finish before 22:00. Otherwise it waits for a later window.
+- **Nov 30:** `nx_b` and `ny_b` fit on one plate only when both are turned with the 150 mm side along X.
+- **Not yet sliced:** the four red lid tiles and the base. The lid tiles are about 60 min each and fit one per plate.
+- **`nx_b` and `ny_b` orientation:** `nx_b` and `ny_b` need different rotations from `px_b`. My first orientation put the recessed face down and gave 12% bed contact and a 1 h 57 min slice. I flipped both and re-sliced until the check read flat with 100% contact. I put this rule in `kb/printing_state.md`.
+
+**Files updated:** `TODO-arcticoder.md` is now three tasks plus the en-route list, with the print windows first. I also updated `TODO-BLOCKED.md`, `TODO-completed.md`, `kb/printing_state.md`, `kb/session_handoff.md`, `kb/fab_ordering_notes.md`, `kb/build_dependency_graph.md`, `lab/docs/inventory.md` and `lab/docs/kb/jlc_account_and_quotes.md`.
+
+**Order status:** the JLC main board is still due 2026-12-02, and the LR44 cells are still promised for 2027-01-13. I proposed no purchases and no new JLC order.
+<!-- ------ -->
+---
