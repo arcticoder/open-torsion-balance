@@ -8,7 +8,7 @@ cart is one checkout across both repos. Done items move to [TODO-completed.md](T
 
 ## What I need from you
 
-1. [ ] **Print windows (all files sliced, tell me when each starts):** Nov 29 07:30-09:45 red hacksaw handle; Nov 29 19:30-22:00 grey `py_a`, then `py_b` if `py_a` is done by about 20:50; Nov 30 19:30-22:00 grey `nx_b` + `ny_b` on one plate. Red spool in the office for the morning, grey for both evenings.
+1. [ ] **Print windows (all files sliced, tell me when each starts; grey spool first today):** today 10:00-16:45 the base (about 4.5 h; I cancel it if it lifts and print the grey walls instead), then `py_a` if the base is done by about 15:00; tonight 19:30-22:00 (your call at 7 C) grey `nx_b` + `ny_b`; Nov 29 07:30-09:45 red hacksaw handle; Nov 29 and 30 evenings whatever is left (`py_b`, red lid tile `lid_0_a`).
 2. [ ] **Grip test the new handle, then cut the ballast from the brass rod** once the handle is printed (no cutting until it holds the blade) (assembly.md, section 2).
 
 ## En route

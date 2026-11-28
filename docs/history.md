@@ -5199,3 +5199,21 @@ Your five points are applied:
 `lab/docs/orders.md` still describes the 13 January date as a promise date, which is consistent, so I left it. `TODO-agent.md` is still at 0 lines.
 <!-- ------ -->
 ---
+Written for you (the user): today's two print windows now have a plan, and the TODO and kb notes are updated.
+
+**10:00–16:45 (grey spool)**
+- **Base first.** It's the assembly gate, and this window is the only one long enough: it takes 4 h 28 min plus about 9 min for the start. I reused the existing slice and checked its header, which has the same 225/220 °C and 60 °C bed settings. It can't take a brim because it already fills the bed, so this is a plain retry at a warmer temperature.
+- **First-layer checks.** I'll give you clock times for a first-layer look at upload + 10 min, and again at 30–40 min, where attempt 3 lifted.
+- **If it lifts:** I cancel it and use the window for the grey walls (`py_a`, `py_b`, then `nx_b` + `ny_b`).
+- **If it finishes by about 15:00:** `py_a` follows on the fast start and ends around 16:20.
+
+**19:30–22:00 (the 7 °C gamble, your call):** `nx_b` + `ny_b` on one plate, about 97 min with the start. The grey spool stays loaded.
+
+**Later windows:**
+- **Nov 29, 07:30:** red handle.
+- **Nov 29 and 30 evenings:** `py_b` and the red lid tiles.
+- **Lid tiles:** I sliced `lid_0_a` as `balance_p19_lid_0_a_20261128.gcode` (76 min, 39.7 g, flat). The other three tiles stay unsliced until the day before their window, because the `_b` pieces may be mirrored and need a different orientation.
+
+I put the one-line schedule in your TODO item 1. I also updated `TODO-BLOCKED.md`, `TODO-completed.md`, `kb/printing_state.md` and `kb/session_handoff.md`. `TODO-agent.md` is still at 0 lines.
+<!-- ------ -->
+---
