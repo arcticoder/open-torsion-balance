@@ -5189,3 +5189,13 @@ Written for you (the user): all three print windows are sliced, and the notes an
 **Order status:** the JLC main board is still due 2026-12-02, and the LR44 cells are still promised for 2027-01-13. I proposed no purchases and no new JLC order.
 <!-- ------ -->
 ---
+Your five points are applied:
+
+- **Handle spool:** the notes now say the extruder doesn't need clearing for the handle. Some grey in the first layer is fine.
+- **Weight diameters:** I dropped the ruler task from your list. The measurement now waits for the digital calipers once the LR44 cells arrive. `TODO-BLOCKED.md` holds it, together with the strip and ballast measurements, as one reminder for me.
+- **JLC email:** the 48 h line is gone.
+- **Delivery dates:** I had wrongly attached the 2 December estimate to the JLC main board. It belongs to the LR44 cells. Their latest promise is 13 January, but the estimate is 2 December. I corrected your list, the handoff, `TODO-BLOCKED.md`, the completed log and the JLC kb. The main board now has no delivery date anywhere, only "tell me when it lands."
+
+`lab/docs/orders.md` still describes the 13 January date as a promise date, which is consistent, so I left it. `TODO-agent.md` is still at 0 lines.
+<!-- ------ -->
+---
